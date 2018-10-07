@@ -144,7 +144,7 @@ gulp.task('dist', gulp.series('clean', 'set-minify-output', 'build'));
 
 /* Server */
 const server = run('./node_modules/.bin/http-server ./_site -p 4000');
-gulp.task('server', gulp.series('build', server));
+gulp.task('server', server);
 gulp.task('serve', gulp.parallel('build:watch', server));
 
 /* Static analysis */
