@@ -53,13 +53,17 @@ let serverActive = false;
 let watchingFiles = false;
 
 
-/* Utility tasks */
+/* Utility */
+gulp.task('clean', function() {
+  return gulp.src([`${OUTPUT_REPORTS}/**/*`, `${OUTPUT_SITE}/**/*`])
+             .pipe(remove());
+});
 gulp.task('set-minify-output', function(done) {
   minifyOutput = true;
   done();
 });
 
-/* Build tasks */
+/* Build */
 gulp.task('assets-downloads', function() {
   return gulp.src(INPUT_ASSETS.downloads)
              .pipe(gulp.dest(`${OUTPUT_SITE}/downloads`));
@@ -126,7 +130,6 @@ gulp.task('styles', function() {
              .pipe(gulp.dest(`${OUTPUT_SITE}/styles`));
 });
 
-/* Miscellaneous tasks */
 gulp.task('build', gulp.parallel('assets', 'metadata', 'html', 'scripts', 'styles'));
 gulp.task('build:watch', function() {
   watchingFiles = true;
@@ -141,11 +144,6 @@ gulp.task('build:watch', function() {
   watch(INPUT_SCRIPTS, gulp.task('scripts'));
   watch(INPUT_STYLES, gulp.task('styles'));
 });
-gulp.task('clean', function() {
-  return gulp.src([`${OUTPUT_REPORTS}/**/*`, `${OUTPUT_SITE}/**/*`])
-             .pipe(remove());
-});
-gulp.task('default', gulp.series('clean', 'build'));
 gulp.task('dist', gulp.series('clean', 'set-minify-output', 'build'));
 
 /* Server */
@@ -173,7 +171,7 @@ gulp.task('server', gulp.series(
     }, done);
   }
 ));
-gulp.task('serve', gulp.series('build', gulp.parallel('build:watch', 'server')));
+gulp.task('serve', gulp.series('build', 'server', 'build:watch'));
 
 /* Static analysis */
 const lighthouse = run(`./node_modules/.bin/lighthouse http://localhost:4000/ --config-path=.lighthouse.js --chrome-flags=--headless --output-path=${OUTPUT_REPORTS}/lighthouse-report.html --view`);
@@ -231,3 +229,6 @@ gulp.task('lint-styles', function() {
 });
 
 gulp.task('lint', gulp.parallel('lint-json', 'lint-html', 'lint-styles'));
+
+/* Default */
+gulp.task('default', gulp.series('clean', 'serve'));
