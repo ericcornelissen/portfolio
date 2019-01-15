@@ -99,17 +99,6 @@
     "link": "https://www.tudelft.nl/en/"
   },
   {
-    "type": "education",
-    "title": "Graduated VWO Science Profile",
-    "institute": "De Nieuwste School",
-    "location": {
-      "city": "Tilburg",
-      "country": "Netherlands"
-    },
-    "when": 2015,
-    "link": "https://www.denieuwsteschool.nl/"
-  },
-  {
     "type": "volunteer",
     "title": "Voluntary Security",
     "institute": "Fédération Internationale de Gymnastique",
@@ -119,16 +108,5 @@
     },
     "when": 2013,
     "link": "http://www.fig-gymnastics.com/site/"
-  },
-  {
-    "type": "education",
-    "title": "Started higher education",
-    "institute": "De Nieuwste School",
-    "location": {
-      "city": "Tilburg",
-      "country": "Netherlands"
-    },
-    "when": 2009,
-    "link": "https://www.denieuwsteschool.nl/"
   }
 ]
