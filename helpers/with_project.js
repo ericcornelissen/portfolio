@@ -8,7 +8,7 @@ let categories = {contributions, projects, snippets};
 
 module.exports = function(categoryName, projectName, options) {
   let category = categories[categoryName];
-  for (let [, projects] of Object.entries(category)) {
+  for (let projects of Object.values(category)) {
     for (let project of projects) {
       if (project.name === projectName) {
         this.project = project;
