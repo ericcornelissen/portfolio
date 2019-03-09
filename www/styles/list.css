@@ -270,23 +270,27 @@
 }
 
 .vlist {
-  font-family: monospace;
+  --item-color: var(--clr-primary-gray);
+  --item-color-hovered: var(--clr-primary-gray);
+  --fontsize: 14px;
+
+  font-family: var(--fontstack-subtext);
   font-size: 0;
   list-style: none;
   margin: 0;
   padding: 0;
 
   & > li {
-    color: var(--clr-primary-gray);
+    color: var(--item-color);
     cursor: default;
     display: inline-block;
     font-family: monospace;
-    font-size: 14px;
+    font-size: var(--fontsize);
     margin: 0;
     padding: 0;
 
     & > a:hover {
-      color: var(--clr-secondary-gray);
+      color: var(--item-color-hovered);
       cursor: pointer;
     }
   }

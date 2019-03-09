@@ -4,28 +4,16 @@
 .breadcrumbs {
   @extend .vlist;
 
-  --space-between: 8px;
   --separator: '>';
+  --separator-fontsize: .8em;
+  --space-between: 8px;
 
   & > li {
-    color: var(--clr-primary-gray);
-    cursor: default;
-    display: inline-block;
-    font-family: monospace;
-    font-size: 14px;
-    margin: 0;
-    padding: 0;
-
     &:not(:last-child)::after {
       content: var(--separator);
-      font-size: .6em;
+      font-size: var(--separator-fontsize);
       padding: 0 var(--space-between);
       pointer-events: none;
-    }
-
-    & > a:hover {
-      color: var(--clr-secondary-gray);
-      cursor: pointer;
     }
   }
 }
