@@ -8,7 +8,7 @@
   --separator-fontsize: .8em;
   --space-between: 8px;
 
-  & > li {
+  & > .crumb {
     &:not(:last-child)::after {
       content: var(--separator);
       font-size: var(--separator-fontsize);
