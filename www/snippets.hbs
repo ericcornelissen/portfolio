@@ -13,18 +13,22 @@
     <main class="main">
       <section id="snippets" class="section">
         <h2 class="short-underline">Snippets</h2>
-        {{#each snippets as |snippets_list year|}}
-          <h3 class="category">{{year}}</h3>
-          <ul class="list list--cards">
-            {{#each snippets_list}}
-              <li class="list-item">
-                <h3 class="list-item__title">{{name}}</h3>
-                <p class="list-item__description">{{{sanitize tldr}}}</p>
-                <a class="list-item__more more-arrow" href="{{link}}" rel="noopener">View</a>
-              </li>
-            {{/each}}
-          </ul>
-        {{/each}}
+        <div class="ordered">
+          {{#each snippets as |snippets_list year|}}
+            <div class="ordered-item" data-order="{{year}}">
+              <h3 class="category">{{year}}</h3>
+              <ul class="list list--cards">
+                {{#each snippets_list}}
+                  <li class="list-item">
+                    <h3 class="list-item__title">{{name}}</h3>
+                    <p class="list-item__description">{{{sanitize tldr}}}</p>
+                    <a class="list-item__more more-arrow" href="{{link}}" rel="noopener">View</a>
+                  </li>
+                {{/each}}
+              </ul>
+            </div>
+          {{/each}}
+        </div>
       </section>
 
       {{> includes/back-to-top}}
