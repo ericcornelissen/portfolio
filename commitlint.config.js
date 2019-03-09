@@ -18,7 +18,6 @@ module.exports = {
         'build',
         'chore',
         'ci',
-        'design',
         'feat',
         'fix',
         'perf',

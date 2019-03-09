@@ -3,9 +3,7 @@
     "stylelint-order"
   ],
   "rules": {
-    "at-rule-no-unknown": [true, {
-      "ignoreAtRules": ["extend"]
-    }],
+    "at-rule-no-unknown": true,
     "at-rule-blacklist": null,
     "at-rule-empty-line-before": ["always", {
       "except": ["after-same-name", "first-nested"],

@@ -26,8 +26,9 @@
 
   --text-sub: {
     color: var(--clr-primary-gray);
-    font-family: var(--fontstack-code);
+    font-family: var(--fontstack-text);
     font-size: var(--fontsize-subtext);
+    font-style: italic;
     font-weight: 400;
     line-height: var(--lineheight-subtext);
   };
