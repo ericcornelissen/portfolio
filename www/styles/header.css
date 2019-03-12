@@ -34,10 +34,6 @@
 
     .list-item {
       color: var(--clr-primary-gray);
-      display: inline-block;
-      font-size: 24px;
-      margin: 0 0 0 10px;
-      padding: 0;
     }
   }
 
@@ -95,11 +91,12 @@
   }
 
   .header__list {
+    height: 100%;
+    justify-content: center;
     margin: 0 0 0 auto;
     order: 3;
     padding: 0;
     position: relative;
-    top: initial;
   }
 
   .header__message {
@@ -136,6 +133,10 @@
       margin: 0 auto;
       max-width: 800px;
       padding: 12px 0;
+
+      .header__list {
+        height: initial;
+      }
     }
   }
 }
@@ -173,10 +174,6 @@
       padding: 16px 0 0;
       position: relative;
       top: initial;
-
-      .list-item {
-        margin: 0 0 0 10px;
-      }
 
       &::before {
         background-color: var(--clr-primary-black);
