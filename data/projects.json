@@ -1,4 +1,19 @@
 {
+  "2019": [
+    {
+      "name": "gulp-gitstage",
+      "tldr": "A plugin for Gulp to stage files in the object stream for git.",
+      "start_year": 2019,
+      "end_year": 2019,
+      "spotlight": false,
+      "tags": ["JavaScript", "Gulp"],
+      "keywords": ["git", "git stage", "npm", "package"],
+      "links": {
+        "github": "https://github.com/ericcornelissen/gulp-gitstage",
+        "npm": "https://www.npmjs.com/package/gulp-gitstage"
+      }
+    }
+  ],
   "2018": [
     {
       "name": "svg-to-pdf-bot",
