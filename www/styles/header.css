@@ -97,6 +97,10 @@
     height: 100%;
     margin: 0 1.4em 0 0;
     order: 1;
+
+    & > img {
+      height: 100%;
+    }
   }
 
   .header__message {
