@@ -29,13 +29,7 @@ let observer = new IntersectionObserver(entries => {
   });
 }, { threshold: [0] });
 
-function observeFooter() {
+root.onDOMContentLoaded(() => {
   let footer = document.querySelector('.footer');
   observer.observe(footer);
-}
-
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', observeFooter);
-} else {
-  observeFooter();
-}
+});
