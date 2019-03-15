@@ -21,6 +21,7 @@
     text-decoration: none;
     transition: bottom .25s ease;
 
+    &:focus,
     &:hover {
       opacity: 1;
     }
