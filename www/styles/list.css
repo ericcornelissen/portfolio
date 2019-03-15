@@ -244,6 +244,7 @@
 }
 
 .list-of-icons {
+  display: flex;
   font-size: 0;
   list-style: none;
   margin: 0;
