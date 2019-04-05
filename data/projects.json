@@ -141,33 +141,6 @@
       }
     }
   ],
-  "2016": [
-    {
-      "name": "IncaseJS",
-      "tldr": "An extremely small but powerful library designed to assert the variable types of function parameters.",
-      "start_year": 2016,
-      "end_year": 2016,
-      "spotlight": false,
-      "tags": ["Jasmine", "JavaScript"],
-      "keywords": ["npm", "package"],
-      "links": {
-        "github": "https://github.com/ericcornelissen/incaseJS",
-        "npm": "https://www.npmjs.com/package/incase.js"
-      }
-    },
-    {
-      "name": "JavaPromise",
-      "tldr": "Java implementation of the JavaScript Promise.",
-      "start_year": 2016,
-      "end_year": 2016,
-      "spotlight": false,
-      "tags": ["Gradle", "Java"],
-      "keywords": ["promise", "lambda"],
-      "links": {
-        "download": "/downloads/JavaPromise_repository.zip"
-      }
-    }
-  ],
   "2015": [
     {
       "name": "InterstellarScaler",
