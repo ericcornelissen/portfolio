@@ -131,7 +131,10 @@ figcaption,
 }
 
 img {
-  background: var(--placeholder-image) center no-repeat;
+  background-image: var(--placeholder-image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   color: transparent; /* hide the alt text when image is not found */
   min-height: 256px;
   min-width: 256px;
