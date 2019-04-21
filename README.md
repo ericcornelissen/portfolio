@@ -1,4 +1,7 @@
 # Portfolio
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/ericcornelissen/portfolio.svg)](https://greenkeeper.io/)
+
 Repository for the personal portfolio of Eric Cornelissen.
 
 ### Build tools
