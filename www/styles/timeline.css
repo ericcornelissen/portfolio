@@ -273,6 +273,7 @@
 @media (--large-screen) {
   .timeline--horizontal {
     justify-content: flex-start;
+    max-width: 1000px;
 
     .timeline-event {
       --margin-between: 3em;
