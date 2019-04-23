@@ -59,11 +59,6 @@
       &::after {
         content: '\EA02';
       }
-
-      &::before {
-        left: -900px !important; /* stylelint-disable-line declaration-no-important */
-        width: calc(100% + 950px) !important; /* stylelint-disable-line declaration-no-important */
-      }
     }
 
     &--volunteer {
@@ -236,8 +231,9 @@
 
         &:first-child {
           &::before {
-            left: 50%;
+            left: -1000px;
             top: calc(-1 * var(--line-offset));
+            width: calc(100% + var(--margin-between) + 1000px);
           }
         }
 
@@ -277,9 +273,15 @@
   .timeline--horizontal {
     max-width: 1000px;
 
-    .timeline-event--more::before {
-      left: -100px !important; /* stylelint-disable-line declaration-no-important */
-      width: calc(100% + 150px) !important; /* stylelint-disable-line declaration-no-important */
+    .timeline-event {
+      --margin-between: 3em;
+
+      &:first-child {
+        &::before {
+          left: -100px;
+          width: calc(100% + var(--margin-between) + 150px);
+        }
+      }
     }
   }
 }
