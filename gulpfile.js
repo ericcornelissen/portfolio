@@ -140,7 +140,7 @@ gulp.task('styles', function() {
   const cssnano = require('cssnano');
   const cssVariables = require('postcss-css-variables');
   const extendRules = require('postcss-extend');
-  const netedRules = require('postcss-nested');
+  const nestedRules = require('postcss-nested');
 
   return gulp.src(INPUT_STYLES.bundles)
              .pipe(postcss([
@@ -153,7 +153,7 @@ gulp.task('styles', function() {
                cssVariables(),
                customMedia(),
                extendRules(),
-               netedRules(),
+               nestedRules(),
 
                // Finally minify the CSS (if needed)
                minifyOutput ? cssnano() : x => x
