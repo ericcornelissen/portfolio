@@ -68,7 +68,11 @@ gulp.task('clean:reports', function() {
   return gulp.src(`${OUTPUT_REPORTS}/**/*`, { read: false })
              .pipe(remove());
 });
-gulp.task('clean', gulp.parallel('clean:reports', 'clean:site'));
+gulp.task('clean:tests', function() {
+  return gulp.src('./tests/_artifacts/**/*', { read: false })
+             .pipe(remove());
+});
+gulp.task('clean', gulp.parallel('clean:reports', 'clean:site', 'clean:tests'));
 
 gulp.task('set-minify-output', function(done) {
   minifyOutput = true;
