@@ -2,7 +2,6 @@
 
 const axe = require('gulp-axe-webdriver');
 const browserSync = require('browser-sync').create();
-const cssnano = require('gulp-cssnano');
 const gulp = require('gulp');
 const gulpIf = require('gulp-if');
 const gulpIgnore = require('gulp-ignore');
@@ -62,11 +61,11 @@ let watchingFiles = false;
 
 /* Utility */
 gulp.task('clean:site', function() {
-  return gulp.src(`${OUTPUT_SITE}/**/*`)
+  return gulp.src(`${OUTPUT_SITE}/**/{.,}*`, { read: false })
              .pipe(remove());
 });
 gulp.task('clean:reports', function() {
-  return gulp.src(`${OUTPUT_REPORTS}/**/*`)
+  return gulp.src(`${OUTPUT_REPORTS}/**/*`, { read: false })
              .pipe(remove());
 });
 gulp.task('clean', gulp.parallel('clean:reports', 'clean:site'));
@@ -139,9 +138,10 @@ gulp.task('styles', function() {
   const atImport = require('postcss-import');
   const autoprefixer = require('autoprefixer');
   const customMedia = require('postcss-custom-media');
+  const cssnano = require('cssnano');
   const cssVariables = require('postcss-css-variables');
   const extendRules = require('postcss-extend');
-  const netedRules = require('postcss-nested');
+  const nestedRules = require('postcss-nested');
 
   return gulp.src(INPUT_STYLES.bundles)
              .pipe(postcss([
@@ -154,9 +154,11 @@ gulp.task('styles', function() {
                cssVariables(),
                customMedia(),
                extendRules(),
-               netedRules()
+               nestedRules(),
+
+               // Finally minify the CSS (if needed)
+               minifyOutput ? cssnano() : x => x
              ]))
-             .pipe(gulpIf(minifyOutput, cssnano()))
              .pipe(gulp.dest(`${OUTPUT_SITE}/styles`));
 });
 
