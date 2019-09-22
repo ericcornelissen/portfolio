@@ -1,18 +1,17 @@
-// run using `$ node tests/example.js`
-
-const mkdir = require('make-dir');
-const path = require('path');
 const puppeteer = require('puppeteer');
 
-const ARTIFACTS = path.join(__dirname, '_artifacts');
-mkdir.sync(ARTIFACTS);
+const { ARTIFACTS } = require('./utils.js');
 
-(async () => {
-  // start browser
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
 
-  // Load apge
+let browser, page;
+
+beforeAll(async () => browser = await puppeteer.launch());
+beforeEach(async () => page = await browser.newPage());
+afterEach(async () => page.close());
+afterAll(async () => await browser.close());
+
+test('adds 1 + 2 to equal 3', async () => {
+  // Load page
   await page.goto('http://localhost:4000/');
   await page.screenshot({path: `${ARTIFACTS}/1-start.png`});
 
@@ -28,9 +27,13 @@ mkdir.sync(ARTIFACTS);
   await page.click('header a[href*="contributions"]');
   await page.screenshot({path: `${ARTIFACTS}/5-contributions.png`});
 
-  // Go back home
-  await page.click('header a[href="/"]');
-  await page.screenshot({path: `${ARTIFACTS}/6-back-home.png`});
+  expect(1 + 2).toBe(3);
+});
+
+test('adds 2 + 1 to equal 3', async () => {
+  // Load page
+  await page.goto('http://localhost:4000/');
+  await page.screenshot({path: `${ARTIFACTS}/6-start.png`});
 
   // Go to snippets page
   await page.click('header a[href*="snippets"]');
@@ -44,6 +47,5 @@ mkdir.sync(ARTIFACTS);
   await page.click('header a[href*="timeline"]');
   await page.screenshot({path: `${ARTIFACTS}/9-timeline.png`});
 
-  // Close the browser
-  await browser.close();
-})();
+  expect(2 + 1).toBe(3);
+});

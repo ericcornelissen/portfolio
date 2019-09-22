@@ -11,6 +11,7 @@ const htmllint = require('gulp-htmllint');
 const htmlmin = require('gulp-htmlmin');
 const iconfont = require('gulp-iconfont');
 const imagemin = require('gulp-imagemin');
+const jest = require('jest-cli');
 const jshint = require('gulp-jshint');
 const jsonLint = require('gulp-jsonlint');
 const jsonSchema = require("gulp-json-schema");
@@ -204,6 +205,7 @@ gulp.task('server', gulp.series(
 gulp.task('serve', gulp.series('build', 'server', 'build:watch'));
 
 /* Static analysis */
+const gracefullExit = (done) => { browserSync.exit(); done(); }
 const lighthouse = run(`./node_modules/.bin/lighthouse http://localhost:4000/ --config-path=.lighthouse.js --chrome-flags=--headless --output-path=${OUTPUT_REPORTS}/lighthouse-report.html --view`);
 gulp.task('analyze:a11y', gulp.series('clean:site', 'build', function() {
   return axe({
@@ -214,10 +216,7 @@ gulp.task('analyze:a11y', gulp.series('clean:site', 'build', function() {
     urls: ['_site/**/*.html']
   });
 }));
-gulp.task('analyze:perf', gulp.series('clean:site', 'dist', 'server', lighthouse, function(done) {
-  browserSync.exit();
-  done();
-}));
+gulp.task('analyze:perf', gulp.series('clean:site', 'dist', 'server', lighthouse, gracefullExit));
 
 gulp.task('lint-html', gulp.series('set-minify-output', 'html', function() {
   return gulp.src(`${OUTPUT_SITE}/**/*.html`)
@@ -283,6 +282,24 @@ gulp.task('lint-styles', function() {
               }));
 });
 gulp.task('lint', gulp.parallel('lint-json', 'lint-html', 'lint-scripts', 'lint-styles'));
+
+/* Testing */
+const runJestTest = function(done) {
+  jest.runCLI({ config: { rootDir: 'tests' } }, '.')
+    .catch((error) => {
+      // TOOD exit with error
+      console.log("TESTS FAILED");
+    })
+    .then(({results}) => {
+      if (results.numFailedTests == 0) {
+        console.log("TESTS SUCCEEDED");
+      } else {
+        console.log("TESTS FAILED");
+      }
+    })
+    .finally(done);
+};
+gulp.task('test', gulp.series('clean:site', 'build', 'server', runJestTest, gracefullExit));
 
 /* Default */
 gulp.task('default', gulp.series('clean:site', 'serve'));
