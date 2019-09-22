@@ -53,6 +53,8 @@ const INPUT_STYLES = {
 const OUTPUT_SITE = './_site';
 const OUTPUT_REPORTS = './_reports';
 
+const TEST_DIR = './tests';
+
 
 let minifyOutput = false;
 let serverActive = false;
@@ -69,7 +71,7 @@ gulp.task('clean:reports', function() {
              .pipe(remove());
 });
 gulp.task('clean:tests', function() {
-  return gulp.src('./tests/_artifacts/**/*', { read: false })
+  return gulp.src(`${TEST_DIR}/_artifacts/**/*`, { read: false })
              .pipe(remove());
 });
 gulp.task('clean', gulp.parallel('clean:reports', 'clean:site', 'clean:tests'));
@@ -291,7 +293,7 @@ gulp.task('lint', gulp.parallel('lint-json', 'lint-html', 'lint-scripts', 'lint-
 
 /* Testing */
 const runJestTest = function(done) {
-  jest.runCLI({ config: { rootDir: 'tests' } }, '.')
+  jest.runCLI({ config: { rootDir: TEST_DIR } }, '.')
     .catch((error) => {
       // TOOD exit with error
       console.log("TESTS FAILED");
