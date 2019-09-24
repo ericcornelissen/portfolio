@@ -19,8 +19,10 @@ module.exports = {
   },
 
   runForEachDevice: describe.each([
-    ['Desktop', devices['Desktop 1920x1080']],
-    ['Mobile', puppeteer.devices['Pixel 2']],
+    ['Desktop (large)', devices['Desktop 1920x1080']],
+    ['Desktop (medium)', devices['Desktop 1280x720']],
+    ['Mobile (portrait)', puppeteer.devices['Nexus 4']],
+    ['Mobile (landscape)', puppeteer.devices['Nexus 4 landscape']],
   ]),
 
   takeScreenshot: async (page, filePrefix) => {

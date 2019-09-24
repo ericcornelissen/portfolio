@@ -10,6 +10,17 @@ module.exports = [
       isLandscape: true
     }
   },
+  {
+    name: 'Desktop 1280x720',
+    userAgent: 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36',
+    viewport: {
+      width: 1280,
+      height: 720,
+      isMobile: false,
+      hasTouch: false,
+      isLandscape: true
+    }
+  },
 ];
 
 for (const device of module.exports) {
