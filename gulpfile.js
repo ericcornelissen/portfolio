@@ -295,14 +295,12 @@ gulp.task('lint', gulp.parallel('lint-json', 'lint-html', 'lint-scripts', 'lint-
 const runJestTest = function(done) {
   jest.runCLI({ config: { rootDir: TEST_DIR } }, '.')
     .catch((error) => {
-      // TOOD exit with error
-      console.log("TESTS FAILED");
+      console.error(error);
+      process.exit(1);
     })
     .then(({results}) => {
-      if (results.numFailedTests == 0) {
-        console.log("TESTS SUCCEEDED");
-      } else {
-        console.log("TESTS FAILED");
+      if (results.numFailedTests !== 0) {
+        process.exit(1);
       }
     })
     .finally(done);
