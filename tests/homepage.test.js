@@ -3,7 +3,7 @@ const puppeteer = require('puppeteer');
 const utils = require('./utils.js');
 
 
-utils.runForEachDevice('%s', (name, device) => {
+utils.runForEachDevice('Homepage on %s', (name, device) => {
   let browser, page;
 
   beforeAll(async () => browser = await puppeteer.launch());
