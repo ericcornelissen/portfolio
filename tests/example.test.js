@@ -1,51 +1,53 @@
 const puppeteer = require('puppeteer');
 
-const { ARTIFACTS } = require('./utils.js');
+const utils = require('./utils.js');
 
 
 let browser, page;
 
 beforeAll(async () => browser = await puppeteer.launch());
-beforeEach(async () => page = await browser.newPage());
+beforeEach(async () => {
+  page = await browser.newPage()
+  await page.goto('http://localhost:4000/');
+});
 afterEach(async () => page.close());
 afterAll(async () => await browser.close());
 
-test('adds 1 + 2 to equal 3', async () => {
-  // Load page
-  await page.goto('http://localhost:4000/');
-  await page.screenshot({path: `${ARTIFACTS}/1-start.png`});
-
-  // Go to projects page
+test('Projects can be loaded', async () => {
   await page.click('header a[href*="projects"]');
-  await page.screenshot({path: `${ARTIFACTS}/2-projects.png`});
-
-  // Go back home
-  await page.click('header a[href="/"]');
-  await page.screenshot({path: `${ARTIFACTS}/3-back-home.png`});
-
-  // Go to contributions page
-  await page.click('header a[href*="contributions"]');
-  await page.screenshot({path: `${ARTIFACTS}/5-contributions.png`});
-
-  expect(1 + 2).toBe(3);
+  await utils.takeScreenshot(page, 'projects');
+  expect(await page.title()).toMatch('Archive');
 });
 
-test('adds 2 + 1 to equal 3', async () => {
-  // Load page
-  await page.goto('http://localhost:4000/');
-  await page.screenshot({path: `${ARTIFACTS}/6-start.png`});
+test('Contributions can be loaded', async () => {
+  await page.click('header a[href*="contributions"]');
+  await utils.takeScreenshot(page, 'contributions');
+  expect(await page.title()).toMatch('Archive');
+});
 
-  // Go to snippets page
+test('Snippets can be loaded', async () => {
   await page.click('header a[href*="snippets"]');
-  await page.screenshot({path: `${ARTIFACTS}/7-snippets.png`});
+  await utils.takeScreenshot(page, 'snippters');
+  expect(await page.title()).toMatch('Snippets');
+});
 
-  // Go back home
-  await page.click('header a[href="/"]');
-  await page.screenshot({path: `${ARTIFACTS}/8-back-home.png`});
+test('Resume can be loaded', async () => {
+  await utils.allowDownloads(page);
+  const matcher = 'downloads';
 
-  // Go to timeline page
+  page.on('response', response => {
+    if (response._url.match(matcher)) {
+      const contentType = response._headers['content-type'];
+      expect(contentType).toBe('application/pdf');
+    }
+  });
+
+  await page.click(`header a[href*="${matcher}"]`);
+  expect.assertions(1);
+});
+
+test('Timeline can be loaded', async () => {
   await page.click('header a[href*="timeline"]');
-  await page.screenshot({path: `${ARTIFACTS}/9-timeline.png`});
-
-  expect(2 + 1).toBe(3);
+  await utils.takeScreenshot(page, 'timeline');
+  expect(await page.title()).toMatch('Timeline');
 });

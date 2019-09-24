@@ -307,7 +307,7 @@ const runJestTest = function(done) {
     })
     .finally(done);
 };
-gulp.task('test', gulp.series('clean:site', 'build', 'server', runJestTest, gracefullExit));
+gulp.task('test', gulp.series('clean:site', 'clean:tests', 'build', 'server', runJestTest, gracefullExit));
 
 /* Default */
 gulp.task('default', gulp.series('clean:site', 'serve'));
