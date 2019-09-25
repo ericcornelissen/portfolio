@@ -54,6 +54,7 @@ const OUTPUT_SITE = './_site';
 const OUTPUT_REPORTS = './_reports';
 
 const TEST_DIR = './tests';
+const TEST_FILES = `${TEST_DIR}/**/*.js`;
 
 
 let minifyOutput = false;
@@ -280,7 +281,7 @@ gulp.task('lint-json', gulp.series(
   )
 ));
 gulp.task('lint-scripts', function() {
-  return gulp.src([INPUT_HANDLEBARS.helpers, INPUT_SCRIPTS])
+  return gulp.src([INPUT_HANDLEBARS.helpers, INPUT_SCRIPTS, TEST_FILES])
              .pipe(jshint())
              .pipe(jshint.reporter('default'))
              .pipe(jshint.reporter('fail'));
