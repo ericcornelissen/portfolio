@@ -61,6 +61,12 @@ let serverActive = false;
 let watchingFiles = false;
 
 
+function gracefulExit(done) {
+  browserSync.exit();
+  done();
+};
+
+
 /* Utility */
 gulp.task('clean:site', function() {
   return gulp.src(`${OUTPUT_SITE}/**/{.,}*`, { read: false })
@@ -213,7 +219,6 @@ gulp.task('server', gulp.series(
 gulp.task('serve', gulp.series('build', 'server', 'build:watch'));
 
 /* Static analysis */
-const gracefullExit = (done) => { browserSync.exit(); done(); }
 const lighthouse = run(`./node_modules/.bin/lighthouse http://localhost:4000/ --config-path=.lighthouse.js --chrome-flags=--headless --output-path=${OUTPUT_REPORTS}/lighthouse-report.html --view`);
 gulp.task('analyze:a11y', gulp.series('clean:site', 'build', function() {
   return axe({
@@ -224,7 +229,7 @@ gulp.task('analyze:a11y', gulp.series('clean:site', 'build', function() {
     urls: ['_site/**/*.html']
   });
 }));
-gulp.task('analyze:perf', gulp.series('clean:site', 'dist', 'server', lighthouse, gracefullExit));
+gulp.task('analyze:perf', gulp.series('clean:site', 'dist', 'server', lighthouse, gracefulExit));
 
 gulp.task('lint-html', gulp.series('set-minify-output', 'html', function() {
   return gulp.src(`${OUTPUT_SITE}/**/*.html`)
@@ -292,11 +297,11 @@ gulp.task('lint-styles', function() {
 gulp.task('lint', gulp.parallel('lint-json', 'lint-html', 'lint-scripts', 'lint-styles'));
 
 /* Testing */
-const runJestTest = function() {
+gulp.task('test-integration', function() {
   return gulp.src(TEST_DIR)
              .pipe(jest());
-};
-gulp.task('test', gulp.series('clean:site', 'clean:tests', 'build', 'server', runJestTest, gracefullExit));
+});
+gulp.task('test', gulp.series('clean:site', 'clean:tests', 'build', 'server', 'test-integration', gracefulExit));
 
 /* Default */
 gulp.task('default', gulp.series('clean:site', 'serve'));
