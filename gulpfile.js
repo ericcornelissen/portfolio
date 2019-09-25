@@ -10,7 +10,7 @@ const htmllint = require('gulp-htmllint');
 const htmlmin = require('gulp-htmlmin');
 const iconfont = require('gulp-iconfont');
 const imagemin = require('gulp-imagemin');
-const jest = require('jest-cli');
+const jest = require('gulp-jest').default;
 const jshint = require('gulp-jshint');
 const jsonLint = require('gulp-jsonlint');
 const jsonSchema = require("gulp-json-schema");
@@ -292,18 +292,9 @@ gulp.task('lint-styles', function() {
 gulp.task('lint', gulp.parallel('lint-json', 'lint-html', 'lint-scripts', 'lint-styles'));
 
 /* Testing */
-const runJestTest = function(done) {
-  jest.runCLI({ config: { rootDir: TEST_DIR } }, '.')
-    .catch((error) => {
-      console.error(error);
-      process.exit(1);
-    })
-    .then(({results}) => {
-      if (results.numFailedTests !== 0) {
-        process.exit(1);
-      }
-    })
-    .finally(done);
+const runJestTest = function() {
+  return gulp.src(TEST_DIR)
+             .pipe(jest());
 };
 gulp.task('test', gulp.series('clean:site', 'clean:tests', 'build', 'server', runJestTest, gracefullExit));
 

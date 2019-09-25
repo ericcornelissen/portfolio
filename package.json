@@ -24,6 +24,7 @@
     "gulp-if": "^3.0.0",
     "gulp-ignore": "^3.0.0",
     "gulp-imagemin": "^6.0.0",
+    "gulp-jest": "^4.0.3",
     "gulp-js-wrapper": "0.0.3",
     "gulp-jshint": "^2.1.0",
     "gulp-json-schema": "^1.0.0",
