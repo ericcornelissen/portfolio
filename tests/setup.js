@@ -1,4 +1,5 @@
 const mkdir = require('make-dir');
+require('jest-matcher-one-of');
 
 const { ARTIFACTS_PATH } = require('./utils.js');
 

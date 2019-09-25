@@ -2,6 +2,7 @@ const utils = require('./utils.js');
 
 utils.runForEachDevice('Homepage on %s', (name, device) => {
   beforeEach(async () => {
+    page = await browser.newPage();
     await page.goto('http://localhost:4000/');
     await page.emulate(device);
   });
@@ -21,14 +22,16 @@ utils.runForEachDevice('Homepage on %s', (name, device) => {
     await expect(page.title()).resolves.toMatch('Snippets');
   });
 
-  test.skip('Resume can be loaded', async () => {
+  test('Resume can be loaded', async () => {
     await utils.allowDownloads(page);
     const matcher = 'downloads';
 
-    page.on('response', response => {
-      if (response._url.match(matcher)) {
-        const contentType = response._headers['content-type'];
-        expect(contentType).toBe('application/pdf');
+    page.on('response', async (response) => {
+      if (response.url().match(matcher)) {
+        expect(response.status()).toBeOneOf([
+          200, // Status "OK"
+          304  // Status "Not Modified"
+        ]);
       }
     });
 
@@ -43,5 +46,6 @@ utils.runForEachDevice('Homepage on %s', (name, device) => {
 
   afterEach(async () => {
     await utils.takeScreenshot(page, name);
+    page.close();
   });
 });
