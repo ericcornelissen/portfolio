@@ -38,6 +38,7 @@
     "handlebars-helpers": "^0.10.0",
     "handlebars-utils": "^1.0.6",
     "husky": "^3.0.0",
+    "is-ci": "^2.0.0",
     "jest-cli": "^24.9.0",
     "jest-matcher-one-of": "^1.0.2",
     "jest-puppeteer": "^4.3.0",
