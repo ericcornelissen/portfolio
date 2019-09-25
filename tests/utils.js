@@ -3,9 +3,7 @@ const puppeteer = require('puppeteer');
 
 const devices = require('./device-descriptors.js');
 
-
 const ARTIFACTS_PATH = path.join(__dirname, '_artifacts');
-
 
 module.exports = {
   ARTIFACTS_PATH: ARTIFACTS_PATH,
