@@ -7,17 +7,17 @@ utils.runForEachDevice('Homepage on %s', (name, device) => {
   });
 
   test('Projects can be loaded', async () => {
-    await page.click('header a[href*="projects"]');
+    await utils.clickAndWait(page, 'header a[href*="projects"]');
     await expect(page.title()).resolves.toMatch('Archive');
   });
 
   test('Contributions can be loaded', async () => {
-    await page.click('header a[href*="contributions"]');
+    await utils.clickAndWait(page, 'header a[href*="contributions"]');
     await expect(page.title()).resolves.toMatch('Archive');
   });
 
   test('Snippets can be loaded', async () => {
-    await page.click('header a[href*="snippets"]');
+    await utils.clickAndWait(page, 'header a[href*="snippets"]');
     await expect(page.title()).resolves.toMatch('Snippets');
   });
 
@@ -37,7 +37,7 @@ utils.runForEachDevice('Homepage on %s', (name, device) => {
   });
 
   test('Timeline can be loaded', async () => {
-    await page.click('header a[href*="timeline"]');
+    await utils.clickAndWait(page, 'header a[href*="timeline"]');
     await expect(page.title()).resolves.toMatch('Timeline');
   });
 

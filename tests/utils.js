@@ -16,6 +16,13 @@ module.exports = {
     });
   },
 
+  clickAndWait: async (page, selector) => {
+    await Promise.all([
+      page.click(selector),
+      page.waitForNavigation(),
+    ]);
+  },
+
   runForEachDevice: describe.each([
     ['Desktop (large)', devices['Desktop 1920x1080']],
     ['Desktop (medium)', devices['Desktop 1280x720']],
