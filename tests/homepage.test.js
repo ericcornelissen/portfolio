@@ -30,6 +30,7 @@ utils.runForEachDevice('Homepage on %s', (name, device) => {
       if (response.url().match(matcher)) {
         expect(response.status()).toBeOneOf([
           200, // Status "OK"
+          206, // Status "Partial Content"
           304, // Status "Not Modified"
         ]);
       }
