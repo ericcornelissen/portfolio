@@ -67,6 +67,12 @@ function gracefulExit(done) {
   done();
 };
 
+function sleep(timeout) {
+  return function(done) {
+    setTimeout(done, timeout);
+  };
+};
+
 
 /* Utility */
 gulp.task('clean:site', function() {
@@ -302,7 +308,7 @@ gulp.task('test-integration', function() {
   return gulp.src(TEST_DIR)
              .pipe(jest());
 });
-gulp.task('test', gulp.series('clean:site', 'clean:tests', 'build', 'server', 'test-integration', gracefulExit));
+gulp.task('test', gulp.series('clean:site', 'clean:tests', 'build', 'server', sleep(1000), 'test-integration', gracefulExit));
 
 /* Default */
 gulp.task('default', gulp.series('clean:site', 'serve'));
