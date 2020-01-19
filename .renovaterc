@@ -17,5 +17,5 @@
     "helpers:disableTypesNodeMajor"
   ],
 
-  labels: ["dependencies"],
+  "labels": ["dependencies"]
 }
