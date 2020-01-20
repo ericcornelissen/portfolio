@@ -10,6 +10,7 @@ const htmllint = require('gulp-htmllint');
 const htmlmin = require('gulp-htmlmin');
 const iconfont = require('gulp-iconfont');
 const imagemin = require('gulp-imagemin');
+const isCI = require('is-ci');
 const jest = require('gulp-jest').default;
 const jshint = require('gulp-jshint');
 const jsonLint = require('gulp-jsonlint');
@@ -308,7 +309,7 @@ gulp.task('test-integration', function() {
   return gulp.src(TEST_DIR)
              .pipe(jest());
 });
-gulp.task('test', gulp.series('clean:site', 'clean:tests', 'build', 'server', sleep(1000), 'test-integration', gracefulExit));
+gulp.task('test', gulp.series('clean:site', 'clean:tests', 'build', 'server', sleep(isCI ? 10000 : 0), 'test-integration', gracefulExit));
 
 /* Default */
 gulp.task('default', gulp.series('clean:site', 'serve'));
