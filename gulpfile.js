@@ -11,7 +11,6 @@ const htmlmin = require('gulp-htmlmin');
 const iconfont = require('gulp-iconfont');
 const imagemin = require('gulp-imagemin');
 const isCI = require('is-ci');
-const jest = require('gulp-jest').default;
 const jshint = require('gulp-jshint');
 const jsonLint = require('gulp-jsonlint');
 const jsonSchema = require("gulp-json-schema");
