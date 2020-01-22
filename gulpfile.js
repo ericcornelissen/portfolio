@@ -305,11 +305,8 @@ gulp.task('lint-styles', function() {
 gulp.task('lint', gulp.parallel('lint-json', 'lint-html', 'lint-scripts', 'lint-styles'));
 
 /* Testing */
-gulp.task('test-integration', function() {
-  return gulp.src(TEST_DIR)
-             .pipe(jest());
-});
-gulp.task('test', gulp.series('clean:site', 'clean:tests', 'build', 'server', sleep(isCI ? 10000 : 0), 'test-integration', gracefulExit));
+const testIntegration = run('./node_modules/.bin/jest');
+gulp.task('test', gulp.series('clean:site', 'clean:tests', 'build', 'server', sleep(isCI ? 10000 : 0), testIntegration, gracefulExit));
 
 /* Default */
 gulp.task('default', gulp.series('clean:site', 'serve'));
