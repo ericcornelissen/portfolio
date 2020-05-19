@@ -1,19 +1,8 @@
 {
   "extends": [
-    ":separateMajorReleases",
-    ":combinePatchMinorReleases",
-    ":ignoreUnstable",
-    ":prImmediately",
-    ":semanticPrefixFixDepsChoreOthers",
-    ":updateNotScheduled",
-    ":ignoreModulesAndTests",
-    ":maintainLockFilesDisabled",
-    ":autodetectPinVersions",
-    ":prHourlyLimit2",
-    ":prConcurrentLimit20",
-    "group:monorepos",
-    "group:recommended",
-    "helpers:disableTypesNodeMajor"
+    "config:base",
+    ":semanticCommits",
+    "group:all"
   ],
 
   "packageRules": [
@@ -23,8 +12,19 @@
     }
   ],
 
+  "lockFileMaintenance": {
+    "extends": [
+      "group:all"
+    ],
+
+    "enabled": true,
+    "schedule": "before 3am on Monday"
+  },
+
   "automerge": true,
   "automergeType": "pr",
+
+  "schedule": "before 3am on Monday",
 
   "labels": ["dependencies"]
 }
