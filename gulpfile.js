@@ -75,12 +75,12 @@ function sleep(timeout) {
 
 
 /* Utility */
-gulp.task('clean:site', function() {
-  return gulp.src(`${OUTPUT_SITE}/**/{.,}*`, { read: false })
-             .pipe(remove());
-});
 gulp.task('clean:reports', function() {
   return gulp.src(`${OUTPUT_REPORTS}/**/*`, { read: false })
+             .pipe(remove());
+});
+gulp.task('clean:site', function() {
+  return gulp.src(`${OUTPUT_SITE}/**/{.,}*`, { read: false })
              .pipe(remove());
 });
 gulp.task('clean:tests', function() {
