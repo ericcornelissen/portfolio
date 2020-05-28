@@ -24,6 +24,19 @@
         "github": "https://github.com/simple-icons/simple-icons",
         "website": "https://simpleicons.org/"
       }
+    },
+    {
+      "name": "Atom Tool Bar",
+      "about": "Package providing a customisable toolbar for Atom.",
+      "start_year": 2019,
+      "end_year": 2020,
+      "spotlight": false,
+      "maintainer": false,
+      "keywords": ["atom", "css", "javascript", "icons", "html", "liquid", "css", "javascript"],
+      "links": {
+        "github": "https://github.com/suda/tool-bar",
+        "website": "https://atom.io/packages/tool-bar"
+      }
     }
   ],
   "2019": [
