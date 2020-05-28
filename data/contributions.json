@@ -1,14 +1,15 @@
 {
-  "2019": [
+  "2020": [
     {
-      "name": "Fluent Terminal",
-      "about": "A Terminal Emulator based on UWP and web technologies.",
-      "start_year": 2018,
-      "end_year": 2019,
-      "spotlight": true,
-      "keywords": ["C#", "c-sharp", "terminal", "cli", "UWP"],
+      "name": "File Icons for Atom",
+      "about": "File-specific icons in Atom for improved visual grepping.",
+      "start_year": 2017,
+      "end_year": 2020,
+      "spotlight": false,
+      "keywords": ["icons", "atom"],
       "links": {
-        "github": "https://github.com/felixse/FluentTerminal"
+        "github": "https://github.com/file-icons/atom",
+        "website": "https://atom.io/packages/file-icons"
       }
     },
     {
@@ -22,6 +23,19 @@
       "links": {
         "github": "https://github.com/simple-icons/simple-icons",
         "website": "https://simpleicons.org/"
+      }
+    }
+  ],
+  "2019": [
+    {
+      "name": "Fluent Terminal",
+      "about": "A Terminal Emulator based on UWP and web technologies.",
+      "start_year": 2018,
+      "end_year": 2019,
+      "spotlight": true,
+      "keywords": ["C#", "c-sharp", "terminal", "cli", "UWP"],
+      "links": {
+        "github": "https://github.com/felixse/FluentTerminal"
       }
     },
     {
@@ -101,18 +115,6 @@
     }
   ],
   "2017": [
-    {
-      "name": "File Icons for Atom",
-      "about": "File-specific icons in Atom for improved visual grepping.",
-      "start_year": 2017,
-      "end_year": 2017,
-      "spotlight": false,
-      "keywords": ["icons", "atom"],
-      "links": {
-        "github": "https://github.com/file-icons/atom",
-        "website": "https://atom.io/packages/file-icons"
-      }
-    },
     {
       "name": "grunt-fontello",
       "about": "Grunt task for downloading fonts from <a class=\"text-link\" href=\"http://fontello.com/\" rel=\"noopener\">fontello</a>.",
