@@ -100,18 +100,6 @@
         "github": "https://git.fsfe.org/pmpc/website",
         "website": "https://publiccode.eu/"
       }
-    },
-    {
-      "name": "Keep a Changelog",
-      "about": "If you build software, keep a changelog.",
-      "start_year": 2018,
-      "end_year": 2018,
-      "spotlight": false,
-      "keywords": ["changelog", "documentation"],
-      "links": {
-        "github": "https://github.com/olivierlacan/keep-a-changelog",
-        "website": "http://keepachangelog.com"
-      }
     }
   ],
   "2017": [
