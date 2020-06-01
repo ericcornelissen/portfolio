@@ -30,3 +30,43 @@ Repository for the personal portfolio of Eric Cornelissen.
 - `$ gulp server`: Start a simple HTTP server (on port 4000) serving the site.
   - Requires `$ gulp build` or `$ gulp dist`.
 - `$ gulp test`: Run the test suites of the project.
+
+### Docker
+To serve the portfolio from a [Docker](https://www.docker.com/) image run:
+
+```bash
+# Build the docker image to run the portfolio
+$ docker build -t portfolio-eric .
+
+# Run the docker image as a container to start a web server
+$ docker run -p 4000:4000 -d portfolio-eric
+```
+
+To check the log of the web server.
+
+```bash
+# Find the image using
+$ docker ps
+CONTAINER ID   IMAGE            COMMAND   CREATED   STATUS   PORTS        NAMES
+[ID]           portfolio-eric   ...       ...       ...      4000->4000   ...
+...
+
+# Copy the value [ID] under "CONTAINER ID"
+$ docker logs [ID]
+```
+
+To remove the container or image
+
+```bash
+# To remove the docker container for the portfolio run
+$ docker ps -a
+CONTAINER ID   IMAGE            COMMAND   CREATED   STATUS   PORTS        NAMES
+[ID]           portfolio-eric   ...       ...       ...      4000->4000   ...
+...
+
+$ docker rm [ID]
+[ID]
+
+# To remove the docker image run
+$ docker image rm portfolio-eric
+```
