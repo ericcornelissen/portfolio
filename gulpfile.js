@@ -57,6 +57,8 @@ const TEST_DIR = './tests';
 const TEST_FILES = `${TEST_DIR}/**/*.js`;
 
 
+let lintAutoFix = false;
+let lintReport = false;
 let minifyOutput = false;
 let serverActive = false;
 let watchingFiles = false;
@@ -91,6 +93,14 @@ gulp.task('clean', gulp.parallel('clean:reports', 'clean:site', 'clean:tests'));
 
 gulp.task('set-minify-output', function(done) {
   minifyOutput = true;
+  done();
+});
+gulp.task('set-lint-fix', function(done) {
+  lintAutoFix = true;
+  done();
+});
+gulp.task('set-lint-report', function(done) {
+  lintReport = true;
   done();
 });
 
@@ -293,15 +303,20 @@ gulp.task('lint-scripts', function() {
              .pipe(jshint.reporter('fail'));
 });
 gulp.task('lint-styles', function() {
+  const reporters = [{formatter: 'string', console: true}];
+  if (lintReport) reporters.push({formatter: 'verbose', save: `${OUTPUT_REPORTS}/lint-styles-report.log`});
+
   return gulp.src(INPUT_STYLES.all)
              .pipe(stylelint({
-                failAfterError: true,
-                reporters: [
-                  {formatter: 'string', console: true}
-                ]
-              }));
+                fix: lintAutoFix,
+                failAfterError: lintReport ? false : true,
+                reporters: reporters
+              }))
+             .pipe(gulpIf(lintAutoFix, gulp.dest(`${INPUT_DIR}/styles`)));
 });
 gulp.task('lint', gulp.parallel('lint-json', 'lint-html', 'lint-scripts', 'lint-styles'));
+gulp.task('lint:fix', gulp.series('set-lint-fix', 'lint'));
+gulp.task('lint:report', gulp.series('set-lint-report', 'lint'));
 
 /* Testing */
 const testIntegration = run('./node_modules/.bin/jest');
