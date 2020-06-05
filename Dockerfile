@@ -1,7 +1,26 @@
 FROM node:10-alpine
 
-# Install Make and Python for node-gyp
-RUN apk add --no-cache g++ make python
+# Install prerequisites for node-gyp
+RUN apk add --no-cache \
+  g++ \
+  make \
+  python
+
+# Install Chomium for puppeteer
+RUN apk add --no-cache \
+  chromium \
+  nss \
+  freetype \
+  freetype-dev \
+  harfbuzz \
+  ca-certificates \
+  ttf-freefont
+
+# Configure Puppeteer
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
+  PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser \
+  PUPPETEER_NO_SANDBOX=true \
+  PUPPETEER_HEADLESS=true
 
 # Install portfolio dependencies
 WORKDIR /usr/src/portfolio
