@@ -59,6 +59,8 @@ const OUTPUT_REPORTS = './_reports';
 const TEST_DIR = './tests';
 const TEST_FILES = `${TEST_DIR}/**/*.js`;
 
+const SERVER_PORT = 4000;
+
 const DOCKER_IMAGE_NAME = 'portfolio-eric';
 const DOCKER_CONTAINER_NAME = 'portfolio-server';
 
@@ -219,7 +221,7 @@ gulp.task('server', gulp.series(
     serverActive = true;
     browserSync.init({
       open: false,
-      port: 4000,
+      port: SERVER_PORT,
       server: {
         baseDir: OUTPUT_SITE,
         serveStaticOptions: {
@@ -232,7 +234,7 @@ gulp.task('server', gulp.series(
 gulp.task('serve', gulp.series('build', 'server', 'build:watch'));
 
 /* Static analysis */
-const lighthouse = run(`./node_modules/.bin/lighthouse http://localhost:4000/ --config-path=.lighthouse.js --chrome-flags=--headless --output-path=${OUTPUT_REPORTS}/lighthouse-report.html --view`);
+const lighthouse = run(`./node_modules/.bin/lighthouse http://localhost:${SERVER_PORT}/ --config-path=.lighthouse.js --chrome-flags=--headless --output-path=${OUTPUT_REPORTS}/lighthouse-report.html --view`);
 gulp.task('analyze:a11y', gulp.series('clean:site', 'build', function() {
   return axe({
     errorOnViolation: true,
@@ -333,7 +335,7 @@ gulp.task('test', gulp.series('clean:site', 'clean:tests', 'build', 'server', sl
 /* Docker */
 gulp.task('docker:build', run(`docker build -t ${DOCKER_IMAGE_NAME} .`));
 gulp.task('docker:rmi', run(`docker rmi ${DOCKER_IMAGE_NAME}`));
-gulp.task('docker:start', run(`docker run -d --rm -p 4000:4000 --name ${DOCKER_CONTAINER_NAME} ${DOCKER_IMAGE_NAME}`));
+gulp.task('docker:start', run(`docker run -d --rm -p ${SERVER_PORT}:${SERVER_PORT} --name ${DOCKER_CONTAINER_NAME} ${DOCKER_IMAGE_NAME}`));
 gulp.task('docker:stop', run(`docker stop ${DOCKER_CONTAINER_NAME}`));
 gulp.task('docker:logs', run(`docker logs ${DOCKER_CONTAINER_NAME}`));
 gulp.task('docker:attach', shell.task(`docker exec -it  ${DOCKER_CONTAINER_NAME} /bin/sh -c "[ -e /bin/bash ] && /bin/bash || /bin/sh"`));
