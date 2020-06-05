@@ -23,6 +23,9 @@ const run = require('gulp-run-command').default;
 const stylelint = require('gulp-stylelint');
 const uglifyJS = require('gulp-uglify-es').default;
 
+const through2 = require('through2');
+const markdownlint = require('markdownlint');
+
 
 const INPUT_DIR = './www'
 const INPUT_ASSETS = {
@@ -286,6 +289,23 @@ gulp.task('lint-json', gulp.series(
     }
   )
 ));
+gulp.task('lint-markdown', function task() {
+  return gulp.src(['./*.md'])
+    .pipe(through2.obj(function obj(file, _, next) {
+      markdownlint(
+        {
+          config: require("./.markdownlint.json"),
+          files: [file.relative]
+        },
+        function callback(err, result) {
+          const resultString = (result || '').toString();
+          if (resultString) {
+            console.log(resultString);
+          }
+          next(err, file);
+        });
+    }));
+});
 gulp.task('lint-scripts', function() {
   return gulp.src([INPUT_HANDLEBARS.helpers, INPUT_SCRIPTS, TEST_FILES])
              .pipe(jshint())
@@ -301,7 +321,7 @@ gulp.task('lint-styles', function() {
                 ]
               }));
 });
-gulp.task('lint', gulp.parallel('lint-json', 'lint-html', 'lint-scripts', 'lint-styles'));
+gulp.task('lint', gulp.parallel('lint-json', 'lint-html', 'lint-markdown', 'lint-scripts', 'lint-styles'));
 
 /* Testing */
 const testIntegration = run('./node_modules/.bin/jest');

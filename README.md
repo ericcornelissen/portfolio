@@ -13,6 +13,7 @@ Repository for the personal portfolio of Eric Cornelissen.
 | HTML linter           | [htmllint]      |
 | JavaScript linter     | [JSHint]        |
 | JSON linter           | [jsonlint]      |
+| MarkDown linter       | [markdownlint]  |
 | Performance evaluator | [Lighthouse]    |
 | Site generator        | [Handlebars.js] |
 | Stylesheet linter     | [stylelint]     |
@@ -47,3 +48,4 @@ of commands that analyze the source code can be found in `./_reports`.
 [Handlebars.js]: https://handlebarsjs.com/
 [stylelint]: https://stylelint.io/
 [Jest]: https://jestjs.io/
+[markdownlint]: https://github.com/DavidAnson/markdownlint
