@@ -15,12 +15,15 @@ const jshint = require('gulp-jshint');
 const jsonLint = require('gulp-jsonlint');
 const jsonSchema = require("gulp-json-schema");
 const jswrap = require('gulp-js-wrapper');
+const markdownlint = require('markdownlint');
 const plumber = require('gulp-plumber');
 const postcss = require('gulp-postcss');
 const remove = require('gulp-rm');
 const replaceExt = require('gulp-ext-replace');
 const run = require('gulp-run-command').default;
+const shell = require('gulp-shell');
 const stylelint = require('gulp-stylelint');
+const through2 = require('through2');
 const uglifyJS = require('gulp-uglify-es').default;
 
 
@@ -55,6 +58,9 @@ const OUTPUT_REPORTS = './_reports';
 
 const TEST_DIR = './tests';
 const TEST_FILES = `${TEST_DIR}/**/*.js`;
+
+const DOCKER_IMAGE_NAME = 'portfolio-eric';
+const DOCKER_CONTAINER_NAME = 'portfolio-server';
 
 
 let minifyOutput = false;
@@ -286,6 +292,23 @@ gulp.task('lint-json', gulp.series(
     }
   )
 ));
+gulp.task('lint-markdown', function task() {
+  return gulp.src(['./*.md'])
+    .pipe(through2.obj(function obj(file, _, next) {
+      markdownlint(
+        {
+          config: require("./.markdownlint.json"),
+          files: [file.relative]
+        },
+        function callback(err, result) {
+          const resultString = (result || '').toString();
+          if (resultString) {
+            console.log(resultString);
+          }
+          next(err, file);
+        });
+    }));
+});
 gulp.task('lint-scripts', function() {
   return gulp.src([INPUT_HANDLEBARS.helpers, INPUT_SCRIPTS, TEST_FILES])
              .pipe(jshint())
@@ -301,11 +324,19 @@ gulp.task('lint-styles', function() {
                 ]
               }));
 });
-gulp.task('lint', gulp.parallel('lint-json', 'lint-html', 'lint-scripts', 'lint-styles'));
+gulp.task('lint', gulp.parallel('lint-json', 'lint-html', 'lint-markdown', 'lint-scripts', 'lint-styles'));
 
 /* Testing */
 const testIntegration = run('./node_modules/.bin/jest');
 gulp.task('test', gulp.series('clean:site', 'clean:tests', 'build', 'server', sleep(isCI ? 10000 : 0), testIntegration, gracefulExit));
+
+/* Docker */
+gulp.task('docker:build', run(`docker build -t ${DOCKER_IMAGE_NAME} .`));
+gulp.task('docker:rmi', run(`docker rmi ${DOCKER_IMAGE_NAME}`));
+gulp.task('docker:start', run(`docker run -d --rm -p 4000:4000 --name ${DOCKER_CONTAINER_NAME} ${DOCKER_IMAGE_NAME}`));
+gulp.task('docker:stop', run(`docker stop ${DOCKER_CONTAINER_NAME}`));
+gulp.task('docker:logs', run(`docker logs ${DOCKER_CONTAINER_NAME}`));
+gulp.task('docker:attach', shell.task(`docker exec -it  ${DOCKER_CONTAINER_NAME} /bin/sh -c "[ -e /bin/bash ] && /bin/bash || /bin/sh"`));
 
 /* Default */
 gulp.task('default', gulp.series('clean:site', 'serve'));
