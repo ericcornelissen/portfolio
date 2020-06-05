@@ -6,6 +6,13 @@ RUN apk add --no-cache \
   make \
   python
 
+# Install prerequisites for gulp-imagemin
+RUN apk add --no-cache \
+  autoconf \
+  automake \
+  libtool \
+  nasm
+
 # Install Chomium for puppeteer
 RUN apk add --no-cache \
   chromium \
