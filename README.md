@@ -47,3 +47,12 @@ $ docker logs portfolio-server
 # To stop the web server (and delete the container)
 $ docker stop portfolio-server
 ```
+
+Alternatively, you can use Gulp commands to execute the above commands:
+
+- `gulp docker:build`: build the Docker image from the Dockerfile.
+- `gulp docker:rmi`: remove the Docker image from the system.
+- `gulp docker:start`: start a Docker container from the image.
+- `gulp docker:stop`: stop (and remove) the Docker container.
+- `gulp docker:logs`: shows the logs of the Docker container.
+- `gulp docker:attach`: attach a shell to the Docker container.
