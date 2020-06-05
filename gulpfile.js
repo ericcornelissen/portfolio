@@ -15,16 +15,15 @@ const jshint = require('gulp-jshint');
 const jsonLint = require('gulp-jsonlint');
 const jsonSchema = require("gulp-json-schema");
 const jswrap = require('gulp-js-wrapper');
+const markdownlint = require('markdownlint');
 const plumber = require('gulp-plumber');
 const postcss = require('gulp-postcss');
 const remove = require('gulp-rm');
 const replaceExt = require('gulp-ext-replace');
 const run = require('gulp-run-command').default;
 const stylelint = require('gulp-stylelint');
-const uglifyJS = require('gulp-uglify-es').default;
-
 const through2 = require('through2');
-const markdownlint = require('markdownlint');
+const uglifyJS = require('gulp-uglify-es').default;
 
 
 const INPUT_DIR = './www'

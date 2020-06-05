@@ -15,7 +15,8 @@
     "maximum": 1
   },
   "MD013": {
-    "stern": true
+    "stern": true,
+    "line_length": 80
   },
   "MD029": {
     "style": "one"
