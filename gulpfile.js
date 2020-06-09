@@ -248,7 +248,7 @@ gulp.task('analyze:perf', gulp.series('clean:site', 'dist', 'server', lighthouse
 
 gulp.task('lint-html', gulp.series('set-minify-output', 'html', function() {
   return gulp.src(`${OUTPUT_SITE}/**/*.html`)
-             .pipe(htmllint('.htmlhintrc'));
+             .pipe(htmllint({config: '.htmllintrc.json'}));
 }));
 gulp.task('lint-json', gulp.series(
   function() {
