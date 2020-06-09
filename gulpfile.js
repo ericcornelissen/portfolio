@@ -103,15 +103,15 @@ gulp.task('set-minify-output', function(done) {
 });
 
 /* Build */
-gulp.task('assets-downloads', function() {
+gulp.task('assets:downloads', function() {
   return gulp.src(INPUT_ASSETS.downloads)
              .pipe(gulp.dest(`${OUTPUT_SITE}/downloads`));
 });
-gulp.task('assets-fonts', function() {
+gulp.task('assets:fonts', function() {
   return gulp.src(INPUT_ASSETS.fonts)
              .pipe(gulp.dest(`${OUTPUT_SITE}/assets/fonts`));
 });
-gulp.task('assets-iconography', function() {
+gulp.task('assets:iconography', function() {
   return gulp.src(INPUT_ASSETS.icons)
              .pipe(iconfont({
                fontName: 'icon-e',
@@ -121,17 +121,17 @@ gulp.task('assets-iconography', function() {
              }))
              .pipe(gulp.dest(`${OUTPUT_SITE}/assets/fonts`));
 });
-gulp.task('assets-images', function() {
+gulp.task('assets:images', function() {
   return gulp.src(INPUT_ASSETS.images)
              .pipe(gulpIf(minifyOutput, imagemin()))
              .pipe(gulp.dest(`${OUTPUT_SITE}/assets`));
 });
-gulp.task('assets-svgs', function() {
+gulp.task('assets:svgs', function() {
   return gulp.src(INPUT_ASSETS.svgs)
              .pipe(gulpIgnore.exclude('**/fonts/*.svg'))
              .pipe(gulp.dest(`${OUTPUT_SITE}/assets`));
 });
-gulp.task('assets', gulp.parallel('assets-downloads', 'assets-fonts', 'assets-iconography', 'assets-images', 'assets-svgs'));
+gulp.task('assets', gulp.parallel('assets:downloads', 'assets:fonts', 'assets:iconography', 'assets:images', 'assets:svgs'));
 gulp.task('html', function() {
   const stdHelpers = require('handlebars-helpers');
 
@@ -246,11 +246,11 @@ gulp.task('analyze:a11y', gulp.series('clean:site', 'build', function() {
 }));
 gulp.task('analyze:perf', gulp.series('clean:site', 'dist', 'server', lighthouse, gracefulExit));
 
-gulp.task('lint-html', gulp.series('set-minify-output', 'html', function() {
+gulp.task('lint:html', gulp.series('set-minify-output', 'html', function() {
   return gulp.src(`${OUTPUT_SITE}/**/*.html`)
              .pipe(htmllint({config: '.htmllintrc.json'}));
 }));
-gulp.task('lint-json', gulp.series(
+gulp.task('lint:json', gulp.series(
   function() {
     return gulp.src('./data/*.json')
                .pipe(jsonLint())
@@ -294,7 +294,7 @@ gulp.task('lint-json', gulp.series(
     }
   )
 ));
-gulp.task('lint-markdown', function task() {
+gulp.task('lint:markdown', function task() {
   return gulp.src(['./*.md'])
     .pipe(through2.obj(function obj(file, _, next) {
       markdownlint(
@@ -311,13 +311,13 @@ gulp.task('lint-markdown', function task() {
         });
     }));
 });
-gulp.task('lint-scripts', function() {
+gulp.task('lint:scripts', function() {
   return gulp.src([INPUT_HANDLEBARS.helpers, INPUT_SCRIPTS, TEST_FILES])
              .pipe(jshint())
              .pipe(jshint.reporter('default'))
              .pipe(jshint.reporter('fail'));
 });
-gulp.task('lint-styles', function() {
+gulp.task('lint:styles', function() {
   return gulp.src(INPUT_STYLES.all)
              .pipe(stylelint({
                 failAfterError: true,
@@ -326,7 +326,7 @@ gulp.task('lint-styles', function() {
                 ]
               }));
 });
-gulp.task('lint', gulp.parallel('lint-json', 'lint-html', 'lint-markdown', 'lint-scripts', 'lint-styles'));
+gulp.task('lint', gulp.parallel('lint:json', 'lint:html', 'lint:markdown', 'lint:scripts', 'lint:styles'));
 
 /* Testing */
 const testIntegration = run('./node_modules/.bin/jest');
