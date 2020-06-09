@@ -101,15 +101,15 @@ gulp.task('clean:tests', function() {
 gulp.task('clean', gulp.parallel('clean:reports', 'clean:site', 'clean:tests'));
 
 /* Build */
-gulp.task('assets:downloads', function() {
+gulp.task('build-assets-downloads', function() {
   return gulp.src(INPUT_ASSETS.downloads)
              .pipe(gulp.dest(`${OUTPUT_SITE}/downloads`));
 });
-gulp.task('assets:fonts', function() {
+gulp.task('build-assets-fonts', function() {
   return gulp.src(INPUT_ASSETS.fonts)
              .pipe(gulp.dest(`${OUTPUT_SITE}/assets/fonts`));
 });
-gulp.task('assets:iconography', function() {
+gulp.task('build-assets-iconography', function() {
   return gulp.src(INPUT_ASSETS.icons)
              .pipe(iconfont({
                fontName: 'icon-e',
@@ -119,18 +119,25 @@ gulp.task('assets:iconography', function() {
              }))
              .pipe(gulp.dest(`${OUTPUT_SITE}/assets/fonts`));
 });
-gulp.task('assets:images', function() {
+gulp.task('build-assets-images', function() {
   return gulp.src(INPUT_ASSETS.images)
              .pipe(gulpIf(minifyOutput, imagemin()))
              .pipe(gulp.dest(`${OUTPUT_SITE}/assets`));
 });
-gulp.task('assets:svgs', function() {
+gulp.task('build-assets-svgs', function() {
   return gulp.src(INPUT_ASSETS.svgs)
              .pipe(gulpIgnore.exclude('**/fonts/*.svg'))
              .pipe(gulp.dest(`${OUTPUT_SITE}/assets`));
 });
-gulp.task('assets', gulp.parallel('assets:downloads', 'assets:fonts', 'assets:iconography', 'assets:images', 'assets:svgs'));
-gulp.task('html', function() {
+gulp.task('build-assets', gulp.parallel(
+  'build-assets-downloads',
+  'build-assets-fonts',
+  'build-assets-iconography',
+  'build-assets-images',
+  'build-assets-svgs'
+));
+
+gulp.task('build-html', function() {
   const stdHelpers = require('handlebars-helpers');
 
   return gulp.src(INPUT_HTML)
@@ -146,11 +153,13 @@ gulp.task('html', function() {
              .pipe(replaceExt('.html'))
              .pipe(gulp.dest(OUTPUT_SITE));
 });
-gulp.task('metadata', function() {
+
+gulp.task('build-metadata', function() {
   return gulp.src(INPUT_ROOT_FILES)
              .pipe(gulp.dest(OUTPUT_SITE));
 });
-gulp.task('scripts', function() {
+
+gulp.task('build-scripts', function() {
   return gulp.src(INPUT_SCRIPTS)
              .pipe(jswrap({
                globals: { window: 'root' }
@@ -158,7 +167,8 @@ gulp.task('scripts', function() {
              .pipe(gulpIf(minifyOutput, uglifyJS()))
              .pipe(gulp.dest(`${OUTPUT_SITE}/scripts`));
 });
-gulp.task('styles', function() {
+
+gulp.task('build-styles', function() {
   const atApply = require('postcss-apply');
   const atImport = require('postcss-import');
   const autoprefixer = require('autoprefixer');
@@ -187,19 +197,26 @@ gulp.task('styles', function() {
              .pipe(gulp.dest(`${OUTPUT_SITE}/styles`));
 });
 
-gulp.task('build', gulp.parallel('assets', 'metadata', 'html', 'scripts', 'styles'));
+gulp.task('build', gulp.parallel(
+  'build-assets',
+  'build-metadata',
+  'build-html',
+  'build-scripts',
+  'build-styles'
+));
 gulp.task('build:watch', function() {
   const watch = (files, task) => gulp.watch(files, task).on('all', browserSync.reload);
-  watch(INPUT_ASSETS.downloads, gulp.task('assets-downloads'));
-  watch(INPUT_ASSETS.fonts, gulp.task('assets-fonts'));
-  watch(INPUT_ASSETS.icons, gulp.task('assets-iconography'));
-  watch(INPUT_ASSETS.images, gulp.task('assets-images'));
-  watch(INPUT_ASSETS.svgs, gulp.task('assets-svgs'));
-  watch([INPUT_HTML, ...Object.values(INPUT_HANDLEBARS)], gulp.task('html'))
-  watch(INPUT_ROOT_FILES, gulp.task('metadata'));
-  watch(INPUT_SCRIPTS, gulp.task('scripts'));
-  watch(INPUT_STYLES.all, gulp.task('styles'));
+  watch(INPUT_ASSETS.downloads, gulp.task('build-assets-downloads'));
+  watch(INPUT_ASSETS.fonts, gulp.task('build-assets-fonts'));
+  watch(INPUT_ASSETS.icons, gulp.task('build-assets-iconography'));
+  watch(INPUT_ASSETS.images, gulp.task('build-assets-images'));
+  watch(INPUT_ASSETS.svgs, gulp.task('build-assets-svgs'));
+  watch([INPUT_HTML, ...Object.values(INPUT_HANDLEBARS)], gulp.task('build-html'))
+  watch(INPUT_ROOT_FILES, gulp.task('build-metadata'));
+  watch(INPUT_SCRIPTS, gulp.task('build-scripts'));
+  watch(INPUT_STYLES.all, gulp.task('build-styles'));
 });
+
 gulp.task('dist', gulp.series('clean:site', setMinifyOutput, 'build'));
 
 /* Server */
@@ -241,7 +258,7 @@ gulp.task('analyze:a11y', gulp.series('clean:site', 'build', function() {
 }));
 gulp.task('analyze:perf', gulp.series('clean:site', 'dist', 'server', lighthouse, gracefulExit));
 
-gulp.task('lint:html', gulp.series(setMinifyOutput, 'html', function() {
+gulp.task('lint:html', gulp.series(setMinifyOutput, 'build-html', function() {
   return gulp.src(`${OUTPUT_SITE}/**/*.html`)
              .pipe(htmllint({config: '.htmllintrc.json'}));
 }));
