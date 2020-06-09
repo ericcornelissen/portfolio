@@ -66,9 +66,12 @@ const DOCKER_CONTAINER_NAME = 'portfolio-server';
 
 
 let minifyOutput = false;
-let serverActive = false;
-let watchingFiles = false;
 
+
+function setMinifyOutput(done) {
+  minifyOutput = true;
+  done();
+};
 
 function gracefulExit(done) {
   browserSync.exit();
@@ -96,11 +99,6 @@ gulp.task('clean:tests', function() {
              .pipe(remove());
 });
 gulp.task('clean', gulp.parallel('clean:reports', 'clean:site', 'clean:tests'));
-
-gulp.task('set-minify-output', function(done) {
-  minifyOutput = true;
-  done();
-});
 
 /* Build */
 gulp.task('assets:downloads', function() {
@@ -191,8 +189,6 @@ gulp.task('styles', function() {
 
 gulp.task('build', gulp.parallel('assets', 'metadata', 'html', 'scripts', 'styles'));
 gulp.task('build:watch', function() {
-  watchingFiles = true;
-
   const watch = (files, task) => gulp.watch(files, task).on('all', browserSync.reload);
   watch(INPUT_ASSETS.downloads, gulp.task('assets-downloads'));
   watch(INPUT_ASSETS.fonts, gulp.task('assets-fonts'));
@@ -204,7 +200,7 @@ gulp.task('build:watch', function() {
   watch(INPUT_SCRIPTS, gulp.task('scripts'));
   watch(INPUT_STYLES.all, gulp.task('styles'));
 });
-gulp.task('dist', gulp.series('clean:site', 'set-minify-output', 'build'));
+gulp.task('dist', gulp.series('clean:site', setMinifyOutput, 'build'));
 
 /* Server */
 gulp.task('server', gulp.series(
@@ -218,7 +214,6 @@ gulp.task('server', gulp.series(
     }
   },
   function(done) {
-    serverActive = true;
     browserSync.init({
       open: false,
       port: SERVER_PORT,
@@ -246,7 +241,7 @@ gulp.task('analyze:a11y', gulp.series('clean:site', 'build', function() {
 }));
 gulp.task('analyze:perf', gulp.series('clean:site', 'dist', 'server', lighthouse, gracefulExit));
 
-gulp.task('lint:html', gulp.series('set-minify-output', 'html', function() {
+gulp.task('lint:html', gulp.series(setMinifyOutput, 'html', function() {
   return gulp.src(`${OUTPUT_SITE}/**/*.html`)
              .pipe(htmllint({config: '.htmllintrc.json'}));
 }));
