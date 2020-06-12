@@ -61,9 +61,10 @@ jobs:
         - gulp dist
 
       deploy:
-        local-dir: ./_site
+        local_dir: ./_site
         provider: pages
-        github-token: $GITHUB_TOKEN
+        token: $GITHUB_TOKEN
+        strategy: git
         on:
           branch: master
 
