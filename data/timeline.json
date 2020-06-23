@@ -33,17 +33,6 @@
     "link": "http://secclo.aalto.fi/en/"
   },
   {
-    "type": "internship",
-    "title": "Data Analytics Internship",
-    "institute": "Optiver Amsterdam",
-    "location": {
-      "city": "Amsterdam",
-      "country": "Netherlands"
-    },
-    "when": 2018,
-    "link": "https://www.optiver.com/na/en/our-locations/amsterdam"
-  },
-  {
     "type": "education",
     "title": "Graduated B.Sc Computer Science",
     "institute": "TU Delft",
@@ -53,6 +42,17 @@
     },
     "when": 2018,
     "link": "/downloads/bsc-computer-scienc_tu-delft-2018.pdf"
+  },
+  {
+    "type": "internship",
+    "title": "Data Analytics Internship",
+    "institute": "Optiver Amsterdam",
+    "location": {
+      "city": "Amsterdam",
+      "country": "Netherlands"
+    },
+    "when": 2018,
+    "link": "https://www.optiver.com/na/en/our-locations/amsterdam"
   },
   {
     "type": "achievement",
