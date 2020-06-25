@@ -16,4 +16,14 @@ utils.runForDesktops('Back to top on %s', (name, device) => {
     const scrollTop = await page.evaluate('document.body.scrollTop');
     expect(scrollTop).toBe(0);
   });
+
+  test('Back to top works with JavaScript disabled', async () => {
+    await page.setJavaScriptEnabled(false);
+    await page.reload();
+
+    await page.evaluate('document.body.scrollBy(0, 9999);');
+    await utils.sleep(500); // Wait for scroll-to-top button animation
+
+    await expect(page).toClick('a.back-to-top');
+  });
 });
