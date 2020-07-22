@@ -176,7 +176,7 @@
       "end_year": 2015,
       "spotlight": false,
       "tags": ["CSS", "HTML", "JavaScript"],
-      "keywords": ["onepager", "one page", "website", "webapp", "web application"],
+      "keywords": ["one-pager", "one page", "website", "webapp", "web application"],
       "links": {
         "github": "https://github.com/ericcornelissen/InterstellarScaler",
         "website": "https://ericcornelissen.github.io/InterstellarScaler/"
