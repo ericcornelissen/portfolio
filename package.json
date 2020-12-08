@@ -9,7 +9,6 @@
     "email": "ericornelissen@gmail.com"
   },
   "scripts": {
-    "commitlint": "commitlint -e",
     "postinstall": "husky install"
   },
   "devDependencies": {
