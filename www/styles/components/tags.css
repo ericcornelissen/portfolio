@@ -1,0 +1,42 @@
+@import '../utilities/unselectable.css';
+@import '../variables/colors.css';
+@import '../variables/dimensions.css';
+@import '../variables/fonts.css';
+
+.tags {
+  @apply --unselectable;
+
+  display: block;
+  list-style: none;
+  margin: var(--space-between-paragraphs) 0;
+  position: relative;
+
+  & > .tag {
+    background-color: var(--clr-primary-accent);
+    border-radius: var(--std-border-radius);
+    color: var(--clr-primary-white);
+    cursor: default;
+    display: inline-block;
+    font-size: var(--fontsize-subtext);
+    margin: 0 var(--space-between-tags);
+    padding: var(--padding-v-span) var(--padding-h-span);
+
+    &::before {
+      background-color: var(--clr-secondary-accent);
+      border-bottom-left-radius: var(--std-border-radius);
+      border-top-left-radius: var(--std-border-radius);
+      content: '#';
+      float: left;
+      margin:
+        calc(-1 * var(--padding-v-span))
+        var(--padding-h-span)
+        calc(-1 * var(--padding-v-span))
+        calc(-1 * var(--padding-h-span));
+      padding: var(--padding-v-span) var(--padding-hashtag);
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}

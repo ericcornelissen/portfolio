@@ -1,11 +1,12 @@
-@import 'variables/dimensions.css';
+@import '../variables/colors.css';
+@import '../variables/dimensions.css';
+@import '../variables/layers.css';
+@import '../variables/shadows.css';
 
 .footer {
-  background: #171717;
-  box-shadow: 0 -2px 4px 0 var(--clr-shadow);
-  height: 3em;
-  margin: 0;
-  padding: 0;
+  background: var(--background-color-footer);
+  box-shadow: var(--boxshadow-roof-);
+  height: var(--height-footer);
   position: relative;
   width: 100%;
   z-index: var(--layer-roof);
@@ -13,7 +14,7 @@
   &::before {
     background: linear-gradient(90deg, var(--mystic-mauvea-start) 0%, var(--mystic-mauvea-end) 100%);
     content: '';
-    height: 2px;
+    height: var(--border-width-footer);
     left: 0;
     position: absolute;
     top: 0;
@@ -21,14 +22,8 @@
   }
 }
 
-@media (--medium-screen) {
-  .footer {
-    height: 4em;
-  }
-}
 @media (--large-screen) {
   .footer {
     align-self: end;
-    height: 3em;
   }
 }

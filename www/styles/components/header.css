@@ -1,0 +1,117 @@
+@import '../variables/colors.css';
+@import '../variables/dimensions.css';
+@import '../variables/layers.css';
+@import '../variables/shadows.css';
+
+.header {
+  background-color: var(--clr-primary-white);
+  box-shadow: var(--boxshadow-roof);
+  z-index: var(--layer-roof);
+
+  .header__container {
+    padding: var(--padding-header) 0;
+  }
+
+  .header__message {
+    margin: var(--space-between-in-header) 0;
+  }
+
+  .header__title {
+    margin-top: 0;
+    width: 0;
+    word-break: normal;
+
+    &::after {
+      background: linear-gradient(90deg, var(--mystic-mauvea-start) 0%, var(--mystic-mauvea-end) 100%);
+    }
+  }
+
+  .hlist {
+    margin: var(--space-between-in-header) 0 0;
+  }
+}
+
+.header--compact {
+  height: var(--height-header--compact);
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+
+  .breadcrumbs {
+    align-self: center;
+    margin: 0;
+  }
+
+  .header__container {
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    padding: var(--padding-header-compact) 0;
+  }
+
+  .header__logo {
+    display: block;
+    height: 100%;
+    margin: 0 1em 0 0;
+
+    img&,
+    & > img {
+      background-image: none;
+      height: 100%;
+      min-height: unset;
+      min-width: unset;
+    }
+  }
+
+  .header__social,
+  .header__message,
+  .header__title {
+    display: none;
+  }
+}
+
+@media (--medium-screen) {
+  .header {
+    padding: 0 var(--padding-header);
+  }
+
+  .header--compact {
+    margin: 0;
+    max-width: none;
+
+    .header__container {
+      margin: 0 auto;
+      max-width: var(--content-max-width);
+    }
+  }
+}
+@media (--large-screen) {
+  .header {
+    justify-self: end;
+    margin: 0; /* undo margin from --medium-screen */
+    position: sticky;
+    top: 0;
+    width: 27.5em;
+  }
+
+  .header--compact {
+    --padding-header-compact: var(--padding-header);
+
+    height: unset;
+
+    .header__container {
+      display: block;
+    }
+
+    .header__logo {
+      display: none;
+    }
+
+    .header__social,
+    .header__message,
+    .header__title {
+      display: block;
+    }
+  }
+}

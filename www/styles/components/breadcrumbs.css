@@ -1,0 +1,26 @@
+@import '../utilities/text.css';
+@import '../variables/dimensions.css';
+
+.breadcrumbs {
+  --separator: '>';
+  --separator-fontsize: .8em;
+
+  overflow: hidden;
+
+  & > .list-item {
+    @apply --text-sub;
+
+    &:last-child {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    &:not(:last-child)::after {
+      content: var(--separator);
+      font-size: var(--separator-fontsize);
+      margin: 0 var(--space-between-breadcrumbs);
+      pointer-events: none;
+    }
+  }
+}

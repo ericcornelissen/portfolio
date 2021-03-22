@@ -1,0 +1,18 @@
+@import './utilities/text.css';
+@import './variables/paths.css';
+
+figcaption {
+  @apply --text-sub;
+
+  margin-top: var(--space-between-paragraphs);
+}
+
+img {
+  background-image: var(--placeholder-image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: transparent; /* hide the alt text when the image is not found */
+  min-height: 256px;
+  min-width: 256px;
+}

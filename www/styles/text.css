@@ -1,0 +1,130 @@
+@import './utilities/text.css';
+@import './variables/colors.css';
+@import './variables/fonts.css';
+@import './variables/transitions.css';
+
+h1 {
+  font-family: var(--fontstack-header);
+  font-size: var(--fontsize-h1);
+  line-height: var(--lineheight-header);
+}
+
+h2 {
+  font-family: var(--fontstack-header);
+  font-size: var(--fontsize-h2);
+  line-height: var(--lineheight-header);
+}
+
+h3 {
+  font-family: var(--fontstack-header);
+  font-size: var(--fontsize-h3);
+  line-height: var(--lineheight-header);
+}
+
+h1,
+h2,
+h3 {
+  margin: 1em 0 .3em;
+}
+
+h4 {
+  font-family: var(--fontstack-subheader);
+  font-size: var(--fontsize-h4);
+  line-height: var(--lineheight-subheader);
+}
+
+h5 {
+  font-family: var(--fontstack-subheader);
+  font-size: var(--fontsize-h5);
+  line-height: var(--lineheight-subheader);
+}
+
+h6 {
+  font-family: var(--fontstack-subheader);
+  font-size: var(--fontsize-h6);
+  line-height: var(--lineheight-subheader);
+}
+
+h4,
+h5,
+h6 {
+  margin: 1.2em 0 .3em;
+}
+
+p,
+li {
+  font-family: var(--fontstack-text);
+  font-size: var(--fontsize-text);
+  line-height: var(--lineheight-text);
+  word-break: keep-all;
+}
+
+b,
+strong {
+  @apply --text-bold;
+}
+
+i,
+em {
+  @apply --text-emph;
+}
+
+code {
+  background-color: var(--clr-code-background);
+  border-radius: 2px;
+  color: var(--clr-primary-black);
+  font-family: var(--fontstack-code);
+  padding: .05em .2em;
+}
+
+kbd { /* based on GitHub's <kbd> styling */
+  background-color: #fafbfc;
+  border: 1px solid #c6cbd1;
+  border-bottom-color: #959da5;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #959da5;
+  color: #444d56;
+  display: inline-block;
+  font-size: 11px;
+  line-height: 10px;
+  padding: 3px 5px;
+  vertical-align: middle;
+}
+
+.text-link {
+  background-color: transparent;
+  color: var(--clr-secondary-accent);
+  position: relative;
+  text-decoration: none;
+  transition: var(--transition-color);
+  white-space: nowrap;
+  z-index: 0;
+
+  &::after {
+    background-color: var(--clr-primary-black);
+    content: '';
+    height: calc(100% + 4px);
+    left: -2px;
+    max-height: 0;
+    padding: 0 2px;
+    position: absolute;
+    top: 1px;
+    transition: max-height .2s ease;
+    width: 100%;
+    z-index: -1;
+  }
+
+  &:focus {
+    color: var(--clr-primary-accent);
+  }
+
+  &:hover {
+    color: var(--clr-primary-white);
+
+    &::after {
+      bottom: -1px;
+      max-height: 100%;
+      top: auto;
+    }
+  }
+}

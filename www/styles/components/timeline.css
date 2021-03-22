@@ -1,8 +1,9 @@
-@import 'utilities/text.css';
-@import 'utilities/unselectable.css';
-@import 'variables/colors.css';
-@import 'variables/dimensions.css';
-@import 'icons.css';
+@import '../utilities/text.css';
+@import '../utilities/unselectable.css';
+@import '../variables/colors.css';
+@import '../variables/dimensions.css';
+@import '../variables/transitions.css';
+@import './icons.css';
 
 .timeline {
   --icon-size: 20px;
@@ -19,20 +20,19 @@
   flex-direction: column;
   justify-content: center;
   list-style-type: none;
-  padding: 0;
   position: relative;
 
   .timeline-event {
     background-color: var(--clr-primary-white);
     border-radius: 4px;
-    box-shadow: 0 0 4px 0 var(--clr-shadow);
+    box-shadow: var(--boxshadow-floor);
     color: var(--clr-primary-black);
     display: flex;
     flex-direction: column;
     margin: var(--margin-event);
     padding: var(--padding-event);
     position: relative;
-    transition: box-shadow .3s ease;
+    transition: var(--transition-shadow);
     width: var(--card-width);
 
     &--achievement {
@@ -74,7 +74,7 @@
     }
 
     &:hover {
-      box-shadow: 0 0 8px 0 var(--clr-shadow);
+      box-shadow: var(--boxshadow-roof);
     }
 
     &:focus-within::after,
@@ -208,6 +208,7 @@
         &--more {
           box-shadow: none;
           height: 0;
+          margin: 0;
           outline: 0;
           padding: 0;
           width: 0;
@@ -250,7 +251,7 @@
         }
       }
 
-      /* Show 3 elements on medium screens */
+      /* show 3 elements on medium screens */
       @media only screen and (min-width: 1240px) and (orientation: landscape) {
         .timeline-event {
           &:nth-child(3) {
@@ -259,7 +260,7 @@
         }
       }
 
-      /* Show 4 elements on medium screens */
+      /* show 4 elements on medium screens */
       @media only screen and (min-width: 1440px) and (orientation: landscape) {
         .timeline-event {
           &:nth-child(2) {

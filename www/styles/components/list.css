@@ -1,0 +1,50 @@
+@import '../variables/colors.css';
+@import '../variables/dimensions.css';
+@import '../variables/fonts.css';
+
+.list {
+  list-style: none;
+  margin: 0 0 0 3.2em;
+
+  .list-item {
+    cursor: pointer;
+    margin: 0 0 .3em;
+    position: relative;
+  }
+}
+
+.hlist {
+  --item-color: var(--clr-primary-gray);
+  --item-color-hovered: var(--clr-secondary-gray);
+
+  display: flex;
+  flex-flow: row nowrap;
+  font-family: var(--fontstack-subtext);
+
+  & > .list-item {
+    color: var(--item-color);
+    cursor: default;
+    display: inline-block;
+    font-family: monospace;
+    font-size: var(--fontsize-subtext);
+
+    & > a:hover {
+      color: var(--item-color-hovered);
+      cursor: pointer;
+    }
+  }
+}
+
+.hlist--evenly-spaced {
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.list--glyphs,
+.hlist--glyphs {
+  & > .list-item {
+    font-size: var(--fontsize-glyphs);
+    margin-left: var(--space-between-hlist);
+  }
+}

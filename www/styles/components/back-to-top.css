@@ -1,5 +1,7 @@
-@import 'utilities/unselectable.css';
-@import 'variables/dimensions.css';
+@import '../utilities/unselectable.css';
+@import '../variables/dimensions.css';
+@import '../variables/fonts.css';
+@import '../variables/transitions.css';
 
 .back-to-top {
   display: none;
@@ -10,28 +12,27 @@
     @apply --unselectable;
 
     align-items: center;
-    bottom: 1em;
+    bottom: var(--space-between-sections);
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    font-size: 1.7rem;
-    max-height: 100px;
+    font-size: var(--fontsize-h5);
+    left: calc(100% + var(--back-to-top-right));
+    max-height: 100%;
     opacity: .5;
     overflow: hidden;
-    padding: 0;
     position: absolute;
-    right: 54px;
     text-decoration: none;
     transition:
-      bottom .25s ease,
-      max-height .25s ease;
+      var(--transition-bottom),
+      var(--transition-max-height);
 
     &:focus,
     &:hover {
       opacity: 1;
     }
 
-    &--hidden {
+    &&--hidden {
       bottom: 0;
       max-height: 0;
     }
@@ -39,10 +40,10 @@
 
   .back-to-top__icon {
     display: block;
-    font-size: 2.2rem;
+    font-size: var(--fontsize-glyphs-l);
   }
 
   .back-to-top__text {
-    margin: 0;
+    white-space: nowrap;
   }
 }

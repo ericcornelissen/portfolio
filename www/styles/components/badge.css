@@ -1,0 +1,17 @@
+@import '../utilities/text.css';
+@import '../utilities/unselectable.css';
+@import '../variables/colors.css';
+
+.badge {
+  @apply --text-bold;
+  @apply --text-small;
+  @apply --unselectable;
+
+  background-color: var(--clr-badge);
+  border-radius: var(--std-border-radius);
+  color: var(--clr-primary-white);
+  display: inline-block;
+  font-size: 1rem;
+  padding: var(--padding-v-span) var(--padding-h-span);
+  vertical-align: middle;
+}

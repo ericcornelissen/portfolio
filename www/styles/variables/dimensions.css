@@ -1,2 +1,43 @@
-@custom-media --medium-screen only screen and (min-width: 961px) and (orientation: landscape);
-@custom-media --large-screen only screen and (min-width: 1600px) and (orientation: landscape);
+:root {
+  /* layout */
+  --page-min-margin: 2em;
+  --page-min-width: 420px;
+  --space-between-sections: 2rem;
+  --space-between-paragraphs: 1em;
+
+  /* components */
+  --padding-h-card: 1em;
+  --padding-v-card: 1.1em;
+  --padding-h-span: .5em;
+  --padding-v-span: .1em;
+
+  /* miscellaneous */
+  --std-border-radius: 4px;
+  --back-to-top-right: 2vw;
+  --padding-hashtag: .2em;
+  --height-header--compact: 4em;
+  --height-footer: 3em;
+  --border-width-footer: 2px;
+  --padding-header: 2em;
+  --padding-header-compact: .75em;
+
+  /* space between */
+  --space-between-tags: .2em;
+  --space-between-in-header: .75em;
+  --space-between-cards: .4em;
+  --space-between-hlist: .5em;
+  --space-between-breadcrumbs: .5em;
+}
+
+@media (--medium-screen) {
+  :root {
+    /* layout */
+    --content-max-width: 48.75em;
+    --space-between-sections: 2.75rem;
+  }
+}
+@media (--large-screen) {
+  :root {
+    --space-between-sections: 3.375em;
+  }
+}

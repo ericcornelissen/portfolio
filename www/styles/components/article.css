@@ -1,0 +1,27 @@
+@import '../variables/colors.css';
+@import '../variables/dimensions.css';
+@import '../variables/fonts.css';
+
+.article {
+  & .article__date {
+    color: var(--clr-primary-gray);
+    font-family: var(--fontstack-code);
+    font-size: var(--fontsize-subtext);
+  }
+
+  & > p,
+  & > .article__figure {
+    margin: var(--space-between-paragraphs) 0;
+  }
+
+  & > .article__figure {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    & > .article__image {
+      max-width: 100%;
+    }
+  }
+}
