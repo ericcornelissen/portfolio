@@ -93,7 +93,7 @@
     "title": "Data Analytics Internship",
     "institutes": [
       {
-        "name": "Optiver Amsterdam",
+        "name": "Optiver",
         "location": {
           "city": "Amsterdam",
           "country": "Netherlands"
@@ -135,7 +135,7 @@
   },
   {
     "type": "achievement",
-    "title": "Honourable mention",
+    "title": "Honourable Mention BAPC",
     "institutes": [
       {
         "name": "Benelux Algorithm Programming Contest",
