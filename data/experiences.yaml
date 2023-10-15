@@ -1,0 +1,88 @@
+experiences:
+  - title: Doctoral Student
+    organization: KTH Royal Institute of Technology
+    location: Stockholm, Sweden
+    type: Full-time
+    duration:
+      from: October 2023
+      to: Present
+    description: |-
+      Researching Supply Chain Security as part of the <a rel="noopener" target=
+      "_blank" href="https://chains.proj.kth.se/">CHAINS</a> project.
+  - title: Software Engineer
+    organization: Cobalt.io
+    location: Remote, Germany
+    type: Full-time
+    duration:
+      from: April 2021
+      to: September 2023
+    description: |-
+      Worked in the integration teams as a full-stack developer working with
+      React in JavaScript and Spring in Kotlin.
+  - title: Project Worker
+    organization: Aalto University
+    location: Helsinki, Finland
+    type: Full-time
+    duration:
+      from: August 2020
+      to: October 2020
+    description: |-
+      Collaborated with C. Brzuska and K. Kohbrok on a research paper titled <a
+      href="https://doi.org/10.1109/SP46214.2022.9833678" rel="noopener" target=
+      "_blank">Security Analysis of the MLS Key Derivation</a> and presented our
+      work at the 43rd IEEE Symposium on Security and Privacy.
+  - title: Master Student
+    organization: Aalto University & University of Tartu
+    location: Helsinki, Finland & Tartu, Estonia
+    type: Full-time
+    duration:
+      from: August 2018
+      to: June 2020
+    description: |-
+      Studied Security and Cloud Computing (SECCLO) learning about information
+      security, web and cloud security, mobile security and development,
+      cryptography, blockchains, as well as data mining and platforms.
+  - title: Security Intern
+    organization: Mezu
+    location: Lisbon, Portugal
+    type: Internship
+    duration:
+      from: June 2019
+      to: August 2019
+    description: |-
+      Full-time internship where I performed Protocol Analysis using the Burp
+      suite, Mobile Penetration testing, and PCI auditing.
+  - title: Bachelor Student
+    organization: Delft University of Technology
+    location: Delft, The Netherlands
+    type: Full-time
+    duration:
+      from: August 2015
+      to: June 2018
+    description: |-
+      Studied Computer Science learning about software engineering, algorithms
+      and data structures, complexity theory, networking, operating systems, as
+      well as calculus, linear algebra, and statistics. Included a minor at the
+      KTH Royal Institute of Technology focussing on security and human-computer
+      interaction.
+  - title: Tech Intern
+    organization: Optiver
+    location: Amsterdam, The Netherlands
+    type: Internship
+    duration:
+      from: April 2018
+      to: June 2018
+    description: |-
+      Full-time internship where we, in a group of 4 Bachelor students, built a
+      data analytics tool using Python 3 to analyze terabytes of disjoint sets
+      of log data in near real-time.
+  - title: Junior Full Stack Developer
+    organization: Ticketmatic
+    location: Remote, The Netherlands
+    type: Part-time
+    duration:
+      from: March 2016
+      to: April 2018
+    description: |-
+      Freelance remote junior full stack developer using NodeJS, PostgreSQL, and
+      Heroku on the back-end and VueJS, JQuery, and Bootstrap on the front-end.

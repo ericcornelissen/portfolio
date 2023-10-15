@@ -1,0 +1,13 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+. "$(dirname "$0")/common.sh"
+
+if [ -z "$(IS_MERGING)" ]; then
+	git stash push --include-untracked --quiet
+fi
+
+make verify
+
+if [ -n "$(DID_STASH)" ]; then
+	git stash pop --quiet
+fi

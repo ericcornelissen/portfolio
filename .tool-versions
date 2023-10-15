@@ -1,0 +1,7 @@
+# Check out asdf at: https://asdf-vm.com/
+# Check out rtx at: https://github.com/jdxcode/rtx
+
+actionlint 1.6.26
+shellcheck 0.9.0
+shfmt 3.7.0
+yamllint 1.32.0

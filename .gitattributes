@@ -1,0 +1,6 @@
+# Check out git at: https://git-scm.com/
+
+* text=auto
+
+# don't diff machine generated files
+package-lock.json -diff

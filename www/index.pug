@@ -1,0 +1,109 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset="utf-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1")
+		meta(
+			http-equiv="Content-Security-Policy",
+			content="default-src 'none';base-uri 'self';connect-src 'self' https:;font-src 'self';img-src 'self' https:;script-src 'self' 'unsafe-inline';style-src 'self';"
+		)
+		meta(name="title", content="Eric Cornelissen")
+
+		link(href="/styles/reset.css", rel="stylesheet", type="text/css")
+		link(href="/styles/layout.css", rel="stylesheet", type="text/css")
+		link(href="/styles/styling.css", rel="stylesheet", type="text/css")
+		link(href="/styles/text.css", rel="stylesheet", type="text/css")
+
+		title Eric Cornelissen
+	body
+		header
+			h1 Eric Cornelissen
+			p
+				| A PhD student and open source enthusiast with an interest in security
+				| and usability. My research focusses on supply chain security and my
+				| open source work is all over the place.
+			p
+				| On this page you can read about my
+				|
+				a(href="#experience-and-eduction") Experience &amp; Education
+				| ,
+				|
+				a(href="#projects") Projects
+				| , and
+				|
+				a(href="#open-source") Open Source work
+				| .
+				| Besides this website, you can find me and my work on:
+				|
+				each link, index in links
+					a(href=link.url, rel="noopener", target="_blank") #{ link.name }
+					if index < links.length - 1
+						| ,
+						|
+					if index == links.length - 2
+						| and
+						|
+				| .
+		section#experience-and-eduction
+			h2.title Experience &amp; Education
+			div
+				ul
+					each experience in experiences
+						li
+							h3 #{ experience.title } at #{ experience.organization }
+							.space-between
+								span #{ experience.location }
+								span #{ experience.duration.from } - #{ experience.duration.to }
+							p !{ experience.description }
+		section#projects
+			h2.title Projects
+			div
+				h3 Present Projects
+				p.
+					These are software projects I'm at least somewhat actively working on -
+					in alphabetical order.
+				ul
+					each project in projects
+						if project.active
+							li
+								h4
+									a(href=project.link, rel="noopener", target="_blank") #{ project.name }
+								p #{ project.description }
+				h3 Past Projects
+				p.
+					These are software projects I worked on in the past but am not actively
+					working on anymore - in alphabetical order.
+				ul
+					each project in projects
+						if !project.active
+							li
+								h4
+									a(href=project.link, rel="noopener", target="_blank") #{ project.name }
+								p #{ project.description }
+		section#open-source
+			h2.title Open Source
+			div
+				h3 Maintainership
+				p.
+					Projects started or run by others that I've (co-)maintained for a some
+					amount of time.
+				h4 Present
+				ul.bullet-list
+					each maintainer in maintainership
+						if maintainer.active
+							li
+								a(href=maintainer.link, rel="noopener", target="_blank") #{ maintainer.name }
+				h4 Past
+				ul.bullet-list
+					each maintainer in maintainership
+						if !maintainer.active
+							li
+								a(href=maintainer.link, rel="noopener", target="_blank") #{ maintainer.name }
+				h3 Contributions
+				p.
+					A non-exhaustive list of open source projects I've contributed to in
+					the past.
+				ul.bullet-list
+					each contribution in contributions
+						li
+							a(href=contribution.link, rel="noopener", target="_blank") #{ contribution.name }

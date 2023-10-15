@@ -1,0 +1,8 @@
+# Check out git at: https://git-scm.com/
+
+/*
+
+!.gitignore
+!common.sh
+!pre-commit
+!pre-push

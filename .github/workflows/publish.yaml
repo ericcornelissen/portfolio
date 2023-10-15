@@ -1,0 +1,32 @@
+name: Publish
+on:
+  push:
+    branches:
+      - main
+
+permissions: read-all
+
+jobs:
+  website:
+    name: Website
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4.1.0
+        with:
+          persist-credentials: false
+      - name: Install Node.js
+        uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d # v3.8.1
+        with:
+          cache: npm
+          node-version-file: .nvmrc
+      - name: Build
+        run: make build
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@a1ea191d508feb8485aceba848389d49f80ca2dc # v4.4.3
+        with:
+          branch: gh-pages
+          folder: _site
+          single-commit: true

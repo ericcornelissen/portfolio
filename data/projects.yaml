@@ -1,0 +1,161 @@
+projects:
+  - name: ades
+    link: https://github.com/ericcornelissen/ades
+    active: true
+    description: |-
+      A simple tool to find dangerous uses of GitHub Actions Workflow
+      expressions.
+  - name: asdf-yamllint
+    link: https://github.com/ericcornelissen/asdf-yamllint
+    active: true
+    description: |-
+      An asdf plugin for yamllint.
+  - name: AutoCorrect-py
+    link: https://github.com/ericcornelissen/AutoCorrect-py
+    active: false
+    description: |-
+      A simple supervised learning dictionary to correct texts implemented in
+      Python.
+  - name: codecov-config-validator-action
+    link: https://github.com/ericcornelissen/codecov-config-validator-action
+    active: true
+    description: |-
+      Action for validating Codecov configuration files.
+  - name: cont-flow-expr
+    link: https://gitlab.com/ericcornelissen/cont-flow-expr
+    active: false
+    description: Control flow as expression for JavaScript.
+  - name: controlled-vocab
+    link: https://github.com/ericcornelissen/controlled-vocab
+    active: false
+    description: |-
+      A multi-threaded Python CLI tool to created a controlled vocabulary.
+  - name: eslint-plugin-top
+    link: https://github.com/ericcornelissen/eslint-plugin-top
+    active: true
+    description: |-
+      Disallow side effects at the top level of files through ESLint.
+  - name: git-tag-annotation-action
+    link: https://github.com/ericcornelissen/git-tag-annotation-action
+    active: true
+    description: |-
+      GitHub Actions Action to get git tag annotations.
+  - name: gofunchecks
+    link: https://github.com/ericcornelissen/gofunchecks
+    active: true
+    description: |-
+      A collection of static analysis tool to analyze functions in Go.
+  - name: gulp-gitstage
+    link: https://github.com/ericcornelissen/gulp-gitstage
+    active: false
+    description: |-
+      A plugin for Gulp to stage files in the object stream for git.
+  - name: InterstellarScaler
+    link: https://github.com/ericcornelissen/InterstellarScaler
+    active: false
+    description: |-
+      A small webapp to calculate what you'll weigh on other planets.
+  - name: jekyll-fontello
+    link: https://github.com/ericcornelissen/jekyll-fontello
+    active: false
+    description: |-
+      Jekyll plugin that automatically downloads your webfont from Fontello.
+  - name: js-regex-security-scanner
+    link: https://github.com/ericcornelissen/js-regex-security-scanner
+    active: true
+    description: |-
+      A static analyzer to scan JavaScript code for problematic regular
+      expressions.
+  - name: pinned-tabs-for-atom
+    link: https://github.com/ericcornelissen/pinned-tabs-for-atom
+    active: false
+    description: |-
+      A package for the Atom text editor that allows you to pin tabs.
+  - name: Register Callback Function UDF
+    link: https://github.com/ericcornelissen/_RegisterCallbackFunction-UDF
+    active: false
+    description: |-
+      A UDF to create a callback loop for a certain function in your Au3
+      project.
+  - name: rust-divisible-by
+    link: https://github.com/ericcornelissen/rust-divisible-by
+    active: false
+    description: |-
+      An experiment in TDD inspired by the Numberphile video "Why 7 is Weird".
+  - name: rust-rm
+    link: https://github.com/ericcornelissen/rust-rm
+    active: true
+    description: |-
+      A CLI like the GNU version of rm(1) but more modern and designed for
+      humans.
+  - name: shescape
+    link: https://github.com/ericcornelissen/shescape
+    active: true
+    description: |-
+      Simple shell escape library for JavaScript.
+  - name: svgo-action
+    link: https://github.com/ericcornelissen/svgo-action
+    active: true
+    description: |-
+      Automatically run SVGO with GitHub Actions.
+  - name: tool-versions-update-action
+    link: https://github.com/ericcornelissen/tool-versions-update-action
+    active: true
+    description: |-
+      A GitHub Action to automatically update the tools in your .tool-versions
+      file.
+  - name: wordrow
+    link: https://github.com/ericcornelissen/wordrow
+    active: false
+    description: |-
+      A small CLI tool to replace instances of words with other words in
+      plaintext.
+
+maintainership:
+  - name: Atom htmllint plugin
+    link: https://github.com/AtomLinter/linter-htmllint
+    active: false
+  - name: git-message-action
+    link: https://github.com/kceb/git-message-action
+    active: true
+  - name: simple-icons
+    link: https://simpleicons.org/
+    active: false
+  - name: svg-to-pdf-bot
+    link: https://github.com/simple-icons/svg-to-pdf-bot
+    active: false
+  - name: SVGLint
+    link: https://github.com/birjj/svglint
+    active: true
+
+contributions:
+  - name: actionlint
+    link: https://github.com/rhysd/actionlint
+  - name: actions/toolkit
+    link: https://github.com/actions/toolkit
+  - name: Create Pull Request Action
+    link: https://github.com/peter-evans/create-pull-request
+  - name: dependency-review-action
+    link: https://github.com/actions/dependency-review-action
+  - name: diff2html
+    link: https://github.com/rtfpessoa/diff2html
+  - name: dotenv
+    link: https://github.com/motdotla/dotenv
+  - name: File Icons for Atom
+    link: https://github.com/file-icons/atom
+  - name: Fluent Terminal
+    link: https://github.com/felixse/FluentTerminal
+  - name: grunt-fontello
+    link: https://github.com/jubalm/grunt-fontello
+  - name: Jsfuzz
+    link: https://gitlab.com/gitlab-org/security-products/analyzers/fuzzers/jsfuzz
+  - name: Labeler Action
+    link: https://github.com/actions/labeler
+  - name: licensee
+    link: https://github.com/jslicense/licensee.js
+  - name: MDN Web Docs
+    link: https://github.com/mdn/content
+  - name: SVGO
+    link: https://github.com/svg/svgo
+  - name: Release Action
+    link: https://github.com/ncipollo/release-action

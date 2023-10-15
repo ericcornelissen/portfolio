@@ -1,0 +1,30 @@
+name: Audit
+on:
+  pull_request:
+    paths:
+      - .github/workflows/audit.yaml
+      - package-lock.json
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: 0 3 * * *
+
+permissions: read-all
+
+jobs:
+  npm:
+    name: npm
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4.1.0
+      - name: Install Node.js
+        uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d # v3.8.1
+        with:
+          cache: npm
+          node-version-file: .nvmrc
+      - name: Install tooling
+        uses: asdf-vm/actions/install@05e0d2ed97b598bfce82fd30daf324ae0c4570e6 # v3.0.2
+      - name: Audit all npm dependencies
+        run: make audit

@@ -1,0 +1,24 @@
+# Check out git at: https://git-scm.com/
+
+/*
+
+!.github/
+!data/
+!script/
+!www/
+!.editorconfig
+!.gitignore
+!.gitattributes
+!.licensee.json
+!.markdownlint.yaml
+!.npmrc
+!.nvmrc
+!.shellcheckrc
+!.tool-versions
+!.yamllint.yaml
+!LICENSE
+!README.md
+!SECURITY.md
+!Makefile
+!package.json
+!package-lock.json
