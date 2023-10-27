@@ -108,5 +108,6 @@ _site/: www/*.html www/styles/*.css
 	@mkdir -p _site
 	@mkdir -p _site/styles
 	@cp www/CNAME _site/
+	@cp www/robots.txt _site/
 	@cp www/*.html _site/
 	@cp www/styles/*.css _site/styles/
