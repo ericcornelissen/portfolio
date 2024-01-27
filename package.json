@@ -17,6 +17,6 @@
     "pug": "3.0.2"
   },
   "scripts": {
-    "prepare": "is-ci || husky install script/hooks"
+    "prepare": "is-ci || husky script/hooks"
   }
 }
