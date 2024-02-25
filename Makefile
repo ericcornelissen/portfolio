@@ -5,6 +5,8 @@ PRETTIER:=npx prettier \
 	**/*.{css,js,json,pug,yaml} \
 	--plugin @prettier/plugin-pug
 
+SHELLCHECK_OPTS:='--enable=avoid-nullary-conditions --enable=deprecate-which --enable=quote-safe-variables --enable=require-variable-braces'
+
 # --- COMMANDS --------------------------------------------------------------- #
 
 .PHONY: default
@@ -46,7 +48,8 @@ lint: lint-ci lint-md lint-sh lint-yaml ## Run lint-*
 
 .PHONY: lint-ci
 lint-ci: node_modules/ ## Lint GitHub Actions workflows
-	@$(MAYBE) actionlint
+	@SHELLCHECK_OPTS=$(SHELLCHECK_OPTS) \
+		$(MAYBE) actionlint
 
 .PHONY: lint-md
 lint-md: node_modules/ ## Lint MarkDown files
@@ -57,8 +60,9 @@ lint-md: node_modules/ ## Lint MarkDown files
 
 .PHONY: lint-sh
 lint-sh: node_modules/ ## Lint Shell scripts
-	@$(MAYBE) shellcheck \
-		script/hooks/*.sh
+	@SHELLCHECK_OPTS=$(SHELLCHECK_OPTS) \
+		$(MAYBE) shellcheck \
+		$(SH_FILES)
 
 .PHONY: lint-yaml
 lint-yaml: node_modules/ ## Lint YAML files
