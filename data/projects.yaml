@@ -82,6 +82,11 @@ projects:
     description: |-
       A UDF to create a callback loop for a certain function in your Au3
       project.
+  - name: Reproducing Actions
+    link: https://github.com/ericcornelissen/reproducing-actions
+    active: true
+    description: |-
+      Insight into the reproducibility of GitHub Actions
   - name: rust-divisible-by
     link: https://github.com/ericcornelissen/rust-divisible-by
     active: false
@@ -131,19 +136,23 @@ maintainership:
     active: false
   - name: SVGLint
     link: https://github.com/birjj/svglint
-    active: true
+    active: false
 
 contributions:
   - name: actionlint
     link: https://github.com/rhysd/actionlint
   - name: actions/toolkit
     link: https://github.com/actions/toolkit
+  - name: crawler-user-agents
+    link: https://github.com/monperrus/crawler-user-agents
   - name: Create Pull Request Action
     link: https://github.com/peter-evans/create-pull-request
   - name: dependency-review-action
     link: https://github.com/actions/dependency-review-action
   - name: diff2html
     link: https://github.com/rtfpessoa/diff2html
+  - name: dogsled
+    link: https://github.com/alexkohler/dogsled
   - name: dotenv
     link: https://github.com/motdotla/dotenv
   - name: File Icons for Atom
@@ -154,6 +163,8 @@ contributions:
     link: https://github.com/gitleaks/gitleaks-action
   - name: grunt-fontello
     link: https://github.com/jubalm/grunt-fontello
+  - name: hadolint
+    link: https://github.com/hadolint/hadolint
   - name: Jsfuzz
     link: https://gitlab.com/gitlab-org/security-products/analyzers/fuzzers/jsfuzz
   - name: Labeler Action
