@@ -105,7 +105,7 @@ projects:
       Simple shell escape library for JavaScript.
   - name: svgo-action
     link: https://github.com/ericcornelissen/svgo-action
-    active: true
+    active: false
     description: |-
       Automatically run SVGO with GitHub Actions.
   - name: tool-versions-update-action
