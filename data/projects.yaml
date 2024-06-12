@@ -42,7 +42,7 @@ projects:
       Checksums for GitHub Actions.
   - name: git-tag-annotation-action
     link: https://github.com/ericcornelissen/git-tag-annotation-action
-    active: true
+    active: false
     description: |-
       GitHub Actions Action to get git tag annotations.
   - name: gofunchecks
