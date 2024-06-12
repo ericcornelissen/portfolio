@@ -1,0 +1,79 @@
+:root {
+	--clr-accent: #87cfeb50;
+	--clr-background: #fefefe;
+	--clr-link: #3e4348;
+	--clr-link-visited: #423e48;
+	--clr-text: #202020;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--clr-accent: #050505;
+		--clr-background: #202020;
+		--clr-link: #e0e0e0;
+		--clr-link-visited: #dadada;
+		--clr-text: #fcfcfc;
+	}
+}
+
+/* -------------------------------------------------------------------------- */
+
+body {
+	background-image: linear-gradient(
+		185deg,
+		var(--clr-accent) 0%,
+		var(--clr-background) 12rem
+	);
+	color: var(--clr-text);
+}
+
+::selection {
+	background: var(--clr-accent);
+}
+
+/* --- Section -------------------------------------------------------------- */
+
+section {
+	border-top: 1px solid var(--clr-text);
+	padding: 1rem 0;
+}
+
+section .title {
+	font-size: 1.2rem;
+	margin: 1.5rem 0 0;
+	text-transform: uppercase;
+}
+
+/* --- Link ----------------------------------------------------------------- */
+
+a {
+	text-decoration: underline;
+}
+a:link,
+.a-link {
+	color: var(--clr-link);
+}
+a:visited,
+.a-visited {
+	color: var(--clr-link-visited);
+}
+a:hover {
+	color: var(--clr-text);
+	text-decoration: none;
+}
+
+/* --- list ----------------------------------------------------------------- */
+
+ul.bullet-list {
+	list-style-type: disc;
+	padding-left: 1em;
+	line-height: 1.4em;
+}
+
+/* --- Miscellaneous -------------------------------------------------------- */
+
+.space-between {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
