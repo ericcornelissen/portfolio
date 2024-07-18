@@ -1,5 +1,5 @@
 #!/bin/sh
-. "$(dirname "$0")/common.sh"
+. "$(dirname "$0")/../common.sh"
 
 if [ -z "$(IS_MERGING)" ]; then
 	git stash push --include-untracked --keep-index --quiet
