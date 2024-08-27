@@ -76,6 +76,12 @@ projects:
     active: false
     description: |-
       A package for the Atom text editor that allows you to pin tabs.
+  - name: pp-test-kit
+    link: https://gitlab.com/ericcornelissen/pp-test-kit
+    active: true
+    description: |-
+      A testing utility library to help write tests related to prototype
+      pollution.
   - name: Register Callback Function UDF
     link: https://github.com/ericcornelissen/_RegisterCallbackFunction-UDF
     active: false
@@ -127,7 +133,7 @@ maintainership:
     active: false
   - name: git-message-action
     link: https://github.com/kceb/git-message-action
-    active: true
+    active: false
   - name: simple-icons
     link: https://simpleicons.org/
     active: false
@@ -143,6 +149,8 @@ contributions:
     link: https://github.com/rhysd/actionlint
   - name: actions/toolkit
     link: https://github.com/actions/toolkit
+  - name: better-npm-audit
+    link: https://github.com/jeemok/better-npm-audit
   - name: crawler-user-agents
     link: https://github.com/monperrus/crawler-user-agents
   - name: Create Pull Request Action
@@ -175,6 +183,8 @@ contributions:
     link: https://github.com/lirantal/lockfile-lint
   - name: MDN Web Docs
     link: https://github.com/mdn/content
+  - name: StrykerJS
+    link: https://github.com/stryker-mutator/stryker-js
   - name: SVGO
     link: https://github.com/svg/svgo
   - name: Release Action
