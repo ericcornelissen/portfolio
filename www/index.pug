@@ -50,11 +50,57 @@ html(lang="en")
 				ul
 					each experience in experiences
 						li
-							h3 #{ experience.title } at #{ experience.organization }
+							h3 #{ experience.title } #[em at] #{ experience.organization }
 							.space-between
 								span #{ experience.location }
 								span #{ experience.duration.from } - #{ experience.duration.to }
 							p !{ experience.description }
+		section#publications
+			h2.title Publications
+			div
+				ul
+					each paper in papers
+						li
+							h3 #{ paper.title }
+							p
+								| At
+								|
+								a(href=paper.venue.page, rel="noopener", target="_blank") #{ paper.venue.name }
+								|
+								| in
+								|
+								span #{ paper.year }
+								|
+								| by
+								|
+								each author, index in paper.authors
+									if author.page
+										a(href=author.page, rel="noopener", target="_blank") #{ author.name }
+									else
+										span #{ author.name }
+									if index < paper.authors.length - 1
+										| ,
+										|
+									if index == paper.authors.length - 2
+										| and
+										|
+								| . See the
+								|
+								a(href=paper.resources.paper, rel="noopener", target="_blank") paper
+								|
+								|
+								if paper.resources.presentation
+									| and
+									|
+									a(href=paper.resources.presentation, rel="noopener", target="_blank") presentation
+								|
+								|
+								if paper.resources.artifact
+									| and
+									|
+									a(href=paper.resources.artifact, rel="noopener", target="_blank") artifact
+								|
+								| for more details.
 		section#projects
 			h2.title Projects
 			div

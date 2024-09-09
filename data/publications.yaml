@@ -1,0 +1,28 @@
+papers:
+  - title: "Ghunter: Universal prototype pollution gadgets in javascript runtimes"
+    year: 2024
+    authors:
+      - name: E. Cornelissen
+      - name: M. Shcherbakov
+        page: https://twitter.com/yu5k3
+      - name: M. Balliu
+        page: https://people.kth.se/~musard/
+    venue:
+      name: 33rd USENIX Security Symposium
+      page: https://www.usenix.org/conference/usenixsecurity24
+    resources:
+      paper: https://www.usenix.org/conference/usenixsecurity24/presentation/cornelissen
+      artifact: https://github.com/KTH-LangSec/ghunter
+  - title: Security analysis of the MLS key derivation
+    year: 2022
+    authors:
+      - name: C. Brzuska
+        page: https://www.chrisbrzuska.de/
+      - name: E. Cornelissen
+      - name: K. Kohbrok
+    venue:
+      name: IEEE Symposium on Security and Privacy
+      page: https://www.ieee-security.org/TC/SP2022/
+    resources:
+      paper: https://ieeexplore.ieee.org/abstract/document/9833678
+      presentation: https://www.youtube.com/watch?v=h6SzidGR334
