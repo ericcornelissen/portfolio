@@ -3,6 +3,7 @@ papers:
     year: 2024
     authors:
       - name: E. Cornelissen
+        self: true
       - name: M. Shcherbakov
         page: https://twitter.com/yu5k3
       - name: M. Balliu
@@ -19,6 +20,7 @@ papers:
       - name: C. Brzuska
         page: https://www.chrisbrzuska.de/
       - name: E. Cornelissen
+        self: true
       - name: K. Kohbrok
     venue:
       name: IEEE Symposium on Security and Privacy

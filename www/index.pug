@@ -76,6 +76,8 @@ html(lang="en")
 								each author, index in paper.authors
 									if author.page
 										a(href=author.page, rel="noopener", target="_blank") #{ author.name }
+									else if author.self
+										span(class="self-link") #{ author.name }
 									else
 										span #{ author.name }
 									if index < paper.authors.length - 1
