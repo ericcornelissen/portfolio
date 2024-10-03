@@ -135,10 +135,14 @@ html(lang="en")
 					amount of time.
 				h4 Present
 				ul.bullet-list
+					- var count = 0;
 					each maintainer in maintainership
 						if maintainer.active
+							- count++;
 							li
 								a(href=maintainer.link, rel="noopener", target="_blank") #{ maintainer.name }
+					if count == 0
+						li #[em none]
 				h4 Past
 				ul.bullet-list
 					each maintainer in maintainership
