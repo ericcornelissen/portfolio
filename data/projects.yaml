@@ -18,7 +18,7 @@ projects:
       Python.
   - name: codecov-config-validator-action
     link: https://github.com/ericcornelissen/codecov-config-validator-action
-    active: true
+    active: false
     description: |-
       Action for validating Codecov configuration files.
   - name: cont-flow-expr
@@ -76,6 +76,12 @@ projects:
     active: false
     description: |-
       A package for the Atom text editor that allows you to pin tabs.
+  - name: pp-runtime-gadgets
+    link: https://github.com/ericcornelissen/pp-runtime-gadgets
+    active: true
+    description: |-
+      Prototype pollution gadgets in the JavaScript runtime based on the
+      ECMAScript specification.
   - name: pp-test-kit
     link: https://gitlab.com/ericcornelissen/pp-test-kit
     active: true
