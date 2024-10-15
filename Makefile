@@ -44,12 +44,17 @@ license-check: node_modules/ ## Check the third-party dependency licenses
 		--errors-only
 
 .PHONY: lint
-lint: lint-ci lint-md lint-sh lint-yaml ## Run lint-*
+lint: lint-ci lint-csp lint-md lint-sh lint-yaml ## Run lint-*
 
 .PHONY: lint-ci
 lint-ci: node_modules/ ## Lint GitHub Actions workflows
 	@SHELLCHECK_OPTS=$(SHELLCHECK_OPTS) \
 		$(MAYBE) actionlint
+
+.PHONY: lint-csp
+lint-csp: node_modules/ ## Lint the Content Security Policy (csp)
+	@node script/csp_evaluator-cli.js \
+		./data/csp.txt
 
 .PHONY: lint-md
 lint-md: node_modules/ ## Lint MarkDown files
@@ -101,7 +106,7 @@ data/%.json: data/%.yaml  node_modules/
 		npx js-yaml -- $(file) > $(subst yaml,json,$(file)); \
 	)
 
-www/%.html: www/%.pug  node_modules/ data/*.json script/pug-cli.js
+www/%.html: www/%.pug  node_modules/ data/*.json data/csp.txt script/pug-cli.js
 	@$(foreach \
 		file, \
 		$(filter %.pug,$+), \
