@@ -34,10 +34,14 @@ async function main() {
 	const datas = await Promise.all(ps);
 	const locals = datas.reduce((acc, data) => ({ ...acc, ...data }), {});
 
+	const cspFile = path.resolve(dataPath, "csp.txt");
+	const csp = (await fs.readFile(cspFile)).toString().replace(/\n/g, "");
+
 	// compile
 	const filePath = path.resolve(".", file);
 	const html = pug.renderFile(filePath, {
 		...locals,
+		csp,
 		filename: file,
 		pretty: false,
 		debug: false,

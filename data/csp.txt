@@ -1,0 +1,9 @@
+default-src 'none';
+base-uri 'self';
+connect-src 'self';
+font-src 'self' https://fonts.gstatic.com;
+img-src 'self';
+script-src 'self';
+style-src 'self' https://fonts.googleapis.com;
+trusted-types 'none';
+require-trusted-types-for 'script';
