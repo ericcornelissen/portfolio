@@ -30,6 +30,11 @@ projects:
     active: false
     description: |-
       A multi-threaded Python CLI tool to created a controlled vocabulary.
+  - name: depreman
+    link: https://github.com/ericcornelissen/depreman
+    active: true
+    description: |-
+      Manage npm deprecations.
   - name: eslint-plugin-top
     link: https://github.com/ericcornelissen/eslint-plugin-top
     active: true
