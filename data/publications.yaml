@@ -1,5 +1,5 @@
 papers:
-  - title: "Ghunter: Universal Prototype Pollution Gadgets in JavaScript Runtimes"
+  - title: "GHunter: Universal Prototype Pollution Gadgets in JavaScript Runtimes"
     year: 2024
     authors:
       - name: E. Cornelissen
@@ -12,8 +12,9 @@ papers:
       name: 33rd USENIX Security Symposium
       page: https://www.usenix.org/conference/usenixsecurity24
     resources:
-      paper: https://www.usenix.org/conference/usenixsecurity24/presentation/cornelissen
       artifact: https://github.com/KTH-LangSec/ghunter
+      paper: https://www.usenix.org/conference/usenixsecurity24/presentation/cornelissen
+      presentation: https://www.youtube.com/watch?v=ZjTJNiyS9Yg
   - title: Security Analysis of the MLS Key Derivation
     year: 2022
     authors:
