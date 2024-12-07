@@ -85,10 +85,11 @@ help: ## Show this help message
 
 .PHONY: serve
 serve: build ## Spawn a development server
-	@npx anywhere \
+	@npx http-server \
 		-p 8080 \
-		-h localhost \
-		-d _site/
+		-a localhost \
+		-o / \
+		_site/
 
 .PHONY: verify
 verify: build format-check license-check lint ## Verify project is in a good state
