@@ -22,7 +22,7 @@ To be able to contribute you need the following:
 Use `make` to get an overview of available commands. Use `make serve` to spin up
 a development server for local preview, use `make build` to build the website
 after making changes. Use `make verify` to check if the repository is in a good
-state, if not a tool will tell you what is wrong.
+state - if not, a tool will tell you what is wrong.
 
 [asdf]: https://asdf-vm.com/
 [rtx]: https://github.com/jdxcode/rtx
