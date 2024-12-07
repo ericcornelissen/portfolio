@@ -19,6 +19,48 @@ audit: node_modules/ ## Check for vulnerabilities in third-party dependencies
 .PHONY: build
 build: _site/ ## Build of the website
 
+.PHONY: check
+check: check-ci check-csp check-formatting check-licenses check-md check-sh check-yaml ## Run check-*
+
+.PHONY: check-ci
+check-ci: node_modules/ ## Check GitHub Actions workflows
+	@SHELLCHECK_OPTS=$(SHELLCHECK_OPTS) \
+		$(MAYBE) actionlint
+
+.PHONY: check-csp
+check-csp: node_modules/ ## Check the Content Security Policy (csp)
+	@node script/csp_evaluator-cli.js \
+		./data/csp.txt
+
+.PHONY: check-formatting
+check-formatting: node_modules/ ## Check the source code formatting
+	@$(PRETTIER) --check
+	@$(MAYBE) shfmt --diff $(SH_FILES)
+
+.PHONY: check-licenses
+check-licenses: node_modules/ ## Check the third-party dependency licenses
+	@npx licensee \
+		--errors-only
+
+.PHONY: check-md
+check-md: node_modules/ ## Check MarkDown files
+	@npx markdownlint \
+		--dot \
+		--ignore-path .gitignore \
+		.
+
+.PHONY: check-sh
+check-sh: node_modules/ ## Check Shell scripts
+	@SHELLCHECK_OPTS=$(SHELLCHECK_OPTS) \
+		$(MAYBE) shellcheck \
+		$(SH_FILES)
+
+.PHONY: check-yaml
+check-yaml: node_modules/ ## Check YAML files
+	@$(MAYBE) yamllint \
+		--config-file .yamllint.yaml \
+		.
+
 .PHONY: clean
 clean: ## Clean the repository
 	@git clean -fx \
@@ -32,48 +74,6 @@ clean: ## Clean the repository
 format: node_modules/ ## Format the source code
 	@$(PRETTIER) --write
 	@$(MAYBE) shfmt --simplify --write $(SH_FILES)
-
-.PHONY: check-formatting
-format-check: node_modules/ ## Check the source code formatting
-	@$(PRETTIER) --check
-	@$(MAYBE) shfmt --diff $(SH_FILES)
-
-.PHONY: check-licenses
-license-check: node_modules/ ## Check the third-party dependency licenses
-	@npx licensee \
-		--errors-only
-
-.PHONY: lint
-lint: lint-ci lint-csp lint-md lint-sh lint-yaml ## Run lint-*
-
-.PHONY: lint-ci
-lint-ci: node_modules/ ## Lint GitHub Actions workflows
-	@SHELLCHECK_OPTS=$(SHELLCHECK_OPTS) \
-		$(MAYBE) actionlint
-
-.PHONY: lint-csp
-lint-csp: node_modules/ ## Lint the Content Security Policy (csp)
-	@node script/csp_evaluator-cli.js \
-		./data/csp.txt
-
-.PHONY: lint-md
-lint-md: node_modules/ ## Lint MarkDown files
-	@npx markdownlint \
-		--dot \
-		--ignore-path .gitignore \
-		.
-
-.PHONY: lint-sh
-lint-sh: node_modules/ ## Lint Shell scripts
-	@SHELLCHECK_OPTS=$(SHELLCHECK_OPTS) \
-		$(MAYBE) shellcheck \
-		$(SH_FILES)
-
-.PHONY: lint-yaml
-lint-yaml: node_modules/ ## Lint YAML files
-	@$(MAYBE) yamllint \
-		--config-file .yamllint.yaml \
-		.
 
 .PHONY: help
 help: ## Show this help message
@@ -92,7 +92,7 @@ serve: build ## Spawn a development server
 		_site/
 
 .PHONY: verify
-verify: build format-check license-check lint ## Verify project is in a good state
+verify: build check ## Verify project is in a good state
 
 # --- FILES ------------------------------------------------------------------ #
 
