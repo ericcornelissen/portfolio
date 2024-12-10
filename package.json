@@ -10,7 +10,7 @@
     "csp_evaluator": "1.1.2",
     "http-server": "14.1.1",
     "husky": "9.1.1",
-    "is-ci": "3.0.1",
+    "is-ci": "4.1.0",
     "js-yaml": "4.1.0",
     "licensee": "11.1.0",
     "markdownlint-cli": "0.43.0",
