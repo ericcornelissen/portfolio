@@ -155,4 +155,7 @@ html(lang="en")
 				ul.bullet-list
 					each contribution in contributions
 						li
-							a(href=contribution.link, rel="noopener", target="_blank") #{ contribution.name }
+							- var link = contribution.link;
+							if link.startsWith("https://github.com/")
+								- link = link + "/pulls?q=is%3Apr+author%3Aericcornelissen";
+							a(href=link, rel="noopener", target="_blank") #{ contribution.name }
