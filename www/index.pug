@@ -132,22 +132,14 @@ html(lang="en")
 				p.
 					Projects started or run by others that I've (co-)maintained for a some
 					amount of time.
-				h4 Present
-				ul.bullet-list
-					- var count = 0;
-					each maintainer in maintainership
-						if maintainer.active
-							- count++;
-							li
-								a(href=maintainer.link, rel="noopener", target="_blank") #{ maintainer.name }
-					if count == 0
-						li #[em none]
-				h4 Past
 				ul.bullet-list
 					each maintainer in maintainership
-						if !maintainer.active
-							li
-								a(href=maintainer.link, rel="noopener", target="_blank") #{ maintainer.name }
+						li
+							a(href=maintainer.link, rel="noopener", target="_blank") #{ maintainer.name }
+							|
+							|
+							if !maintainer.active
+								span (retired)
 				h3 Contributions
 				p.
 					A non-exhaustive list of open source projects I've contributed to in
