@@ -7,7 +7,7 @@
   },
   "devDependencies": {
     "@prettier/plugin-pug": "3.1.0",
-    "csp_evaluator": "1.1.2",
+    "csp_evaluator": "1.1.5",
     "http-server": "14.1.1",
     "husky": "9.1.1",
     "is-ci": "3.0.1",
