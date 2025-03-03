@@ -14,7 +14,7 @@
     "js-yaml": "4.1.0",
     "licensee": "11.1.0",
     "markdownlint-cli": "0.43.0",
-    "prettier": "3.5.0",
+    "prettier": "3.5.3",
     "pug": "3.0.3"
   },
   "scripts": {
