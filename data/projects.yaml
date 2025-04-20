@@ -5,6 +5,11 @@ projects:
     description: |-
       A simple tool to find dangerous uses of GitHub Actions Workflow
       expressions.
+  - name: asdf-diffoci
+    link: https://github.com/ericcornelissen/asdf-diffoci
+    active: true
+    description: |-
+      An asdf plugin for diffoci.
   - name: asdf-yamllint
     link: https://github.com/ericcornelissen/asdf-yamllint
     active: true
