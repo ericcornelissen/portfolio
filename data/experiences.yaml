@@ -1,13 +1,4 @@
 experiences:
-  - title: Research Intern
-    organization: Google
-    location: Remote, Sweden
-    type: Full-time
-    duration:
-      from: October 2024
-      to: January 2025
-    description: |-
-      A research internship focussed on web security.
   - title: Doctoral Student
     organization: KTH Royal Institute of Technology
     location: Stockholm, Sweden
@@ -18,6 +9,15 @@ experiences:
     description: |-
       Researching Supply Chain Security as part of the <a rel="noopener" target=
       "_blank" href="https://chains.proj.kth.se/">CHAINS</a> project.
+  - title: Research Intern
+    organization: Google
+    location: Remote, Sweden
+    type: Full-time
+    duration:
+      from: October 2024
+      to: January 2025
+    description: |-
+      A research internship focussed on web security.
   - title: Software Engineer
     organization: Cobalt.io
     location: Remote, Germany
