@@ -8,7 +8,7 @@ To be able to contribute you need the following:
 
 - git;
 - Make;
-- Node.js v22 or higher and npm v8.1.2 or higher;
+- Node.js v24 or higher and npm v8.1.2 or higher;
 - A modern web browser;
 - (Recommended) A code editor with EditorConfig support;
 - (Recommended) [asdf] or [rtx];
