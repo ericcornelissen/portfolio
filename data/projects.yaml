@@ -181,6 +181,10 @@ contributions:
     link: https://github.com/SoheilKhodayari/DOMClobbering
   - name: dotenv
     link: https://github.com/motdotla/dotenv
+  - name: "@eslint/plugin-kit"
+    link: https://github.com/eslint/rewrite
+  - name: "@eslint/markdown"
+    link: https://github.com/eslint/markdown
   - name: File Icons for Atom
     link: https://github.com/file-icons/atom
   - name: Fluent Terminal
@@ -199,6 +203,8 @@ contributions:
     link: https://github.com/jslicense/licensee.js
   - name: lockfile-lint
     link: https://github.com/lirantal/lockfile-lint
+  - name: markdownlint-cli
+    link: https://github.com/igorshubovych/markdownlint-cli
   - name: MDN Web Docs
     link: https://github.com/mdn/content
   - name: Mocha
@@ -207,11 +213,11 @@ contributions:
     link: https://github.com/jslicense/npm-license-corrections.json
   - name: pin-github-action
     link: https://github.com/mheap/pin-github-action
-  - name: SecBench.js
-    link: https://github.com/cristianstaicu/SecBench.js
   - name: StrykerJS
     link: https://github.com/stryker-mutator/stryker-js
   - name: SVGO
     link: https://github.com/svg/svgo
   - name: Release Action
     link: https://github.com/ncipollo/release-action
+  - name: Zed
+    link: https://github.com/zed-industries/zed
