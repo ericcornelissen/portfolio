@@ -13,8 +13,9 @@ SHELLCHECK_OPTS:='--enable=avoid-nullary-conditions --enable=deprecate-which --e
 default: help
 
 .PHONY: audit
-audit: node_modules/ ## Check for vulnerabilities in third-party dependencies
+audit: node_modules/ ## Check for security warnings in third-party dependencies
 	@npm audit
+	@npx depreman --errors-only --report-unused
 
 .PHONY: build
 build: _site/ ## Build of the website

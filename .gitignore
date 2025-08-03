@@ -11,6 +11,7 @@
 !.gitattributes
 !.licensee.json
 !.markdownlint.yaml
+!.ndmrc
 !.npmrc
 !.nvmrc
 !.shellcheckrc
