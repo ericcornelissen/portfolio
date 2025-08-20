@@ -1,4 +1,16 @@
 papers:
+  - title: "NodeShield: Runtime Enforcement of Security-Enhanced SBOMs for Node.js"
+    year: 2025
+    authors:
+      - name: E. Cornelissen
+        self: true
+      - name: M. Balliu
+        page: https://people.kth.se/~musard/
+    venue:
+      name: The 32nd ACM Conference on Computer and Communications Security
+      page: https://www.sigsac.org/ccs/CCS2025/
+    resources:
+      paper: https://arxiv.org/abs/2508.13750
   - title: "GHunter: Universal Prototype Pollution Gadgets in JavaScript Runtimes"
     year: 2024
     authors:
