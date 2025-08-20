@@ -1,6 +1,6 @@
 # Security Policy
 
-I take security issues for my portfolio websit eand project seriously. I
+I take security issues for my portfolio website and project seriously. I
 appreciate your efforts to responsibly disclose your findings. Due to the
 non-funded and open-source nature of the project, I take a best-efforts approach
 when it comes to engaging with security reports.
