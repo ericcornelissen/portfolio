@@ -171,6 +171,8 @@ contributions:
     link: https://github.com/monperrus/crawler-user-agents
   - name: Create Pull Request Action
     link: https://github.com/peter-evans/create-pull-request
+  - name: deno/std
+    link: https://github.com/denoland/std
   - name: dependency-review-action
     link: https://github.com/actions/dependency-review-action
   - name: diff2html
@@ -213,6 +215,8 @@ contributions:
     link: https://github.com/jslicense/npm-license-corrections.json
   - name: pin-github-action
     link: https://github.com/mheap/pin-github-action
+  - name: st
+    link: https://github.com/isaacs/st
   - name: StrykerJS
     link: https://github.com/stryker-mutator/stryker-js
   - name: SVGO
