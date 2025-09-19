@@ -2,6 +2,7 @@ default-src 'none';
 base-uri 'self';
 connect-src 'self';
 font-src 'self' https://fonts.gstatic.com;
+form-action 'none';
 img-src 'self';
 script-src 'self';
 style-src 'self' https://fonts.googleapis.com;
