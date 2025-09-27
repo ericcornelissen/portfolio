@@ -193,6 +193,8 @@ contributions:
     link: https://github.com/felixse/FluentTerminal
   - name: Gitleaks Action
     link: https://github.com/gitleaks/gitleaks-action
+  - name: godot
+    link: https://github.com/tetafro/godot
   - name: grunt-fontello
     link: https://github.com/jubalm/grunt-fontello
   - name: hadolint
