@@ -80,7 +80,16 @@ a:hover {
 	text-decoration-line: underline;
 }
 
-/* --- list ----------------------------------------------------------------- */
+/* --- Anchor Links --------------------------------------------------------- */
+
+h2 > a {
+	display: none;
+}
+h2:hover > a {
+	display: inline-block;
+}
+
+/* --- List ----------------------------------------------------------------- */
 
 ul.bullet-list {
 	list-style-type: disc;

@@ -55,3 +55,7 @@ p {
 em {
 	font-style: italic;
 }
+
+code {
+	font-family: monospace;
+}
