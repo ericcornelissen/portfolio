@@ -10,7 +10,8 @@ papers:
       name: The 32nd ACM Conference on Computer and Communications Security
       page: https://www.sigsac.org/ccs/CCS2025/
     resources:
-      paper: https://arxiv.org/abs/2508.13750
+      artifact: https://zenodo.org/records/16873448
+      paper: https://doi.org/10.1145/3719027.3765136
   - title: "GHunter: Universal Prototype Pollution Gadgets in JavaScript Runtimes"
     year: 2024
     authors:
