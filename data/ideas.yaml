@@ -1,0 +1,14 @@
+ideas:
+  - title: Go linter for docs
+    description: |
+      A simple Go CLI that checks Go codebases for that ensures all "Doc
+      comments" follows the official <a rel="noopener" target="_blank"
+      href="https://tip.golang.org/doc/comment">guidelines</a>.
+  - title: An npm audit command for libraries
+    description: |
+      An improved <code>npm audit</code> that understands libraries. That is, it
+      does not complain if you depend on a vulnerable version as long as your
+      consumers can upgrade to a safe version because of version ranges.
+      <br><br>
+      This does not only apply to npm, but it's where I needed it when I had
+      this idea.

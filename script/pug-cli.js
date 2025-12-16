@@ -45,6 +45,7 @@ async function main() {
 		filename: file,
 		pretty: false,
 		debug: false,
+		fragmentify: (s) => s.replaceAll(/\s+/g, "-").toLowerCase(),
 	});
 
 	console.log(html);
