@@ -80,12 +80,36 @@ a:hover {
 	text-decoration-line: underline;
 }
 
-/* --- list ----------------------------------------------------------------- */
+/* --- Anchor Links --------------------------------------------------------- */
+
+h2 > a {
+	display: none;
+}
+h2:hover > a {
+	display: inline-block;
+}
+
+/* --- List ----------------------------------------------------------------- */
 
 ul.bullet-list {
 	list-style-type: disc;
 	padding-left: 1em;
 	line-height: 1.4em;
+}
+
+ul.tag-list > li {
+	background: var(--clr-accent);
+	border-radius: 4px;
+	display: inline-block;
+	margin: 0 0.2em;
+	padding: 0.2em 0.4em;
+}
+ul.tag-list > li::selection {
+	background: var(--clr-background);
+}
+ul.tag-list > li:before {
+	content: "#";
+	padding-right: 0.2em;
 }
 
 /* --- Miscellaneous -------------------------------------------------------- */
