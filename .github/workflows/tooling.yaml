@@ -15,17 +15,17 @@ jobs:
       pull-requests: write # To open a Pull Request
     steps:
       - name: Checkout repository
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
         with:
           persist-credentials: false
       - name: Create token to create Pull Request
-        uses: actions/create-github-app-token@67018539274d69449ef7c02e8e71183d1719ab42 # v2.1.4
+        uses: actions/create-github-app-token@7e473efe3cb98aa54f8d4bac15400b15fad77d94 # v2.2.0
         id: automation-token
         with:
           app-id: ${{ secrets.AUTOMATION_ID }}
           private-key: ${{ secrets.AUTOMATION_PRIVATE_KEY }}
       - name: Update tooling
-        uses: ericcornelissen/tool-versions-update-action/pr@56f046986436e0915528a86403aa493d959664a2 # v2.0.1
+        uses: ericcornelissen/tool-versions-update-action/pr@8900c39f101a61623f3ac432a6a9efc92475b0ec # v2.2.0
         with:
           labels: dependencies
           max: 1
