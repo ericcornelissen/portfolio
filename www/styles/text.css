@@ -52,7 +52,8 @@ p {
 	text-justify: inter-word;
 }
 
-em {
+em,
+.italic {
 	font-style: italic;
 }
 

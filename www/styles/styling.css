@@ -97,6 +97,21 @@ ul.bullet-list {
 	line-height: 1.4em;
 }
 
+ul.tag-list > li {
+	background: var(--clr-accent);
+	border-radius: 4px;
+	display: inline-block;
+	margin: 0 0.2em;
+	padding: 0.2em 0.4em;
+}
+ul.tag-list > li::selection {
+	background: var(--clr-background);
+}
+ul.tag-list > li:before {
+	content: "#";
+	padding-right: 0.2em;
+}
+
 /* --- Miscellaneous -------------------------------------------------------- */
 
 .space-between {

@@ -19,17 +19,25 @@ html(lang="en")
 		header
 			h1 Project Ideas
 			p
-				| This page is just a list of project I wish exist but haven't gotten
-				| around to doing yet.
+				| This page is just a list of projects I wish existed, but haven't
+				| gotten around to creating yet.
 			p
 				| You're free to take these ideas and create a solution however you see
-				| fit, just let me know when you did :)
+				| fit. Just
+				|
+				a(href="mailto:ericornelissen+ideas@gmail.com", target="_blank") let me know
+				|
+				| when you do :)
 		section#ideas
-			ul
-				each idea in ideas
-					li(id=fragmentify(idea.title))
-						h2
-							| #{ idea.title }
-							|
-							a(href=`#${fragmentify(idea.title)}`) #
-						p !{ idea.description }
+			div
+				ul
+					each idea in ideas
+						li(id=fragmentify(idea.title))
+							h2
+								| #{ idea.title }
+								|
+								a(href=`#${fragmentify(idea.title)}`) #
+							ul.tag-list
+								each tag in idea.tags
+									li !{ tag }
+							p !{ idea.description }
