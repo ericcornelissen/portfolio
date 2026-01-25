@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="Content-Security-Policy" content="default-src 'none';base-uri 'self';connect-src 'self';font-src 'self' https://fonts.gstatic.com;form-action 'none';img-src 'self';script-src 'self';style-src 'self' https://fonts.googleapis.com;trusted-types 'none';require-trusted-types-for 'script';"><meta http-equiv="Referrer-Policy" content="no-referrer"><meta charset="utf-8"><meta name="title" content="Eric Cornelissen - Project Ideas"><meta name="viewport" content="width=device-width, initial-scale=1"><link href="/styles/reset.css" rel="stylesheet" type="text/css"><link href="/styles/layout.css" rel="stylesheet" type="text/css"><link href="/styles/styling.css" rel="stylesheet" type="text/css"><link href="/styles/text.css" rel="stylesheet" type="text/css"><title>Eric Cornelissen - Project Ideas</title></head><body><header><h1>Project Ideas</h1><p>This page is just a list of projects I wish existed, but haven't
+gotten around to creating yet.</p><p>You're free to take these ideas and create a solution however you see
+fit. Just
+<a href="mailto:ericornelissen+ideas@gmail.com" target="_blank">let me know</a>
+when you do :)</p></header><section id="ideas"><div><ul><li id="eslint-plugin-baseline-nodejs"><h2>eslint-plugin-baseline-nodejs
+<a href="#eslint-plugin-baseline-nodejs">#</a></h2><ul class="tag-list"><li>ESLint</li><li>JavaScript</li><li>Node.js</li></ul><p>An <a rel="noopener" href="https://eslint.org/">ESLint</a> plugin that
+will tell you, given the minimum Node.js version you're targeting,
+whenever you're using language and runtime APIs that aren't yet supported.
+<br><br>
+Basically, <a rel="noopener" href="https://baselinejs.vercel.app/">
+eslint-plugin-baseline-js</a>, but for a given version of Node.js instead
+of the web.
+</p></li><li id="go-linter-for-docs"><h2>Go linter for docs
+<a href="#go-linter-for-docs">#</a></h2><ul class="tag-list"><li>Documentation</li><li>Go</li></ul><p>A simple Go CLI that checks Go codebases and ensures all doc comments
+follow the official <a rel="noopener"
+href="https://tip.golang.org/doc/comment">guidelines</a>.
+See also related tooling: <a rel="noopener"
+href="https://github.com/tetafro/godot">godot</a>.
+</p></li><li id="justfile2makefile"><h2>Justfile2Makefile
+<a href="#justfile2makefile">#</a></h2><ul class="tag-list"><li>Tooling</li></ul><p>A simple way to convert a <a rel="noopener" href="https://just.systems/">
+<code>Justfile</code></a> to a <code>Makefile</code> or vice versa. Two
+motivations: it 1) makes it easier to switch between different command
+runners and 2) makes it possible to "run" a <code>Justfile</code> using
+Make. The latter can be useful when contributing to a project that is
+using a command runner you don't have installed – just convert it and run
+it with the command runner you have.
+<br><br>
+Now, the irony of installing some program to do the conversion instead of
+installing the command runner is not lost on me. One reason for this can
+be that the command runner is not available on the OS you're using.
+Another is that if you can convert between many formats, you only need one
+command runner and one converter, rather than many command runners.
+</p></li><li id="npm-audit-for-libraries"><h2>npm audit for libraries
+<a href="#npm-audit-for-libraries">#</a></h2><ul class="tag-list"><li>Node.js</li><li>Vulnerability Management</li></ul><p>An improved <code>npm audit</code> that understands libraries. That is, it
+does not complain if you depend on a vulnerable version as long as your
+consumers can upgrade to a safe version because of version ranges. This
+need not be a dedicated tool. Adding support for this to an existing tool
+could work too. Also, this idea can be applied to other ecosystems too.
+</p></li><li id="testable-jsdoc-examples"><h2>Testable JSDoc examples
+<a href="#testable-jsdoc-examples">#</a></h2><ul class="tag-list"><li>Documentation</li><li>JavaScript</li><li>Testing</li></ul><p>Like <a rel="noopener" href="https://go.dev/blog/examples">Testable
+Examples in Go</a> and <a rel="noopener"
+href="https://doc.rust-lang.org/rust-by-example/testing/doc_testing.html"
+>documentation tests in Rust</a>, a tool that runs a project's JSDoc
+<code>@example</code>s to ensure they're correct.
+</p></li><li id="unused-eslint-rule-detector"><h2>Unused ESLint rule detector
+<a href="#unused-eslint-rule-detector">#</a></h2><ul class="tag-list"><li>ESLint</li><li>JavaScript</li></ul><p><a rel="noopener" href="https://eslint.org/">ESLint</a> is a linter for
+JavaScript with tons of rules and plugins with even more rules. I like to
+have all rules configured explicitly, however it can be hard to keep track
+of all rules, especially as updates come in. Hence, I'd like to have a
+tool which, given an ESLint configuration file, complains about any
+unconfigured rules.
+</p></li></ul></div></section></body></html>
