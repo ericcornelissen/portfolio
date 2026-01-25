@@ -55,9 +55,14 @@ projects:
     active: false
     description: |-
       GitHub Actions Action to get git tag annotations.
+  - name: go-gha-models
+    link: https://github.com/ericcornelissen/go-gha-models
+    active: true
+    description: |-
+      Go structs for GitHub Actions.
   - name: gofunchecks
     link: https://github.com/ericcornelissen/gofunchecks
-    active: true
+    active: false
     description: |-
       A collection of static analysis tool to analyze functions in Go.
   - name: gulp-gitstage
@@ -81,6 +86,12 @@ projects:
     description: |-
       A static analyzer to scan JavaScript code for problematic regular
       expressions.
+  - name: lregexp
+    link: https://github.com/ericcornelissen/lregexp
+    active: true
+    description: |-
+      Transparent linear-time (non-backtracking) regular expressions for
+      libraries.
   - name: pinned-tabs-for-atom
     link: https://github.com/ericcornelissen/pinned-tabs-for-atom
     active: false
@@ -116,7 +127,7 @@ projects:
       An experiment in TDD inspired by the Numberphile video "Why 7 is Weird".
   - name: rust-rm
     link: https://github.com/ericcornelissen/rust-rm
-    active: true
+    active: false
     description: |-
       A CLI like the GNU version of rm(1) but more modern and designed for
       humans.
@@ -135,6 +146,12 @@ projects:
     active: true
     description: |-
       A GitHub Action to automatically update the tools in your .tool-versions
+      file.
+  - name: Trusted Types Tests
+    link: https://github.com/ericcornelissen/trusted-types-tests
+    active: true
+    description: |-
+      A test suite to find what APIs are covered by Trusted Types (spec).
       file.
   - name: wordrow
     link: https://github.com/ericcornelissen/wordrow
