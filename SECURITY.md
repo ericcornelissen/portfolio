@@ -15,8 +15,8 @@ updates.
 To report a security issue for this project, either:
 
 - [Report it through GitHub][new github advisory], or
-- Send an email to [security@ericcornelissen.dev] with the terms "SECURITY" and
-  "portfolio" in the subject line.
+- Send an email to [ericornelissen+security@gmail.com] with the terms "SECURITY"
+  and "portfolio" in the subject line.
 
 Please do not open a regular issue or Pull Request in the public repository.
 
@@ -25,7 +25,7 @@ example, as a regular issue in the public repository. If in doubt, report the
 issue privately.
 
 [new github advisory]: https://github.com/ericcornelissen/portfolio/security/advisories/new
-[security@ericcornelissen.dev]: mailto:security@ericcornelissen.dev?subject=SECURITY%20%28portfolio%29
+[ericornelissen+security@gmail.com]: mailto:ericornelissen+security@gmail.com?subject=SECURITY%20%28portfolio%29
 
 ### What to Report
 

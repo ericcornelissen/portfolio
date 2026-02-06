@@ -115,10 +115,13 @@ www/%.html: www/%.pug  node_modules/ data/*.json data/csp.txt script/pug-cli.js
 		node script/pug-cli.js $(file) > $(subst pug,html,$(file)); \
 	)
 
-_site/: www/*.html www/styles/*.css
+_site/: www/*.html www/.well-known/*.txt www/styles/*.css
 	@mkdir -p _site
+	@mkdir -p _site/.well-known
 	@mkdir -p _site/styles
+	@touch _site/.nojekyll
 	@cp www/CNAME _site/
 	@cp www/robots.txt _site/
 	@cp www/*.html _site/
+	@cp www/.well-known/*.txt _site/.well-known/
 	@cp www/styles/*.css _site/styles/
