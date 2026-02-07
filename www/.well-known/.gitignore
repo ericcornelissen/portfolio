@@ -2,9 +2,5 @@
 
 /*
 
-!.well-known/
-!styles/
 !.gitignore
-!CNAME
-!robots.txt
-!*.pug
+!security.txt
