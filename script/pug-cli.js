@@ -3,6 +3,7 @@ import * as path from "node:path";
 import * as process from "node:process";
 
 import * as pug from "pug";
+import markdownit from "markdown-it";
 
 /* --- ARGUMENTS ------------------------------------------------------------ */
 
@@ -14,6 +15,15 @@ if (!file) {
 
 /* --- HELPERS -------------------------------------------------------------- */
 
+function fragmentify(s) {
+	return s.replaceAll(/\s+/g, "-").toLowerCase();
+}
+
+function markdown(s) {
+	const md = markdownit();
+	return md.render(s);
+}
+
 async function readAndParseDataFile(file) {
 	const rawData = await fs.readFile(file);
 	const data = JSON.parse(rawData);
@@ -23,6 +33,11 @@ async function readAndParseDataFile(file) {
 /* --- MAIN ----------------------------------------------------------------- */
 
 async function main() {
+	const helpers = {
+		fragmentify,
+		markdown,
+	};
+
 	// collect locals
 	const dataPath = path.resolve(".", "data");
 	const dataFiles = await fs.readdir(dataPath);
@@ -41,11 +56,11 @@ async function main() {
 	const filePath = path.resolve(".", file);
 	const html = pug.renderFile(filePath, {
 		...locals,
+		...helpers,
 		csp,
 		filename: file,
 		pretty: false,
 		debug: false,
-		fragmentify: (s) => s.replaceAll(/\s+/g, "-").toLowerCase(),
 	});
 
 	console.log(html);
