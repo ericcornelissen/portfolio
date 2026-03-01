@@ -156,3 +156,11 @@ html(lang="en")
 							if link.startsWith("https://github.com/")
 								- link = link + "/pulls?q=is%3Apr+author%3Aericcornelissen";
 							a(href=link, rel="noopener", target="_blank") #{ contribution.name }
+				h3 Vulnerabilities
+				p.
+					Security vulnerabilities found by me, acknowledged by maintainers, and
+					fixed by anyone.
+				ul.bullet-list
+					each vulnerability in vulnerabilities
+						li
+							a(href=vulnerability.link, rel="noopener", target="_blank") #{ vulnerability.name }
