@@ -40,4 +40,4 @@ html(lang="en")
 							ul.tag-list
 								each tag in idea.tags
 									li !{ tag }
-							p !{ idea.description }
+							p !{ markdown(idea.description) }
