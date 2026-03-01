@@ -257,3 +257,9 @@ contributions:
     link: https://github.com/ncipollo/release-action
   - name: Zed
     link: https://github.com/zed-industries/zed
+
+vulnerabilities:
+  - name: Deno
+    link: https://github.com/advisories?query=credit%3Aericcornelissen+deno
+  - name: ESLint
+    link: https://github.com/advisories?query=credit%3Aericcornelissen+eslint
