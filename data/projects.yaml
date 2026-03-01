@@ -92,6 +92,12 @@ projects:
     description: |-
       Transparent linear-time (non-backtracking) regular expressions for
       libraries.
+  - name: npmaargh
+    link: https://github.com/ericcornelissen/npmaargh
+    active: true
+    description: |-
+      The npm audit assistant - the "rgh" is for dramatic effect, capturing that
+      all-too-familiar reaction to running npm audit: "aargh!"
   - name: pinned-tabs-for-atom
     link: https://github.com/ericcornelissen/pinned-tabs-for-atom
     active: false
@@ -136,6 +142,11 @@ projects:
     active: true
     description: |-
       Simple shell escape library for JavaScript.
+  - name: sockscrape
+    link: https://github.com/ericcornelissen/sockscrape
+    active: true
+    description: |-
+      Scrape package source code from Socket.dev
   - name: svgo-action
     link: https://github.com/ericcornelissen/svgo-action
     active: false
