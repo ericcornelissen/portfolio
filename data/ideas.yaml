@@ -68,3 +68,25 @@ ideas:
       configured explicitly, however it can be hard to keep track of all rules,
       especially as updates come in. Hence, I'd like to have a tool which, given
       an ESLint configuration file, complains about any unconfigured rules.
+  - title: Documentation snippet testing
+    tags:
+      - Documentation
+      - Markdown
+      - Testing
+    description: |
+      Snippets in documentation should just work; if they don't it's incredibly
+      frustrating for the reader. So, why don't we test them in an automated
+      fashion like the rest of our software? Testable examples ([Go], [Rust])
+      are a first step, but these do not apply to Markdown-based documentation
+      files. Also, [ESLint] supports linting code blocks in Markdown which
+      provides some confidence they're correct, but it's not enough.
+
+      Basically, I want a tool that runs the code snippets in Markdown files to
+      ensure they will work when users try to run them. I have built a bespoke
+      proof of concept that only runs shell blocks, [`docs.test.js`], if you
+      want to get an idea or need some inspiration.
+
+      [go]: https://go.dev/blog/examples
+      [rust]: https://doc.rust-lang.org/rust-by-example/testing/doc_testing.html
+      [eslint]: https://www.npmjs.com/package/@eslint/markdown
+      [`docs.test.js`]: https://github.com/ericcornelissen/js-regex-security-scanner/blob/d325ebf4d5888cc1ff82fc0a0e16bd81a1f20df9/tests/docs.test.js
