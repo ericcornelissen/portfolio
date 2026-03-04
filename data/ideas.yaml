@@ -102,3 +102,36 @@ ideas:
       [rust]: https://doc.rust-lang.org/rust-by-example/testing/doc_testing.html
       [eslint]: https://www.npmjs.com/package/@eslint/markdown
       [`docs.test.js`]: https://github.com/ericcornelissen/js-regex-security-scanner/blob/d325ebf4d5888cc1ff82fc0a0e16bd81a1f20df9/tests/docs.test.js
+  - title: strip-directives
+    tags:
+      - JavaScript
+      - Tooling
+    description: |
+      A simple build tool that takes an [npm] project before publishing and
+      strips directive comments (like [`eslint-disable`]) from it. This reduces
+      the package size by omitting bytes that are not useful for consumers.
+
+      This idea can apply to any ecosystem where packages are distributed as
+      source code.
+
+      [npm]: https://www.npmjs.com/
+      [`eslint-disable`]: https://eslint.org/docs/latest/use/configure/rules#disable-rules
+  - title: GHA Immutable Release Checking
+    tags:
+      - GitHub Actions
+      - Supply Chain Security
+    description: |
+      A GitHub Action (or reusable workflow) that triggers on Pull Requests from
+      Dependabot or Renovate and tells you whether the new version of the GitHub
+      Action it is updating is using [immutable releases] or not.
+
+      I already have a [simple job for this targeting Dependabot] that can be
+      used as a starting point. I used it to find [several][1] [high][2]
+      [profile][3] [Actions][4] that didn't yet use immutable releases.
+
+      [immutable releases]: https://docs.github.com/en/code-security/concepts/supply-chain-security/immutable-releases
+      [simple job for this targeting dependabot]: https://github.com/ericcornelissen/reproducing-actions/blob/7f12f6fa002300a2d3f4a7f81398f8450913e89d/.github/workflows/0-ci.yml#L36-L100
+      [1]: https://github.com/actions/cache/issues/1709
+      [2]: https://github.com/docker/build-push-action/issues/1460
+      [3]: https://github.com/gradle/actions/issues/865
+      [4]: https://github.com/actions/setup-go/issues/725
