@@ -135,3 +135,77 @@ ideas:
       [2]: https://github.com/docker/build-push-action/issues/1460
       [3]: https://github.com/gradle/actions/issues/865
       [4]: https://github.com/actions/setup-go/issues/725
+  - title: Auto-index Go packages
+    tags:
+      - Go
+      - CI/CD
+    description: |
+      Create a CI/CD tool to get the Go module index to automatically index a Go
+      library on release. This should be as simple as running something like
+      `go get <module>@<tag>` after the release is created. I have [two][1]
+      [drafts][2] for this that I haven't gotten around to testing yet.
+
+      This idea came from reading [Empirical Analysis of Vulnerabilities Life
+      Cycle in Golang Ecosystem].
+
+      [Empirical Analysis of Vulnerabilities Life Cycle in Golang Ecosystem]: https://dl.acm.org/doi/abs/10.1145/3597503.3639230
+      [1]: https://github.com/chains-project/ghasum/pull/336
+      [2]: https://github.com/ericcornelissen/go-gha-models/pull/31
+  - title: Smart JSON Schema CLI
+    tags:
+      - JSON
+      - Tooling
+      - Linting
+    description: |
+      A CLI that automatically validates JSON schema for JSON files, in
+      particular when it specifies a `$schema`. On npm there is the [`ajv-cli`]
+      package, but it requires the user to specify the schema. I have tried (and
+      failed) to put together a [simple CLI][1] for this together in the past.
+
+      [`ajv-cli`]: https://www.npmjs.com/package/ajv-cli
+      [1]: https://github.com/ericcornelissen/eslint-plugin-top/pull/246
+  - title: Convenient Runtime Compatibility testing
+    tags:
+      - Testing
+      - Compatibility
+      - Node.js
+    description: |
+      Packages for runtime-based languages should generally be compatible with
+      multiple versions of the runtime/language. Testing this is currently not
+      very convenient. In CI it is OK because of test [matrices], but this is
+      not always good enough because the feedback loop is too slow.
+
+      The closest to a solution I've found is [nve], however it runs into issues
+      when the npm and Node.js versions are incompatible. It is also limited to
+      locally installing Node.js versions while I think it can be very valuable
+      to have other drivers such as [nvm] or [Docker] to reduce duplicate
+      installations.
+
+      [matrices]: https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstrategymatrix
+      [nve]: https://www.npmjs.com/package/nve
+      [nvm]: https://github.com/nvm-sh/nvm
+      [docker]: https://www.docker.com/
+  - title: node-msrv
+    tags:
+      - Testing
+      - Compatibility
+      - Node.js
+    description: |
+      Like [cargo-msrv] but for Node.js - Minimum Supported Runtime Version - A
+      tool to find the minimum supported Node.js version for a package. This can
+      be used to aid in setting the [`"engines"` field in package.json] which
+      helps users understand when your package is expected to work. Moreover,
+      knowing the minimum supported version enables you to prevent introducing
+      breaking changes.
+
+      Because of the nature of Node.js, this would probably require a dynamic
+      assessment of compatibility such as running test. A major limitation with
+      this is that incompatibilities may come from other factors such as the
+      testing framework instead.
+
+      A particularly nice touch would be if the tool could output the reason for
+      incompatibility with older version, which could help package authors
+      expand the range of supported versions.
+
+      [cargo-msrv]: https://crates.io/crates/cargo-msrv
+      [`"engines"` field in package.json]: https://docs.npmjs.com/cli/v11/configuring-npm/package-json#engines
