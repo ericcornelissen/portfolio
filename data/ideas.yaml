@@ -209,3 +209,55 @@ ideas:
 
       [cargo-msrv]: https://crates.io/crates/cargo-msrv
       [`"engines"` field in package.json]: https://docs.npmjs.com/cli/v11/configuring-npm/package-json#engines
+  - title: Number Vetting for Go
+    tags:
+      - Go
+      - Vet
+      - Tooling
+    description: |
+      Based on [100 Common Go Mistakes], an analysis tool for Go programs that
+      enforces octal numbers are always prefixed explicitly with `0o`.
+
+      Relatedly, but less pressing, this or a similar tool could also enforce
+      (consistent) use of `_` separated numbers (`10_000` or `10000`, also for
+      non-decimal notation) and complex numbers (`complex(6, 7)` or `6+7i`) as
+      well as disallow "wrong" use of `_` separated numbers (`100_00` instead of
+      `10_000`).
+
+      For completeness, `go fmt` already normalizes of `0x` to `0X` and `0b` to
+      `0B`. See also [SA9002].
+
+      [100 common go mistakes]: https://100go.co/#creating-confusion-with-octal-literals-17
+      [SA9002]: https://staticcheck.dev/docs/checks#SA9002
+  - title: Disallow implicit captures in Go
+    tags:
+      - Go
+      - Vet
+      - Tooling
+    description: |
+      Based on [A million ways to die from a data race in Go], an analysis tool
+      for Go programs that forbids implicitly capturing variables from closures.
+      This is needed because it can introduce subtle bugs (e.g., data races)
+      while basically never being a good idea.
+
+      [a million ways to die from a data race in go]: https://gaultier.github.io/blog/a_million_ways_to_data_race_in_go.html#accidental-capture-in-a-closure-of-an-outer-variable
+  - title: RegExp shortener
+    tags:
+      - Fun
+    description: |
+      A library that, given a regular expression, outputs the shortest (in terms
+      of bytes) equivalent regular expression. For example, change `/a|b|c|d/`
+      (7 chars) to `/[abcd]/` (6 chars) or even `/[a-d]/` (5 chars). At the same
+      time, this should avoid changing `/a|b/` (3 chars) to `/[ab]/` (4 chars).
+
+      This would require parsing the regular expression, transforming it
+      according to semantic-preserving rules that additionally shorten the
+      textual representation, and serializing it again. It's a great candidate
+      for [property] or [fuzz testing].
+
+      This is mostly just a curiosity project, but there is one practical
+      application: [minification].
+
+      [minification]: https://en.wikipedia.org/wiki/Minification_(programming)
+      [property]: https://en.wikipedia.org/wiki/Property_testing
+      [fuzz testing]: https://en.wikipedia.org/wiki/Fuzzing
