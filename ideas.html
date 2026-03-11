@@ -1,0 +1,132 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="Content-Security-Policy" content="default-src 'none';base-uri 'self';connect-src 'self';font-src 'self' https://fonts.gstatic.com;form-action 'none';img-src 'self';script-src 'self';style-src 'self' https://fonts.googleapis.com;trusted-types 'none';require-trusted-types-for 'script';"><meta http-equiv="Referrer-Policy" content="no-referrer"><meta charset="utf-8"><meta name="title" content="Eric Cornelissen - Project Ideas"><meta name="viewport" content="width=device-width, initial-scale=1"><link href="/styles/reset.css" rel="stylesheet" type="text/css"><link href="/styles/layout.css" rel="stylesheet" type="text/css"><link href="/styles/styling.css" rel="stylesheet" type="text/css"><link href="/styles/text.css" rel="stylesheet" type="text/css"><title>Eric Cornelissen - Project Ideas</title></head><body><header><h1>Project Ideas</h1><p>This page is just a list of projects I wish existed, but haven't
+gotten around to creating yet.</p><p>You're free to take these ideas and create a solution however you see
+fit. Just
+<a href="mailto:ericornelissen+ideas@gmail.com" target="_blank">let me know</a>
+when you do :)</p></header><section id="ideas"><div><ul><li id="eslint-plugin-baseline-nodejs"><h2>eslint-plugin-baseline-nodejs<a href="#eslint-plugin-baseline-nodejs">#</a></h2><ul class="tag-list"><li>ESLint</li><li>JavaScript</li><li>Node.js</li></ul><p><p>An <a href="https://eslint.org/">ESLint</a> plugin that will tell you, given the minimum Node.js version
+you're targeting, whenever you're using language features, runtime APIs,
+or globals that aren't yet supported.</p>
+<p>Basically, <a href="https://baselinejs.vercel.app/">eslint-plugin-baseline-js</a>, but for a given version of Node.js
+instead of the web.</p>
+</p></li><li id="go-linter-for-docs"><h2>Go linter for docs<a href="#go-linter-for-docs">#</a></h2><ul class="tag-list"><li>Documentation</li><li>Go</li></ul><p><p>A simple Go CLI that checks Go codebases and ensures all doc comments
+follow the <a href="https://tip.golang.org/doc/comment">official guidelines</a>. See also related tooling: <a href="https://github.com/tetafro/godot">godot</a>.</p>
+</p></li><li id="justfile2makefile"><h2>Justfile2Makefile<a href="#justfile2makefile">#</a></h2><ul class="tag-list"><li>Tooling</li></ul><p><p>A simple way to convert a <a href="https://just.systems/"><code>Justfile</code></a> to a <code>Makefile</code> or vice versa. Two
+motivations: it 1) makes it easier to switch between different command
+runners and 2) makes it possible to &quot;run&quot; a <code>Justfile</code> using Make. The
+latter can be useful when contributing to a project that is using a
+command runner you don't have installed – just convert it and run it with
+the command runner you have.</p>
+<p>Now, the irony of installing some program to do the conversion instead of
+installing the command runner is not lost on me. One reason for this can
+be that the command runner is not available on the OS you're using.
+Another is that if you can convert between many formats, you only need one
+command runner and one converter, rather than many command runners.</p>
+</p></li><li id="npm-audit-for-libraries"><h2>npm audit for libraries<a href="#npm-audit-for-libraries">#</a></h2><ul class="tag-list"><li>Node.js</li><li>Vulnerability Management</li></ul><p><p>An improved <code>npm audit</code> that understands libraries. That is, it does not
+complain if you depend on a vulnerable version as long as your consumers
+can upgrade to a safe version because of version ranges. This need not be
+a dedicated tool. Adding support for this to an existing tool could work
+too. Also, this idea can be applied to other ecosystems too.</p>
+<p>See also related tooling: <a href="https://www.npmjs.com/package/better-npm-audit">better-npm-audit</a> and <a href="https://www.npmjs.com/package/npmaargh">npmaargh</a>.</p>
+</p></li><li id="testable-jsdoc-examples"><h2>Testable JSDoc examples<a href="#testable-jsdoc-examples">#</a></h2><ul class="tag-list"><li>Documentation</li><li>JavaScript</li><li>Testing</li></ul><p><p>Like <a href="https://go.dev/blog/examples">Testable Examples in Go</a> and <a href="https://doc.rust-lang.org/rust-by-example/testing/doc_testing.html">documentation tests in Rust</a>, a tool
+that runs a project's JSDoc <code>@example</code>s to ensure they're correct.</p>
+</p></li><li id="unused-eslint-rule-detector"><h2>Unused ESLint rule detector<a href="#unused-eslint-rule-detector">#</a></h2><ul class="tag-list"><li>ESLint</li><li>JavaScript</li></ul><p><p><a href="https://eslint.org/">ESLint</a> is a linter for JavaScript with tons of rules and plugins with
+even more rules. I like to have all rules configured explicitly, however
+it can be hard to keep track of all rules, especially as updates come in.
+Hence, I'd like to have a tool which, given an ESLint configuration file,
+complains about any unconfigured rules.</p>
+</p></li><li id="documentation-snippet-testing"><h2>Documentation snippet testing<a href="#documentation-snippet-testing">#</a></h2><ul class="tag-list"><li>Documentation</li><li>Markdown</li><li>Testing</li></ul><p><p>Snippets in documentation should just work; if they don't it's incredibly
+frustrating for the reader. So, why don't we test them in an automated
+fashion like the rest of our software? Testable examples (<a href="https://go.dev/blog/examples">Go</a>, <a href="https://doc.rust-lang.org/rust-by-example/testing/doc_testing.html">Rust</a>)
+are a first step, but these do not apply to Markdown-based documentation
+files. Also, <a href="https://www.npmjs.com/package/@eslint/markdown">ESLint</a> supports linting code blocks in Markdown which
+provides some confidence they're correct, but it's not enough.</p>
+<p>Basically, I want a tool that runs the code snippets in Markdown files to
+ensure they will work when users try to run them. I have built a bespoke
+proof of concept that only runs shell blocks, <a href="https://github.com/ericcornelissen/js-regex-security-scanner/blob/d325ebf4d5888cc1ff82fc0a0e16bd81a1f20df9/tests/docs.test.js"><code>docs.test.js</code></a>, if you
+want to get an idea or need some inspiration.</p>
+</p></li><li id="strip-directives"><h2>strip-directives<a href="#strip-directives">#</a></h2><ul class="tag-list"><li>JavaScript</li><li>Tooling</li></ul><p><p>A simple build tool that takes an <a href="https://www.npmjs.com/">npm</a> project before publishing and
+strips directive comments (like <a href="https://eslint.org/docs/latest/use/configure/rules#disable-rules"><code>eslint-disable</code></a>) from it. This reduces
+the package size by omitting bytes that are not useful for consumers.</p>
+<p>This idea can apply to any ecosystem where packages are distributed as
+source code.</p>
+</p></li><li id="gha-immutable-release-checking"><h2>GHA Immutable Release Checking<a href="#gha-immutable-release-checking">#</a></h2><ul class="tag-list"><li>GitHub Actions</li><li>Supply Chain Security</li></ul><p><p>A GitHub Action (or reusable workflow) that triggers on Pull Requests from
+Dependabot or Renovate and tells you whether the new version of the GitHub
+Action it is updating is using <a href="https://docs.github.com/en/code-security/concepts/supply-chain-security/immutable-releases">immutable releases</a> or not.</p>
+<p>I already have a <a href="https://github.com/ericcornelissen/reproducing-actions/blob/7f12f6fa002300a2d3f4a7f81398f8450913e89d/.github/workflows/0-ci.yml#L36-L100">simple job for this targeting Dependabot</a> that can be
+used as a starting point. I used it to find <a href="https://github.com/actions/cache/issues/1709">several</a> <a href="https://github.com/docker/build-push-action/issues/1460">high</a>
+<a href="https://github.com/gradle/actions/issues/865">profile</a> <a href="https://github.com/actions/setup-go/issues/725">Actions</a> that didn't yet use immutable releases.</p>
+</p></li><li id="auto-index-go-packages"><h2>Auto-index Go packages<a href="#auto-index-go-packages">#</a></h2><ul class="tag-list"><li>CI/CD</li><li>Go</li></ul><p><p>Create a CI/CD tool to get the Go module index to automatically index a Go
+library on release. This should be as simple as running something like
+<code>go get &lt;module&gt;@&lt;tag&gt;</code> after the release is created. I have <a href="https://github.com/chains-project/ghasum/pull/336">two</a>
+<a href="https://github.com/ericcornelissen/go-gha-models/pull/31">drafts</a> for this that I haven't gotten around to testing yet.</p>
+<p>This idea came from reading <a href="https://dl.acm.org/doi/abs/10.1145/3597503.3639230">Empirical Analysis of Vulnerabilities Life
+Cycle in Golang Ecosystem</a>.</p>
+</p></li><li id="smart-json-schema-cli"><h2>Smart JSON Schema CLI<a href="#smart-json-schema-cli">#</a></h2><ul class="tag-list"><li>JSON</li><li>Linting</li></ul><p><p>A CLI that automatically validates JSON schema for JSON files, in
+particular when it specifies a <code>$schema</code>. On npm there is the <a href="https://www.npmjs.com/package/ajv-cli"><code>ajv-cli</code></a>
+package, but it requires the user to specify the schema. I have tried (and
+failed) to put together a <a href="https://github.com/ericcornelissen/eslint-plugin-top/pull/246">simple CLI</a> for this together in the past.</p>
+</p></li><li id="convenient-runtime-compatibility-testing"><h2>Convenient runtime compatibility testing<a href="#convenient-runtime-compatibility-testing">#</a></h2><ul class="tag-list"><li>Compatibility</li><li>Node.js</li><li>Testing</li></ul><p><p>Packages for runtime-based languages should generally be compatible with
+multiple versions of the runtime/language. Testing this is currently not
+very convenient. In CI it is OK because of test <a href="https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstrategymatrix">matrices</a>, but this is
+not always good enough because the feedback loop is too slow.</p>
+<p>The closest to a solution I've found is <a href="https://www.npmjs.com/package/nve">nve</a>, however it runs into issues
+when the npm and Node.js versions are incompatible. It is also limited to
+locally installing Node.js versions while I think it can be very valuable
+to have other drivers such as <a href="https://github.com/nvm-sh/nvm">nvm</a> or <a href="https://www.docker.com/">Docker</a> to reduce duplicate
+installations.</p>
+</p></li><li id="node-msrv"><h2>node-msrv<a href="#node-msrv">#</a></h2><ul class="tag-list"><li>Compatibility</li><li>Node.js</li><li>Testing</li></ul><p><p>Like <a href="https://crates.io/crates/cargo-msrv">cargo-msrv</a> but for Node.js - Minimum Supported Runtime Version - A
+tool to find the minimum supported Node.js version for a package. This can
+be used to aid in setting the <a href="https://docs.npmjs.com/cli/v11/configuring-npm/package-json#engines"><code>&quot;engines&quot;</code> field in package.json</a> which
+helps users understand when your package is expected to work. Moreover,
+knowing the minimum supported version enables you to prevent introducing
+breaking changes.</p>
+<p>Because of the nature of Node.js, this would probably require a dynamic
+assessment of compatibility such as running tests. A major limitation with
+this is that incompatibilities may come from other factors such as the
+testing framework instead.</p>
+<p>A particularly nice touch would be if the tool could output the reason for
+incompatibility with older version, which could help package authors
+expand the range of supported versions.</p>
+</p></li><li id="number-vetting-for-go"><h2>Number vetting for Go<a href="#number-vetting-for-go">#</a></h2><ul class="tag-list"><li>Go</li><li>Style</li><li>Vet</li></ul><p><p>Based on <a href="https://100go.co/#creating-confusion-with-octal-literals-17">100 Common Go Mistakes</a>, an analysis tool for Go programs that
+enforces octal numbers are always prefixed explicitly with <code>0o</code>.</p>
+<p>Relatedly, but less pressing, this or a similar tool could also enforce
+(consistent) use of <code>_</code> separated numbers (<code>10_000</code> or <code>10000</code>, including
+for non-decimal notation) and complex numbers (<code>complex(6, 7)</code> or <code>6+7i</code>)
+as well as disallow &quot;wrong&quot; use of <code>_</code> separated numbers (<code>100_00</code> instead
+of <code>10_000</code>).</p>
+<p>For completeness, <code>go fmt</code> already normalizes of <code>0X</code> to <code>0x</code> and <code>0B</code> to
+<code>0b</code>. See also <a href="https://staticcheck.dev/docs/checks#SA9002">SA9002</a>.</p>
+</p></li><li id="disallow-implicit-captures-in-go"><h2>Disallow implicit captures in Go<a href="#disallow-implicit-captures-in-go">#</a></h2><ul class="tag-list"><li>Go</li><li>Vet</li></ul><p><p>Based on <a href="https://gaultier.github.io/blog/a_million_ways_to_data_race_in_go.html#accidental-capture-in-a-closure-of-an-outer-variable">A million ways to die from a data race in Go</a>, an analysis tool
+for Go programs that forbids implicitly capturing variables from closures.
+This is needed because it can introduce subtle bugs (e.g., data races)
+while basically never being a good idea.</p>
+</p></li><li id="regexp-shortener"><h2>RegExp shortener<a href="#regexp-shortener">#</a></h2><ul class="tag-list"><li>Fun</li></ul><p><p>A library that, given a regular expression, outputs the shortest (in terms
+of bytes) equivalent regular expression. For example, change <code>/a|b|c|d/</code>
+(7 chars) to <code>/[abcd]/</code> (6 chars) or even <code>/[a-d]/</code> (5 chars). At the same
+time, this should avoid changing <code>/a|b/</code> (3 chars) to <code>/[ab]/</code> (4 chars).</p>
+<p>This would require parsing the regular expression, transforming it
+according to semantic-preserving rules that additionally shorten the
+textual representation, and serializing it again. It's a great candidate
+for <a href="https://en.wikipedia.org/wiki/Property_testing">property</a> or <a href="https://en.wikipedia.org/wiki/Fuzzing">fuzz testing</a>.</p>
+<p>This is mostly just a curiosity project, but there is one practical
+application: <a href="https://en.wikipedia.org/wiki/Minification_(programming)">minification</a>.</p>
+</p></li><li id="top-level-checks-for-go"><h2>Top level checks for Go<a href="#top-level-checks-for-go">#</a></h2><ul class="tag-list"><li>Go</li><li>Vet</li></ul><p><p>A static analysis tool for Go that forbids any initialization and/or state
+at the top level. Beyond the <code>init</code> function, initialization of variables
+may also constitute initialization when a module is loaded. Avoiding any
+initialization is beneficial to avoid unexpected startup cost from using
+your module.</p>
+<p>Relatedly, variables at the top level constitute state which is ideally
+avoided for all the usual reasons. If it is used as state it can make it
+harder to reason about and test the code.</p>
+<p>See also related tooling: <a href="https://github.com/leighmcculloch/gochecknoinits">gochecknoinits</a> and <a href="https://www.npmjs.com/package/@ericcornelissen/eslint-plugin-top">eslint-plugin-top</a>.</p>
+</p></li><li id="latexlint"><h2>LaTeXLint<a href="#latexlint">#</a></h2><ul class="tag-list"><li>LaTeX</li><li>Lint</li><li>Style</li></ul><p><p>Like <a href="https://www.nongnu.org/chktex/">ChkTeX</a> but more comprehensive and with stylistic checks such as
+line length and blank consistency.</p>
+<p>Some ideas for checks: require that all sections, figures, etc. have a
+label. Require that all labels are used. Ensure section, subsection, etc.
+are only used in increasing order. Disallow manual formatting.</p>
+</p></li><li id="fast-check-arbitraries-for-node.js-built-ins"><h2>fast-check arbitraries for Node.js built-ins<a href="#fast-check-arbitraries-for-node.js-built-ins">#</a></h2><ul class="tag-list"><li>Node.js</li><li>Property testing</li><li>Testing</li></ul><p><p>A library that offers <a href="https://fast-check.dev/">fast-check</a> arbitraries for the built-ins of
+Node.js. Useful for testing functions that work against the interface of
+a Node.js built-in. For example, a function that works on <code>process</code>
+should work for any (<a href="https://fast-check.dev/">fast-check</a>) arbitrary instance of <code>process</code>.</p>
+<p>I have created a handful for <a href="https://gitlab.com/ericcornelissen/pp-test-kit/-/tree/7c9be6b08e0dfbbb13bf0e65065e11a0f48aaa26/benchmarks">benchmarking the <code>pp-test-kit</code></a> project,
+which you can use as a starting point.</p>
+</p></li></ul></div></section></body></html>
