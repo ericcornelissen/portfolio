@@ -6,8 +6,8 @@ ideas:
       - Node.js
     description: |
       An [ESLint] plugin that will tell you, given the minimum Node.js version
-      you're targeting, whenever you're using language and runtime APIs that
-      aren't yet supported.
+      you're targeting, whenever you're using language features, runtime APIs,
+      or globals that aren't yet supported.
 
       Basically, [eslint-plugin-baseline-js], but for a given version of Node.js
       instead of the web.
@@ -198,7 +198,7 @@ ideas:
       breaking changes.
 
       Because of the nature of Node.js, this would probably require a dynamic
-      assessment of compatibility such as running test. A major limitation with
+      assessment of compatibility such as running tests. A major limitation with
       this is that incompatibilities may come from other factors such as the
       testing framework instead.
 
@@ -218,10 +218,10 @@ ideas:
       enforces octal numbers are always prefixed explicitly with `0o`.
 
       Relatedly, but less pressing, this or a similar tool could also enforce
-      (consistent) use of `_` separated numbers (`10_000` or `10000`, also for
-      non-decimal notation) and complex numbers (`complex(6, 7)` or `6+7i`) as
-      well as disallow "wrong" use of `_` separated numbers (`100_00` instead of
-      `10_000`).
+      (consistent) use of `_` separated numbers (`10_000` or `10000`, including
+      for non-decimal notation) and complex numbers (`complex(6, 7)` or `6+7i`)
+      as well as disallow "wrong" use of `_` separated numbers (`100_00` instead
+      of `10_000`).
 
       For completeness, `go fmt` already normalizes of `0X` to `0x` and `0B` to
       `0b`. See also [SA9002].
