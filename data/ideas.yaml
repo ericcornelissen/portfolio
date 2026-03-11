@@ -5,36 +5,43 @@ ideas:
       - JavaScript
       - Node.js
     description: |
-      An [ESLint](https://eslint.org/) plugin that will tell you, given the
-      minimum Node.js version you're targeting, whenever you're using language
-      and runtime APIs that aren't yet supported.
+      An [ESLint] plugin that will tell you, given the minimum Node.js version
+      you're targeting, whenever you're using language features, runtime APIs,
+      or globals that aren't yet supported.
 
-      Basically, [eslint-plugin-baseline-js](https://baselinejs.vercel.app/),
-      but for a given version of Node.js instead of the web.
+      Basically, [eslint-plugin-baseline-js], but for a given version of Node.js
+      instead of the web.
+
+      [eslint]: https://eslint.org/
+      [eslint-plugin-baseline-js]: https://baselinejs.vercel.app/
   - title: Go linter for docs
     tags:
       - Documentation
       - Go
     description: |
       A simple Go CLI that checks Go codebases and ensures all doc comments
-      follow the [official guidelines](https://tip.golang.org/doc/comment). See
-      also related tooling: [godot](https://github.com/tetafro/godot).
+      follow the [official guidelines]. See also related tooling: [godot].
+
+      [official guidelines]: https://tip.golang.org/doc/comment
+      [godot]: https://github.com/tetafro/godot
   - title: Justfile2Makefile
     tags:
       - Tooling
     description: |
-      A simple way to convert a [`Justfile`](https://just.systems/) to a
-      `Makefile` or vice versa. Two motivations: it 1) makes it easier to switch
-      between different command runners and 2) makes it possible to "run" a
-      `Justfile` using Make. The latter can be useful when contributing to a
-      project that is using a command runner you don't have installed – just
-      convert it and run it with the command runner you have.
+      A simple way to convert a [`Justfile`] to a `Makefile` or vice versa. Two
+      motivations: it 1) makes it easier to switch between different command
+      runners and 2) makes it possible to "run" a `Justfile` using Make. The
+      latter can be useful when contributing to a project that is using a
+      command runner you don't have installed – just convert it and run it with
+      the command runner you have.
 
       Now, the irony of installing some program to do the conversion instead of
       installing the command runner is not lost on me. One reason for this can
       be that the command runner is not available on the OS you're using.
       Another is that if you can convert between many formats, you only need one
       command runner and one converter, rather than many command runners.
+
+      [`justfile`]: https://just.systems/
   - title: npm audit for libraries
     tags:
       - Node.js
@@ -46,25 +53,258 @@ ideas:
       a dedicated tool. Adding support for this to an existing tool could work
       too. Also, this idea can be applied to other ecosystems too.
 
-      See also related tooling:
-      [better-npm-audit](https://www.npmjs.com/package/better-npm-audit) and
-      [npmaargh](https://www.npmjs.com/package/npmaargh).
+      See also related tooling: [better-npm-audit] and [npmaargh].
+
+      [better-npm-audit]: https://www.npmjs.com/package/better-npm-audit
+      [npmaargh]: https://www.npmjs.com/package/npmaargh
   - title: Testable JSDoc examples
     tags:
       - Documentation
       - JavaScript
       - Testing
     description: |
-      Like [Testable Examples in Go](https://go.dev/blog/examples) and
-      [documentation tests in Rust](https://doc.rust-lang.org/rust-by-example/testing/doc_testing.html),
-      a tool that runs a project's JSDoc `@example`s to ensure they're correct.
+      Like [Testable Examples in Go] and [documentation tests in Rust], a tool
+      that runs a project's JSDoc `@example`s to ensure they're correct.
+
+      [testable examples in go]: https://go.dev/blog/examples
+      [documentation tests in rust]: https://doc.rust-lang.org/rust-by-example/testing/doc_testing.html
   - title: Unused ESLint rule detector
     tags:
       - ESLint
       - JavaScript
     description: |
-      [ESLint](https://eslint.org/) is a linter for JavaScript with tons of
-      rules and plugins with even more rules. I like to have all rules
-      configured explicitly, however it can be hard to keep track of all rules,
-      especially as updates come in. Hence, I'd like to have a tool which, given
-      an ESLint configuration file, complains about any unconfigured rules.
+      [ESLint] is a linter for JavaScript with tons of rules and plugins with
+      even more rules. I like to have all rules configured explicitly, however
+      it can be hard to keep track of all rules, especially as updates come in.
+      Hence, I'd like to have a tool which, given an ESLint configuration file,
+      complains about any unconfigured rules.
+
+      [eslint]: https://eslint.org/
+  - title: Documentation snippet testing
+    tags:
+      - Documentation
+      - Markdown
+      - Testing
+    description: |
+      Snippets in documentation should just work; if they don't it's incredibly
+      frustrating for the reader. So, why don't we test them in an automated
+      fashion like the rest of our software? Testable examples ([Go], [Rust])
+      are a first step, but these do not apply to Markdown-based documentation
+      files. Also, [ESLint] supports linting code blocks in Markdown which
+      provides some confidence they're correct, but it's not enough.
+
+      Basically, I want a tool that runs the code snippets in Markdown files to
+      ensure they will work when users try to run them. I have built a bespoke
+      proof of concept that only runs shell blocks, [`docs.test.js`], if you
+      want to get an idea or need some inspiration.
+
+      [go]: https://go.dev/blog/examples
+      [rust]: https://doc.rust-lang.org/rust-by-example/testing/doc_testing.html
+      [eslint]: https://www.npmjs.com/package/@eslint/markdown
+      [`docs.test.js`]: https://github.com/ericcornelissen/js-regex-security-scanner/blob/d325ebf4d5888cc1ff82fc0a0e16bd81a1f20df9/tests/docs.test.js
+  - title: strip-directives
+    tags:
+      - JavaScript
+      - Tooling
+    description: |
+      A simple build tool that takes an [npm] project before publishing and
+      strips directive comments (like [`eslint-disable`]) from it. This reduces
+      the package size by omitting bytes that are not useful for consumers.
+
+      This idea can apply to any ecosystem where packages are distributed as
+      source code.
+
+      [npm]: https://www.npmjs.com/
+      [`eslint-disable`]: https://eslint.org/docs/latest/use/configure/rules#disable-rules
+  - title: GHA Immutable Release Checking
+    tags:
+      - GitHub Actions
+      - Supply Chain Security
+    description: |
+      A GitHub Action (or reusable workflow) that triggers on Pull Requests from
+      Dependabot or Renovate and tells you whether the new version of the GitHub
+      Action it is updating is using [immutable releases] or not.
+
+      I already have a [simple job for this targeting Dependabot] that can be
+      used as a starting point. I used it to find [several][1] [high][2]
+      [profile][3] [Actions][4] that didn't yet use immutable releases.
+
+      [immutable releases]: https://docs.github.com/en/code-security/concepts/supply-chain-security/immutable-releases
+      [simple job for this targeting dependabot]: https://github.com/ericcornelissen/reproducing-actions/blob/7f12f6fa002300a2d3f4a7f81398f8450913e89d/.github/workflows/0-ci.yml#L36-L100
+      [1]: https://github.com/actions/cache/issues/1709
+      [2]: https://github.com/docker/build-push-action/issues/1460
+      [3]: https://github.com/gradle/actions/issues/865
+      [4]: https://github.com/actions/setup-go/issues/725
+  - title: Auto-index Go packages
+    tags:
+      - CI/CD
+      - Go
+    description: |
+      Create a CI/CD tool to get the Go module index to automatically index a Go
+      library on release. This should be as simple as running something like
+      `go get <module>@<tag>` after the release is created. I have [two][1]
+      [drafts][2] for this that I haven't gotten around to testing yet.
+
+      This idea came from reading [Empirical Analysis of Vulnerabilities Life
+      Cycle in Golang Ecosystem].
+
+      [Empirical Analysis of Vulnerabilities Life Cycle in Golang Ecosystem]: https://dl.acm.org/doi/abs/10.1145/3597503.3639230
+      [1]: https://github.com/chains-project/ghasum/pull/336
+      [2]: https://github.com/ericcornelissen/go-gha-models/pull/31
+  - title: Smart JSON Schema CLI
+    tags:
+      - JSON
+      - Linting
+    description: |
+      A CLI that automatically validates JSON schema for JSON files, in
+      particular when it specifies a `$schema`. On npm there is the [`ajv-cli`]
+      package, but it requires the user to specify the schema. I have tried (and
+      failed) to put together a [simple CLI][1] for this together in the past.
+
+      [`ajv-cli`]: https://www.npmjs.com/package/ajv-cli
+      [1]: https://github.com/ericcornelissen/eslint-plugin-top/pull/246
+  - title: Convenient runtime compatibility testing
+    tags:
+      - Compatibility
+      - Node.js
+      - Testing
+    description: |
+      Packages for runtime-based languages should generally be compatible with
+      multiple versions of the runtime/language. Testing this is currently not
+      very convenient. In CI it is OK because of test [matrices], but this is
+      not always good enough because the feedback loop is too slow.
+
+      The closest to a solution I've found is [nve], however it runs into issues
+      when the npm and Node.js versions are incompatible. It is also limited to
+      locally installing Node.js versions while I think it can be very valuable
+      to have other drivers such as [nvm] or [Docker] to reduce duplicate
+      installations.
+
+      [matrices]: https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstrategymatrix
+      [nve]: https://www.npmjs.com/package/nve
+      [nvm]: https://github.com/nvm-sh/nvm
+      [docker]: https://www.docker.com/
+  - title: node-msrv
+    tags:
+      - Compatibility
+      - Node.js
+      - Testing
+    description: |
+      Like [cargo-msrv] but for Node.js - Minimum Supported Runtime Version - A
+      tool to find the minimum supported Node.js version for a package. This can
+      be used to aid in setting the [`"engines"` field in package.json] which
+      helps users understand when your package is expected to work. Moreover,
+      knowing the minimum supported version enables you to prevent introducing
+      breaking changes.
+
+      Because of the nature of Node.js, this would probably require a dynamic
+      assessment of compatibility such as running tests. A major limitation with
+      this is that incompatibilities may come from other factors such as the
+      testing framework instead.
+
+      A particularly nice touch would be if the tool could output the reason for
+      incompatibility with older version, which could help package authors
+      expand the range of supported versions.
+
+      [cargo-msrv]: https://crates.io/crates/cargo-msrv
+      [`"engines"` field in package.json]: https://docs.npmjs.com/cli/v11/configuring-npm/package-json#engines
+  - title: Number vetting for Go
+    tags:
+      - Go
+      - Style
+      - Vet
+    description: |
+      Based on [100 Common Go Mistakes], an analysis tool for Go programs that
+      enforces octal numbers are always prefixed explicitly with `0o`.
+
+      Relatedly, but less pressing, this or a similar tool could also enforce
+      (consistent) use of `_` separated numbers (`10_000` or `10000`, including
+      for non-decimal notation) and complex numbers (`complex(6, 7)` or `6+7i`)
+      as well as disallow "wrong" use of `_` separated numbers (`100_00` instead
+      of `10_000`).
+
+      For completeness, `go fmt` already normalizes of `0X` to `0x` and `0B` to
+      `0b`. See also [SA9002].
+
+      [100 common go mistakes]: https://100go.co/#creating-confusion-with-octal-literals-17
+      [SA9002]: https://staticcheck.dev/docs/checks#SA9002
+  - title: Disallow implicit captures in Go
+    tags:
+      - Go
+      - Vet
+    description: |
+      Based on [A million ways to die from a data race in Go], an analysis tool
+      for Go programs that forbids implicitly capturing variables from closures.
+      This is needed because it can introduce subtle bugs (e.g., data races)
+      while basically never being a good idea.
+
+      [a million ways to die from a data race in go]: https://gaultier.github.io/blog/a_million_ways_to_data_race_in_go.html#accidental-capture-in-a-closure-of-an-outer-variable
+  - title: RegExp shortener
+    tags:
+      - Fun
+    description: |
+      A library that, given a regular expression, outputs the shortest (in terms
+      of bytes) equivalent regular expression. For example, change `/a|b|c|d/`
+      (7 chars) to `/[abcd]/` (6 chars) or even `/[a-d]/` (5 chars). At the same
+      time, this should avoid changing `/a|b/` (3 chars) to `/[ab]/` (4 chars).
+
+      This would require parsing the regular expression, transforming it
+      according to semantic-preserving rules that additionally shorten the
+      textual representation, and serializing it again. It's a great candidate
+      for [property] or [fuzz testing].
+
+      This is mostly just a curiosity project, but there is one practical
+      application: [minification].
+
+      [minification]: https://en.wikipedia.org/wiki/Minification_(programming)
+      [property]: https://en.wikipedia.org/wiki/Property_testing
+      [fuzz testing]: https://en.wikipedia.org/wiki/Fuzzing
+  - title: Top level checks for Go
+    tags:
+      - Go
+      - Vet
+    description: |
+      A static analysis tool for Go that forbids any initialization and/or state
+      at the top level. Beyond the `init` function, initialization of variables
+      may also constitute initialization when a module is loaded. Avoiding any
+      initialization is beneficial to avoid unexpected startup cost from using
+      your module.
+
+      Relatedly, variables at the top level constitute state which is ideally
+      avoided for all the usual reasons. If it is used as state it can make it
+      harder to reason about and test the code.
+
+      See also related tooling: [gochecknoinits] and [eslint-plugin-top].
+
+      [gochecknoinits]: https://github.com/leighmcculloch/gochecknoinits
+      [eslint-plugin-top]: https://www.npmjs.com/package/@ericcornelissen/eslint-plugin-top
+  - title: LaTeXLint
+    tags:
+      - LaTeX
+      - Lint
+      - Style
+    description: |
+      Like [ChkTeX] but more comprehensive and with stylistic checks such as
+      line length and blank consistency.
+
+      Some ideas for checks: require that all sections, figures, etc. have a
+      label. Require that all labels are used. Ensure section, subsection, etc.
+      are only used in increasing order. Disallow manual formatting.
+
+      [chktex]: https://www.nongnu.org/chktex/
+  - title: fast-check arbitraries for Node.js built-ins
+    tags:
+      - Node.js
+      - Property testing
+      - Testing
+    description: |
+      A library that offers [fast-check] arbitraries for the built-ins of
+      Node.js. Useful for testing functions that work against the interface of
+      a Node.js built-in. For example, a function that works on `process`
+      should work for any ([fast-check]) arbitrary instance of `process`.
+
+      I have created a handful for [benchmarking the `pp-test-kit`] project,
+      which you can use as a starting point.
+
+      [fast-check]: https://fast-check.dev/
+      [benchmarking the `pp-test-kit`]: https://gitlab.com/ericcornelissen/pp-test-kit/-/tree/7c9be6b08e0dfbbb13bf0e65065e11a0f48aaa26/benchmarks

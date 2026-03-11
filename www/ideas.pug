@@ -33,9 +33,7 @@ html(lang="en")
 				ul
 					each idea in ideas
 						li(id=fragmentify(idea.title))
-							h2
-								| #{ idea.title }
-								|
+							h2 #{ idea.title }
 								a(href=`#${fragmentify(idea.title)}`) #
 							ul.tag-list
 								each tag in idea.tags
