@@ -137,8 +137,8 @@ ideas:
       [4]: https://github.com/actions/setup-go/issues/725
   - title: Auto-index Go packages
     tags:
-      - Go
       - CI/CD
+      - Go
     description: |
       Create a CI/CD tool to get the Go module index to automatically index a Go
       library on release. This should be as simple as running something like
@@ -154,7 +154,6 @@ ideas:
   - title: Smart JSON Schema CLI
     tags:
       - JSON
-      - Tooling
       - Linting
     description: |
       A CLI that automatically validates JSON schema for JSON files, in
@@ -164,11 +163,11 @@ ideas:
 
       [`ajv-cli`]: https://www.npmjs.com/package/ajv-cli
       [1]: https://github.com/ericcornelissen/eslint-plugin-top/pull/246
-  - title: Convenient Runtime Compatibility testing
+  - title: Convenient runtime compatibility testing
     tags:
-      - Testing
       - Compatibility
       - Node.js
+      - Testing
     description: |
       Packages for runtime-based languages should generally be compatible with
       multiple versions of the runtime/language. Testing this is currently not
@@ -187,9 +186,9 @@ ideas:
       [docker]: https://www.docker.com/
   - title: node-msrv
     tags:
-      - Testing
       - Compatibility
       - Node.js
+      - Testing
     description: |
       Like [cargo-msrv] but for Node.js - Minimum Supported Runtime Version - A
       tool to find the minimum supported Node.js version for a package. This can
@@ -209,11 +208,11 @@ ideas:
 
       [cargo-msrv]: https://crates.io/crates/cargo-msrv
       [`"engines"` field in package.json]: https://docs.npmjs.com/cli/v11/configuring-npm/package-json#engines
-  - title: Number Vetting for Go
+  - title: Number vetting for Go
     tags:
       - Go
+      - Style
       - Vet
-      - Tooling
     description: |
       Based on [100 Common Go Mistakes], an analysis tool for Go programs that
       enforces octal numbers are always prefixed explicitly with `0o`.
@@ -224,8 +223,8 @@ ideas:
       well as disallow "wrong" use of `_` separated numbers (`100_00` instead of
       `10_000`).
 
-      For completeness, `go fmt` already normalizes of `0x` to `0X` and `0b` to
-      `0B`. See also [SA9002].
+      For completeness, `go fmt` already normalizes of `0X` to `0x` and `0B` to
+      `0b`. See also [SA9002].
 
       [100 common go mistakes]: https://100go.co/#creating-confusion-with-octal-literals-17
       [SA9002]: https://staticcheck.dev/docs/checks#SA9002
@@ -233,7 +232,6 @@ ideas:
     tags:
       - Go
       - Vet
-      - Tooling
     description: |
       Based on [A million ways to die from a data race in Go], an analysis tool
       for Go programs that forbids implicitly capturing variables from closures.
@@ -261,3 +259,52 @@ ideas:
       [minification]: https://en.wikipedia.org/wiki/Minification_(programming)
       [property]: https://en.wikipedia.org/wiki/Property_testing
       [fuzz testing]: https://en.wikipedia.org/wiki/Fuzzing
+  - title: Top level checks for Go
+    tags:
+      - Go
+      - Vet
+    description: |
+      A static analysis tool for Go that forbids any initialization and/or state
+      at the top level. Beyond the `init` function, initialization of variables
+      may also constitute initialization when a module is loaded. Avoiding any
+      initialization is beneficial to avoid unexpected startup cost from using
+      your module.
+
+      Relatedly, variables at the top level constitute state which is ideally
+      avoided for all the usual reasons. If it is used as state it can make it
+      harder to reason about and test the code.
+
+      See also related tooling: [gochecknoinits] and [eslint-plugin-top].
+
+      [gochecknoinits]: https://github.com/leighmcculloch/gochecknoinits
+      [eslint-plugin-top]: https://www.npmjs.com/package/@ericcornelissen/eslint-plugin-top
+  - title: LaTeXLint
+    tags:
+      - LaTeX
+      - Lint
+      - Style
+    description: |
+      Like [ChkTeX] but more comprehensive and with stylistic checks such as
+      line length and blank consistency.
+
+      Some ideas for checks: require that all sections, figures, etc. have a
+      label. Require that all labels are used. Ensure section, subsection, etc.
+      are only used in increasing order. Disallow manual formatting.
+
+      [chktex]: https://www.nongnu.org/chktex/
+  - title: fast-check arbitraries for Node.js built-ins
+    tags:
+      - Node.js
+      - Property testing
+      - Testing
+    description: |
+      A library that offers [fast-check] arbitraries for the built-ins of
+      Node.js. Useful for testing functions that work against the interface of
+      a Node.js built-in. For example, a function that works on `process`
+      should work for any ([fast-check]) arbitrary instance of `process`.
+
+      I have created a handful for [benchmarking the `pp-test-kit`] project,
+      which you can use as a starting point.
+
+      [fast-check]: https://fast-check.dev/
+      [benchmarking the `pp-test-kit`]: https://gitlab.com/ericcornelissen/pp-test-kit/-/tree/7c9be6b08e0dfbbb13bf0e65065e11a0f48aaa26/benchmarks
