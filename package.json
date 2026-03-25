@@ -3,7 +3,7 @@
   "type": "module",
   "engines": {
     "node": ">=24.0.0",
-    "npm": ">=8.1.2"
+    "npm": ">=11.10.0"
   },
   "devDependencies": {
     "@prettier/plugin-pug": "3.4.1",
