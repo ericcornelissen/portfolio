@@ -249,6 +249,8 @@ contributions:
     link: https://github.com/mochajs/mocha
   - name: npm-license-corrections
     link: https://github.com/jslicense/npm-license-corrections.json
+  - name: npm-package-json-lint
+    link: https://github.com/tclindner/npm-package-json-lint
   - name: pin-github-action
     link: https://github.com/mheap/pin-github-action
   - name: prealloc
