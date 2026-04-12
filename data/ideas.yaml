@@ -102,20 +102,6 @@ ideas:
       [rust]: https://doc.rust-lang.org/rust-by-example/testing/doc_testing.html
       [eslint]: https://www.npmjs.com/package/@eslint/markdown
       [`docs.test.js`]: https://github.com/ericcornelissen/js-regex-security-scanner/blob/d325ebf4d5888cc1ff82fc0a0e16bd81a1f20df9/tests/docs.test.js
-  - title: strip-directives
-    tags:
-      - JavaScript
-      - Tooling
-    description: |
-      A simple build tool that takes an [npm] project before publishing and
-      strips directive comments (like [`eslint-disable`]) from it. This reduces
-      the package size by omitting bytes that are not useful for consumers.
-
-      This idea can apply to any ecosystem where packages are distributed as
-      source code.
-
-      [npm]: https://www.npmjs.com/
-      [`eslint-disable`]: https://eslint.org/docs/latest/use/configure/rules#disable-rules
   - title: GHA Immutable Release Checking
     tags:
       - GitHub Actions
