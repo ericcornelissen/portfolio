@@ -147,6 +147,12 @@ projects:
     active: true
     description: |-
       Scrape package source code from Socket.dev
+  - name: strip-directives
+    link: https://www.npmjs.com/package/strip-directives
+    active: true
+    description: |-
+      Strip directives (like eslint-disable-line) from your code to clean a
+      package before it is published.
   - name: svgo-action
     link: https://github.com/ericcornelissen/svgo-action
     active: false
@@ -263,3 +269,5 @@ vulnerabilities:
     link: https://github.com/advisories?query=credit%3Aericcornelissen+deno
   - name: ESLint
     link: https://github.com/advisories?query=credit%3Aericcornelissen+eslint
+  - name: spin.js
+    link: https://security.snyk.io/vuln/SNYK-JS-SPINJS-15445079
