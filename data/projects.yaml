@@ -5,6 +5,11 @@ projects:
     description: |-
       A simple tool to find dangerous uses of GitHub Actions Workflow
       expressions.
+  - name: arbitrary-javascript
+    link: https://gitlab.com/ericcornelissen/arbitrary-javascript
+    active: true
+    description: |-
+      Generate arbitrary JavaScript source code for/with fast-check.
   - name: asdf-diffoci
     link: https://github.com/ericcornelissen/asdf-diffoci
     active: true
@@ -105,7 +110,7 @@ projects:
       A package for the Atom text editor that allows you to pin tabs.
   - name: pp-runtime-gadgets
     link: https://github.com/ericcornelissen/pp-runtime-gadgets
-    active: true
+    active: false
     description: |-
       Prototype pollution gadgets in the JavaScript runtime based on the
       ECMAScript specification.
@@ -125,7 +130,7 @@ projects:
     link: https://github.com/ericcornelissen/reproducing-actions
     active: true
     description: |-
-      Insight into the reproducibility of GitHub Actions
+      Insight into the reproducibility of GitHub Actions.
   - name: rust-divisible-by
     link: https://github.com/ericcornelissen/rust-divisible-by
     active: false
@@ -147,6 +152,16 @@ projects:
     active: true
     description: |-
       Scrape package source code from Socket.dev
+  - name: strip-assertions
+    link: https://www.npmjs.com/package/strip-assertions
+    active: true
+    description: |-
+      Strip debug assertions from JavaScript code.
+  - name: strip-comments-js
+    link: https://www.npmjs.com/package/strip-comments-js
+    active: true
+    description: |-
+      Strip comments from JavaScript and TypeScript code.
   - name: strip-directives
     link: https://www.npmjs.com/package/strip-directives
     active: true
@@ -166,7 +181,7 @@ projects:
       file.
   - name: Trusted Types Tests
     link: https://github.com/ericcornelissen/trusted-types-tests
-    active: true
+    active: false
     description: |-
       A test suite to find what APIs are covered by Trusted Types (spec).
       file.
