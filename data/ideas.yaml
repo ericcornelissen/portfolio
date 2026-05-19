@@ -210,9 +210,11 @@ ideas:
       of `10_000`).
 
       For completeness, `go fmt` already normalizes of `0X` to `0x` and `0B` to
-      `0b`. See also [SA9002].
+      `0b`, `gofumpt ` does apply the `0o` prefix ([ref][ref-gofumpt]), and
+      Staticcheck has [SA9002].
 
       [100 common go mistakes]: https://100go.co/#creating-confusion-with-octal-literals-17
+      [ref-gofumpt]: https://github.com/mvdan/gofumpt/blob/14050252a6d591bb7a3f0167c925c3d6e6f9bdf8/README.md?plain=1#L373
       [SA9002]: https://staticcheck.dev/docs/checks#SA9002
   - title: Disallow implicit captures in Go
     tags:
