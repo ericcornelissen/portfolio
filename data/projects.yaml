@@ -131,6 +131,12 @@ projects:
     active: true
     description: |-
       Insight into the reproducibility of GitHub Actions.
+  - name: rs-timeout
+    link: https://gitlab.com/ericcornelissen/rs-timeout
+    active: false
+    description: |-
+      A CLI like the GNU version of timeout(1) but with a progress indicator and
+      written in Rust.
   - name: rust-divisible-by
     link: https://github.com/ericcornelissen/rust-divisible-by
     active: false
