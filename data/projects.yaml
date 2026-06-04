@@ -97,6 +97,11 @@ projects:
     description: |-
       Transparent linear-time (non-backtracking) regular expressions for
       libraries.
+  - name: node-assert-time
+    link: https://github.com/ericcornelissen/node-assert-time
+    active: true
+    description: |-
+      Assert the duration of blocking and async functions under test.
   - name: npmaargh
     link: https://github.com/ericcornelissen/npmaargh
     active: true
