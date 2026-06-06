@@ -106,26 +106,14 @@ html(lang="en")
 		section#projects
 			h2.title Projects
 			div
-				p.italic.
-					Looking for project ideas? Check out my #[a(href="/ideas") ideas page].
-				h3 Present Projects
-				p.
-					These are software projects I'm at least somewhat actively working on -
-					in alphabetical order.
+				p.italic
+					| Check out all my software projects on my
+					| #[a(href="/projects") projects page] or check out my
+					| #[a(href="/ideas") ideas page].
+				h3 Active Projects
 				ul
 					each project in projects
 						if project.active
-							li
-								h4
-									a(href=project.link, rel="noopener", target="_blank") #{ project.name }
-								p #{ project.description }
-				h3 Past Projects
-				p.
-					These are software projects I worked on in the past but am not actively
-					working on anymore - in alphabetical order.
-				ul
-					each project in projects
-						if !project.active
 							li
 								h4
 									a(href=project.link, rel="noopener", target="_blank") #{ project.name }
