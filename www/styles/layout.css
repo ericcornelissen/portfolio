@@ -1,12 +1,21 @@
+html {
+	min-width: 400px;
+}
+
 body {
 	padding: 3rem 2rem;
-	min-width: 480px;
 }
 
 header,
 section {
-	margin: 4rem 0 2rem;
+	margin: 2rem 0 2rem;
 	display: inline-block;
+}
+
+@media only screen and (max-width: 480px) {
+	body {
+		font-size: 0.9em;
+	}
 }
 
 @media only screen and (min-width: 720px) {
