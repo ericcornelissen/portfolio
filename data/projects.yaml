@@ -283,6 +283,8 @@ contributions:
     link: https://github.com/alexkohler/prealloc
   - name: st
     link: https://github.com/isaacs/st
+  - name: String.prototype.trim
+    link: https://github.com/es-shims/String.prototype.trim
   - name: StrykerJS
     link: https://github.com/stryker-mutator/stryker-js
   - name: SVGO
