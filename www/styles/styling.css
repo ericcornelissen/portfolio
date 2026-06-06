@@ -48,7 +48,17 @@ body::before {
 
 section {
 	border-top: 1px solid var(--clr-text);
-	padding: 1rem 0;
+	padding: 2rem 0;
+	position: relative;
+}
+section::before {
+	background: var(--clr-background);
+	content: "//";
+	font-weight: bold;
+
+	left: 50%;
+	position: absolute;
+	top: -0.5em;
 }
 
 section .title {
