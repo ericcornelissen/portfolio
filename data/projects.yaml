@@ -97,6 +97,11 @@ projects:
     description: |-
       Transparent linear-time (non-backtracking) regular expressions for
       libraries.
+  - name: node-assert-time
+    link: https://github.com/ericcornelissen/node-assert-time
+    active: true
+    description: |-
+      Assert the duration of blocking and async functions under test.
   - name: npmaargh
     link: https://github.com/ericcornelissen/npmaargh
     active: true
@@ -131,6 +136,12 @@ projects:
     active: true
     description: |-
       Insight into the reproducibility of GitHub Actions.
+  - name: rs-timeout
+    link: https://gitlab.com/ericcornelissen/rs-timeout
+    active: false
+    description: |-
+      A CLI like the GNU version of timeout(1) but with a progress indicator and
+      written in Rust.
   - name: rust-divisible-by
     link: https://github.com/ericcornelissen/rust-divisible-by
     active: false
@@ -272,6 +283,8 @@ contributions:
     link: https://github.com/alexkohler/prealloc
   - name: st
     link: https://github.com/isaacs/st
+  - name: String.prototype.trim
+    link: https://github.com/es-shims/String.prototype.trim
   - name: StrykerJS
     link: https://github.com/stryker-mutator/stryker-js
   - name: SVGO

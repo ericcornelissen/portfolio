@@ -79,7 +79,11 @@ ideas:
       Hence, I'd like to have a tool which, given an ESLint configuration file,
       complains about any unconfigured rules.
 
+      The [config-inspector] tool as support for detecting unused rules, but
+      it can only be used to find out about this, not to enforce it.
+
       [eslint]: https://eslint.org/
+      [config-inspector]: https://github.com/eslint/config-inspector
   - title: Documentation snippet testing
     tags:
       - Documentation
