@@ -79,11 +79,15 @@ ideas:
       Hence, I'd like to have a tool which, given an ESLint configuration file,
       complains about any unconfigured rules.
 
-      The [config-inspector] tool as support for detecting unused rules, but
-      it can only be used to find out about this, not to enforce it.
+      The [config-inspector] tool has support for detecting unused rules, but
+      it can only be used to find out about this, not to enforce it. I cobbled
+      together a [script for detecting unused rules] but it's not ready for
+      prime time yet. Still, if you want to give it a try let me know how if it
+      works or not.
 
       [eslint]: https://eslint.org/
       [config-inspector]: https://github.com/eslint/config-inspector
+      [script for detecting unused rules]: https://github.com/ericcornelissen/shescape/blob/d2af3a9bd85d8d58283adc51bd4e96a6732db84f/script/check-eslint-rules.js
   - title: Documentation snippet testing
     tags:
       - Documentation
