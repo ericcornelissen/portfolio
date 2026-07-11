@@ -5,11 +5,16 @@ projects:
     description: |-
       A simple tool to find dangerous uses of GitHub Actions Workflow
       expressions.
+  - name: arbitrary-bash
+    link: https://gitlab.com/ericcornelissen/arbitrary-bash
+    active: true
+    description: |-
+      Generate arbitrary Bash commands with fast-check.
   - name: arbitrary-javascript
     link: https://gitlab.com/ericcornelissen/arbitrary-javascript
     active: true
     description: |-
-      Generate arbitrary JavaScript source code for/with fast-check.
+      Generate arbitrary JavaScript source code with fast-check.
   - name: asdf-diffoci
     link: https://github.com/ericcornelissen/asdf-diffoci
     active: true
@@ -62,7 +67,7 @@ projects:
       GitHub Actions Action to get git tag annotations.
   - name: go-gha-models
     link: https://github.com/ericcornelissen/go-gha-models
-    active: true
+    active: false
     description: |-
       Go structs for GitHub Actions.
   - name: gofunchecks
@@ -160,7 +165,7 @@ projects:
       Simple shell escape library for JavaScript.
   - name: sockscrape
     link: https://github.com/ericcornelissen/sockscrape
-    active: true
+    active: false
     description: |-
       Scrape package source code from Socket.dev
   - name: strip-assertions
