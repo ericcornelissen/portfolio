@@ -19,6 +19,11 @@
     "prettier": "3.8.4",
     "pug": "3.0.4"
   },
+  "overrides": {
+    "http-server": {
+      "html-encoding-sniffer": "5.0.0"
+    }
+  },
   "scripts": {
     "prepare": "is-ci || husky script/hooks"
   }
