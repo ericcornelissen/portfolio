@@ -230,6 +230,8 @@ contributions:
     link: https://github.com/rhysd/actionlint
   - name: actions/toolkit
     link: https://github.com/actions/toolkit
+  - name: "@andrewbranch/untar.js"
+    link: https://github.com/andrewbranch/untar.js
   - name: better-npm-audit
     link: https://github.com/jeemok/better-npm-audit
   - name: crawler-user-agents
@@ -294,6 +296,8 @@ contributions:
     link: https://github.com/stryker-mutator/stryker-js
   - name: SVGO
     link: https://github.com/svg/svgo
+  - name: Rekor Log Monitor
+    link: https://github.com/sigstore/rekor-monitor
   - name: Release Action
     link: https://github.com/ncipollo/release-action
   - name: Zed
