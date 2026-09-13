@@ -325,3 +325,13 @@ ideas:
       [node.js' citgm]: https://github.com/nodejs/citgm "The Node.js Canary in the Goldmine"
       [npm link]: https://docs.npmjs.com/cli/v11/commands/npm-link "The npm-link command"
       [script for canary testing]: https://github.com/ericcornelissen/grammar2arbitrary/blob/491bf45b2895b8df8b7ce531dffd1e13040f9345/script/canary-test.js
+
+resolvedIdeas:
+  - title: strip-directives
+    tags:
+      - JavaScript
+      - Tooling
+    description: |
+      See the [npm strip-directives package].
+
+      [npm strip-directives package]: https://www.npmjs.com/package/strip-directives
