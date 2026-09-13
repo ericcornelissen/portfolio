@@ -39,3 +39,15 @@ html(lang="en")
 								each tag in idea.tags
 									li !{ tag }
 							p !{ markdown(idea.description) }
+		section#resolved
+			div
+				h2 Old & Implemented
+				ul
+					each idea in resolvedIdeas
+						li(id=fragmentify(idea.title))
+							h3 #{ idea.title }
+								a(href=`#${fragmentify(idea.title)}`) #
+							ul.tag-list
+								each tag in idea.tags
+									li !{ tag }
+							p !{ markdown(idea.description) }

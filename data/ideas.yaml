@@ -304,3 +304,34 @@ ideas:
 
       [fast-check]: https://fast-check.dev/
       [benchmarking the `pp-test-kit`]: https://gitlab.com/ericcornelissen/pp-test-kit/-/tree/7c9be6b08e0dfbbb13bf0e65065e11a0f48aaa26/benchmarks
+  - title: Convient npm canary testing tool
+    tags:
+      - citgm
+      - JavaScript
+      - Node.js
+    description: |
+      What I mean by canary testing here is testing the development head of your
+      software against the test suite of your users (based on [Node.js' citgm]).
+      It would be nice if doing this was easy and convenient for packages.
+      Today, you can do this by cloning the downstream project, [npm link]ing it
+      up to  your project, and running it's test suite. Not hard, but also not
+      convenient.
+
+      I'd like it if there was a tool that you run from your project, give it
+      the name of another project, and it just performs these steps for you. I
+      have a very basic [script for canary testing] that I use in some places,
+      which may be used as a source of inspiration for a full-on tool.
+
+      [node.js' citgm]: https://github.com/nodejs/citgm "The Node.js Canary in the Goldmine"
+      [npm link]: https://docs.npmjs.com/cli/v11/commands/npm-link "The npm-link command"
+      [script for canary testing]: https://github.com/ericcornelissen/grammar2arbitrary/blob/491bf45b2895b8df8b7ce531dffd1e13040f9345/script/canary-test.js
+
+resolvedIdeas:
+  - title: strip-directives
+    tags:
+      - JavaScript
+      - Tooling
+    description: |
+      See the [npm strip-directives package].
+
+      [npm strip-directives package]: https://www.npmjs.com/package/strip-directives

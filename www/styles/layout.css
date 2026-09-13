@@ -8,8 +8,9 @@ body {
 
 header,
 section {
-	margin: 2rem 0 2rem;
 	display: inline-block;
+	margin: 2rem 0 2rem;
+	min-width: 100%;
 }
 
 @media only screen and (max-width: 480px) {
