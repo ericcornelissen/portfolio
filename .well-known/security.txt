@@ -1,0 +1,5 @@
+Contact: https://github.com/ericcornelissen/portfolio/security/advisories/new
+Contact: mailto:ericornelissen+security@gmail.com
+Policy: https://github.com/ericcornelissen/portfolio/blob/main/SECURITY.md
+Acknowledgments: https://github.com/ericcornelissen/portfolio/blob/main/SECURITY.md#acknowledgments
+Preferred-Languages: en
