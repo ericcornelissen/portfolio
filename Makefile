@@ -14,7 +14,7 @@ default: help
 
 .PHONY: audit
 audit: node_modules/ ## Check for security warnings in third-party dependencies
-	@npm audit
+	@npx better-npm-audit audit
 	@npx depreman --errors-only --report-unused
 
 .PHONY: build

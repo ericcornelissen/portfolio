@@ -13,6 +13,7 @@
 !.markdownlint.yaml
 !.ndmrc
 !.npmrc
+!.nsprc
 !.nvmrc
 !.shellcheckrc
 !.tool-versions
