@@ -1,0 +1,12 @@
+{
+  "GHSA-r3ph-w7gj-g6xm": {
+    "active": true,
+    "expiry": "2027-01-01",
+    "notes": "Pending https://github.com/igorshubovych/markdownlint-cli/issues/668"
+  },
+  "GHSA-ch52-4w7c-c8xp": {
+    "active": true,
+    "expiry": "2027-01-01",
+    "notes": "Pending https://github.com/npm/make-fetch-happen/issues/379"
+  }
+}
