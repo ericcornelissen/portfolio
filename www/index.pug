@@ -94,13 +94,21 @@ html(lang="en")
 								if paper.resources.presentation
 									| and
 									|
-									a(href=paper.resources.presentation, rel="noopener", target="_blank") presentation
+									a(
+										href=paper.resources.presentation,
+										rel="noopener",
+										target="_blank"
+									) presentation
 								|
 								|
 								if paper.resources.artifact
 									| and
 									|
-									a(href=paper.resources.artifact, rel="noopener", target="_blank") artifact
+									a(
+										href=paper.resources.artifact,
+										rel="noopener",
+										target="_blank"
+									) artifact
 								|
 								| for more details.
 		section#projects
