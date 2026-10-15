@@ -25,7 +25,7 @@ jobs:
           client-id: ${{ secrets.AUTOMATION_ID }}
           private-key: ${{ secrets.AUTOMATION_PRIVATE_KEY }}
       - name: Update tooling
-        uses: ericcornelissen/tool-versions-update-action/pr@e42ba48806082845f434a42b706bfe3f9a807806 # v2.2.2
+        uses: ericcornelissen/tool-versions-update-action/pr@81ac98a712e6c292c2c623d092a61bbd7011575f # v2.2.3
         with:
           labels: dependencies
           max: 1
