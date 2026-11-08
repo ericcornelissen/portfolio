@@ -95,3 +95,9 @@ experiences:
     description: |-
       Freelance remote junior full stack developer using NodeJS, PostgreSQL, and
       Heroku on the back-end and VueJS, JQuery, and Bootstrap on the front-end.
+
+activities:
+  - title: Reviewer
+    where: The ACM Web Conference 2027
+  - title: Program Committee Member
+    where: SCORED 2026
