@@ -3,5 +3,20 @@
     "active": true,
     "expiry": "2027-01-01",
     "notes": "Pending https://github.com/micromark/micromark-extension-math/pull/14"
+  },
+  "GHSA-3g3m-2fjr-6pw4": {
+    "active": true,
+    "expiry": "2027-01-01",
+    "notes": "Backported to 13.0.7 (https://github.com/isaacs/node-glob/issues/664); Pending https://github.com/npm/package-json/pull/190 and https://github.com/npm/cacache/issues/349"
+  },
+  "GHSA-g3hv-75wg-m249": {
+    "active": true,
+    "expiry": "2027-01-01",
+    "notes": "Pending https://github.com/theupdateframework/tuf-js/pull/1033, https://github.com/igorshubovych/markdownlint-cli/pull/686; Blocked by https://github.com/npm/cli/blob/ab930df82a63796a9390b9766f11e5c4c0fc9e1c/CONTRIBUTING.md#dependencies, https://github.com/npm/map-workspaces/blob/76ea3c852171790e245052e006329de15b09e60e/CONTRIBUTING.md#dependencies, https://github.com/npm/ignore-walk/blob/111236466248abf4a96f65740f59a7dad89a5e23/CONTRIBUTING.md#dependencies"
+  },
+  "GHSA-gg6h-894w-4m9c": {
+    "active": true,
+    "expiry": "2027-01-01",
+    "notes": "Pending https://github.com/igorshubovych/markdownlint-cli/pull/686"
   }
 }
