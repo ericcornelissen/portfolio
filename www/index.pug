@@ -55,6 +55,12 @@ html(lang="en")
 								span #{ experience.location }
 								span #{ experience.duration.from } - #{ experience.duration.to }
 							p !{ experience.description }
+				br
+				h3 Activities
+				div
+					ul.bullet-list
+						each activity in activities
+							li #{ activity.title } #[em for] #{ activity.where }
 		section#publications
 			h2.title Publications
 			div

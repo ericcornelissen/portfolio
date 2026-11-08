@@ -232,6 +232,8 @@ contributions:
     link: https://github.com/actions/toolkit
   - name: "@andrewbranch/untar.js"
     link: https://github.com/andrewbranch/untar.js
+  - name: ava
+    link: https://github.com/avajs/ava
   - name: better-npm-audit
     link: https://github.com/jeemok/better-npm-audit
   - name: crawler-user-agents
