@@ -94,7 +94,20 @@ html(lang="en")
 										|
 								| . See the
 								|
-								a(href=paper.resources.paper, rel="noopener", target="_blank") paper
+								if paper.resources.paper
+									a(
+										href=paper.resources.paper,
+										rel="noopener",
+										target="_blank"
+									) paper
+								else if paper.resources.preprint
+									a(
+										href=paper.resources.preprint,
+										rel="noopener",
+										target="_blank"
+									) preprint
+								else
+									h1 MISSING
 								|
 								|
 								if paper.resources.presentation

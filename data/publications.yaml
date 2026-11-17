@@ -1,4 +1,17 @@
 papers:
+  - title: "Memory Safety Isn't All You Need: Code Reuse Attacks in Memory Safe Languages"
+    year: 2027
+    authors:
+      - name: E. Cornelissen
+        self: true
+      - name: M. Balliu
+        page: https://people.kth.se/~musard/
+    venue:
+      name: The 22nd ACM ASIA Conference on Computer and Communications Security
+      page: https://asiaccs2027.cityu.edu.mo/
+    resources:
+      artifact: https://github.com/KTH-LangSec/memory-safety-isnt-all-you-need
+      preprint: https://arxiv.org/abs/2611.18910
   - title: "NodeShield: Runtime Enforcement of Security-Enhanced SBOMs for Node.js"
     year: 2025
     authors:
@@ -25,7 +38,7 @@ papers:
       name: 33rd USENIX Security Symposium
       page: https://www.usenix.org/conference/usenixsecurity24
     resources:
-      artifact: https://github.com/KTH-LangSec/ghunter
+      artifact: https://zenodo.org/records/16927884
       paper: https://www.usenix.org/conference/usenixsecurity24/presentation/cornelissen
       presentation: https://www.youtube.com/watch?v=ZjTJNiyS9Yg
   - title: Security Analysis of the MLS Key Derivation
