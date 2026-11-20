@@ -11,7 +11,6 @@
     "csp_evaluator": "1.1.8",
     "depreman": "0.4.0",
     "http-server": "14.1.1",
-    "husky": "9.1.7",
     "is-ci": "3.0.1",
     "js-yaml": "5.4.2",
     "licensee": "12.0.2",
@@ -24,8 +23,5 @@
     "http-server": {
       "html-encoding-sniffer": "5.0.0"
     }
-  },
-  "scripts": {
-    "prepare": "is-ci || husky script/hooks"
   }
 }
